@@ -14,7 +14,7 @@ class LaunchViewController: UIViewController {
 
     
     //MARK: -Outlets
-        
+            
     @IBOutlet weak var logoLaunchImage: UIImageView!
     @IBOutlet weak var lineLogoLaunch: UIImageView!
     
@@ -29,7 +29,7 @@ class LaunchViewController: UIViewController {
                 self.lineLogoLaunch.layer.add(self.animate.hoverLine(), forKey: "myHoverAnimation")//call any function
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "scanID") as! UITabBarController
                 self.present(nextViewController, animated: true, completion: nil)
             }
         }

@@ -1,5 +1,5 @@
 //
-//  ScanViewController.swift
+//  NavTabBarViewController.swift
 //  QRScanner
 //
 //  Created by Mariam B on 5/8/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScanViewController: UITabBarController {
+class NavTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
