@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launch View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LaunchViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-CD-xrM">
-                                <rect key="frame" x="94" y="325" width="227" height="114"/>
+                                <rect key="frame" x="93" y="339" width="227" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -29,13 +29,30 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="lineLogoLaunch" destination="P0m-CD-xrM" id="AFF-Ri-lCm"/>
-                        <outlet property="logoLaunchImage" destination="SKF-7U-AIn" id="Ada-E9-H3S"/>
+                        <outlet property="lineLogoLaunch" destination="P0m-CD-xrM" id="rS7-ik-1bk"/>
+                        <outlet property="logoLaunchImage" destination="SKF-7U-AIn" id="RoK-Ur-JJh"/>
+                        <segue destination="lk8-oi-uq6" kind="show" identifier="toScanViewController" id="GcH-oG-nC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="YzV-Mc-5c2">
+            <objects>
+                <viewController storyboardIdentifier="ScanViewController" modalPresentationStyle="fullScreen" id="lk8-oi-uq6" customClass="ScanViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zO1-M3-1IR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0eB-Y2-E6s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sCh-j9-7Yt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FC-FJ-HUH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899" y="117"/>
         </scene>
     </scenes>
     <resources>

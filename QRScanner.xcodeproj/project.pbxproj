@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B6B2494289D351C0001E3DD /* animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2493289D351C0001E3DD /* animations.swift */; };
+		9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */; };
 		9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA79289C15CA00B53584 /* AppDelegate.swift */; };
 		9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */; };
 		9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA7D289C15CA00B53584 /* LaunchViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B6B2493289D351C0001E3DD /* animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animations.swift; sourceTree = "<group>"; };
+		9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		9BD6BA76289C15CA00B53584 /* QRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD6BA79289C15CA00B53584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			children = (
 				9BD6BA7F289C15CA00B53584 /* Main.storyboard */,
 				9BD6BA84289C15CC00B53584 /* LaunchScreen.storyboard */,
+				9B6B2493289D351C0001E3DD /* animations.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9BD6BA7D289C15CA00B53584 /* LaunchViewController.swift */,
+				9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,6 +282,8 @@
 			files = (
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
 				9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */,
+				9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */,
+				9B6B2494289D351C0001E3DD /* animations.swift in Sources */,
 				9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
