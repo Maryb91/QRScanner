@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import PermissionsKit
+import CameraPermission
 
-class ScanViewController: UITabBarController {
+class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +20,22 @@ class ScanViewController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+//MARK: - iBAction cameraButtonPressed
+    
+    @IBAction func cameraButtonPressed(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "openCamera", sender: self)
+        
+//        Permission.camera.request {
+//
+//        }
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                   let imagePickerController = UIImagePickerController()
+//                   imagePickerController.delegate = self;
+//                   imagePickerController.sourceType = .camera
+//                   self.present(imagePickerController, animated: true, completion: nil)
+//               }
+       
     }
-    */
-
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
+		9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606F28A2B51E008E495A /* CameraViewController.swift */; };
 		9B5CD6BA289D8E5B0055A2E4 /* NavTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */; };
 		9B6B2494289D351C0001E3DD /* animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2493289D351C0001E3DD /* animations.swift */; };
 		9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */; };
@@ -22,6 +24,8 @@
 		9BD6BA91289C15CD00B53584 /* QRScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA90289C15CD00B53584 /* QRScannerTests.swift */; };
 		9BD6BA9B289C15CD00B53584 /* QRScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9A289C15CD00B53584 /* QRScannerUITests.swift */; };
 		9BD6BA9D289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */; };
+		9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFA28A129900018D462 /* CameraPermission */; };
+		9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B56606D28A2B400008E495A /* Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
+		9B56606F28A2B51E008E495A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabBarViewController.swift; sourceTree = "<group>"; };
 		9B6B2493289D351C0001E3DD /* animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animations.swift; sourceTree = "<group>"; };
 		9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */,
+				9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,7 @@
 				9BD6BA7F289C15CA00B53584 /* Main.storyboard */,
 				9BD6BA84289C15CC00B53584 /* LaunchScreen.storyboard */,
 				9B6B2493289D351C0001E3DD /* animations.swift */,
+				9B56606D28A2B400008E495A /* Corners.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +116,7 @@
 				9B6B249D289D85BB0001E3DD /* CreateViewController.swift */,
 				9B6B24A1289D85E20001E3DD /* SettingsViewController.swift */,
 				9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */,
+				9B56606F28A2B51E008E495A /* CameraViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +187,10 @@
 			dependencies = (
 			);
 			name = QRScanner;
+			packageProductDependencies = (
+				9BE9EDFA28A129900018D462 /* CameraPermission */,
+				9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */,
+			);
 			productName = QRScanner;
 			productReference = 9BD6BA76289C15CA00B53584 /* QRScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +263,9 @@
 				Base,
 			);
 			mainGroup = 9BD6BA6D289C15CA00B53584;
+			packageReferences = (
+				9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
+			);
 			productRefGroup = 9BD6BA77289C15CA00B53584 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */,
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
 				9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */,
 				9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */,
@@ -300,6 +318,7 @@
 				9B5CD6BA289D8E5B0055A2E4 /* NavTabBarViewController.swift in Sources */,
 				9B6B24A0289D85D20001E3DD /* HistoryViewController.swift in Sources */,
 				9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */,
+				9B56606E28A2B400008E495A /* Corners.swift in Sources */,
 				9B6B24A2289D85E20001E3DD /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +663,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9BE9EDFA28A129900018D462 /* CameraPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = CameraPermission;
+		};
+		9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = PhotoLibraryPermission;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BD6BA6E289C15CA00B53584 /* Project object */;
 }
