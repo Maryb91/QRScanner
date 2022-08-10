@@ -11,6 +11,7 @@ import AVFoundation
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     //MARK: - IBoutlets
+    @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var scanImageView: UIImageView!
     
     //MARK: - Variables
@@ -47,6 +48,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
         view.bringSubviewToFront(cornerView!)
+        view.bringSubviewToFront(cameraLabel)
 
     }
     

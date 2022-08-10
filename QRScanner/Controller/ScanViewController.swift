@@ -19,6 +19,9 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       //let permissionStatus = Permission.camera.status
+    }
 
    
 //MARK: - iBAction cameraButtonPressed
