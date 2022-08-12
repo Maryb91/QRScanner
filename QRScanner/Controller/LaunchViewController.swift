@@ -6,35 +6,36 @@
 //
 
 import UIKit
+import PermissionsKit
+import CameraPermission
+
 
 class LaunchViewController: UIViewController {
     
     //MARK: - Variables
-    var animate = animateLine()
+    var animate = LaunchAnimation()
+    let userDefaults = UserDefaults.standard
 
     
     //MARK: -Outlets
-            
+    
     @IBOutlet weak var logoLaunchImage: UIImageView!
     @IBOutlet weak var lineLogoLaunch: UIImageView!
     
     
     //MARK: - View Controller
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        lineLogoLaunch.isHidden = true
-        self.logoLaunchImage.rotate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
-                self.lineLogoLaunch.isHidden = false
-                self.lineLogoLaunch.layer.add(self.animate.hoverLine(), forKey: "myHoverAnimation")//call any function
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "scanID") as! UITabBarController
-                self.present(nextViewController, animated: true, completion: nil)
-            }
-        }
-      
+        print("Permission status is", userDefaults.string(forKey: userDefaultsKeys.permissionStatusKey))
+        //animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animate.loadTabBarController(vc: self)
+    }
+    
+
 }
 
 

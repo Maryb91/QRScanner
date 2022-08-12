@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3769B428A5328800B0A997 /* mainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B328A5328800B0A997 /* mainTabBarController.swift */; };
+		9B3769B628A5532A00B0A997 /* checkCameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B528A5532A00B0A997 /* checkCameraPermission.swift */; };
 		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
 		9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606F28A2B51E008E495A /* CameraViewController.swift */; };
-		9B5CD6BA289D8E5B0055A2E4 /* NavTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */; };
-		9B6B2494289D351C0001E3DD /* animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2493289D351C0001E3DD /* animations.swift */; };
+		9B5D62A328A66F9E00ACF6B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D62A228A66F9E00ACF6B2 /* Constants.swift */; };
+		9B6B2494289D351C0001E3DD /* LaunchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2493289D351C0001E3DD /* LaunchAnimation.swift */; };
 		9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */; };
 		9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B249D289D85BB0001E3DD /* CreateViewController.swift */; };
 		9B6B24A0289D85D20001E3DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B249F289D85D20001E3DD /* HistoryViewController.swift */; };
@@ -46,10 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3769B328A5328800B0A997 /* mainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTabBarController.swift; sourceTree = "<group>"; };
+		9B3769B528A5532A00B0A997 /* checkCameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkCameraPermission.swift; sourceTree = "<group>"; };
 		9B56606D28A2B400008E495A /* Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
 		9B56606F28A2B51E008E495A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabBarViewController.swift; sourceTree = "<group>"; };
-		9B6B2493289D351C0001E3DD /* animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animations.swift; sourceTree = "<group>"; };
+		9B5D62A228A66F9E00ACF6B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B6B2493289D351C0001E3DD /* LaunchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimation.swift; sourceTree = "<group>"; };
 		9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		9B6B249D289D85BB0001E3DD /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		9B6B249F289D85D20001E3DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -96,12 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B5D62A128A66F7B00ACF6B2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9B5D62A228A66F9E00ACF6B2 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		9B6B2490289D2C500001E3DD /* View */ = {
 			isa = PBXGroup;
 			children = (
 				9BD6BA7F289C15CA00B53584 /* Main.storyboard */,
 				9BD6BA84289C15CC00B53584 /* LaunchScreen.storyboard */,
-				9B6B2493289D351C0001E3DD /* animations.swift */,
+				9B6B2493289D351C0001E3DD /* LaunchAnimation.swift */,
 				9B56606D28A2B400008E495A /* Corners.swift */,
 			);
 			path = View;
@@ -115,8 +127,9 @@
 				9B6B249F289D85D20001E3DD /* HistoryViewController.swift */,
 				9B6B249D289D85BB0001E3DD /* CreateViewController.swift */,
 				9B6B24A1289D85E20001E3DD /* SettingsViewController.swift */,
-				9B5CD6B9289D8E5B0055A2E4 /* NavTabBarViewController.swift */,
 				9B56606F28A2B51E008E495A /* CameraViewController.swift */,
+				9B3769B328A5328800B0A997 /* mainTabBarController.swift */,
+				9B3769B528A5532A00B0A997 /* checkCameraPermission.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +159,7 @@
 			children = (
 				9BD6BA79289C15CA00B53584 /* AppDelegate.swift */,
 				9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */,
+				9B5D62A128A66F7B00ACF6B2 /* Utilities */,
 				9B6B2492289D2C690001E3DD /* Controller */,
 				9B6B2490289D2C500001E3DD /* View */,
 				9BD6BA82289C15CC00B53584 /* Assets.xcassets */,
@@ -311,14 +325,16 @@
 			files = (
 				9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */,
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
+				9B3769B628A5532A00B0A997 /* checkCameraPermission.swift in Sources */,
 				9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */,
 				9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */,
 				9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */,
-				9B6B2494289D351C0001E3DD /* animations.swift in Sources */,
-				9B5CD6BA289D8E5B0055A2E4 /* NavTabBarViewController.swift in Sources */,
+				9B6B2494289D351C0001E3DD /* LaunchAnimation.swift in Sources */,
+				9B5D62A328A66F9E00ACF6B2 /* Constants.swift in Sources */,
 				9B6B24A0289D85D20001E3DD /* HistoryViewController.swift in Sources */,
 				9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */,
 				9B56606E28A2B400008E495A /* Corners.swift in Sources */,
+				9B3769B428A5328800B0A997 /* mainTabBarController.swift in Sources */,
 				9B6B24A2289D85E20001E3DD /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

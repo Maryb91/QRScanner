@@ -13,6 +13,8 @@ import CoreGraphics
 
 @IBDesignable
 class Corners: UIView {
+    
+    //MARK: - Corners properties
 
     @IBInspectable
     var sizeMultiplier : CGFloat = 0.1{
@@ -45,8 +47,8 @@ class Corners: UIView {
         self.backgroundColor = UIColor.clear
     }
     
+    //MARK: - Corners Drawing function
     
-    //Drawing function
     func drawCorners()
     {
         let currentContext = UIGraphicsGetCurrentContext()
@@ -88,7 +90,7 @@ class Corners: UIView {
         currentContext?.strokePath()
     }
     
-    // Setting the corners layout
+    //MARK: - Setting the corners layout
     
     func layoutCorners (view: UIView, imageView: UIImageView) {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -101,12 +103,11 @@ class Corners: UIView {
         self.clipsToBounds = true
         self.layer.cornerRadius = 9.5
     }
-
-
+    
+//MARK: - Overriding the draw function
+  
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.drawCorners()
     }
-
-
 }

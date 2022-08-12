@@ -9,36 +9,33 @@ import UIKit
 import PermissionsKit
 import CameraPermission
 
-class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ScanViewController: UIViewController, UIImagePickerControllerDelegate {
     
-
+    //MARK: - Variables
+    let userDefaults = UserDefaults.standard
+    
+    //MARK: - viewDidLoad Method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       //let permissionStatus = Permission.camera.status
-    }
-
-   
-//MARK: - iBAction cameraButtonPressed
+    //MARK: - iBAction cameraButtonPressed
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: SegueIDs.openCamera, sender: self)
+        Permission.camera.request {
+            self.userDefaults.set(Permission.camera.status.description, forKey: userDefaultsKeys.permissionStatusKey)
+        }
         
-        self.performSegue(withIdentifier: "openCamera", sender: self)
+        //        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        //                   let imagePickerController = UIImagePickerController()
+        //                   imagePickerController.delegate = self;
+        //                   imagePickerController.sourceType = .camera
+        //                   self.present(imagePickerController, animated: true, completion: nil)
+        //
+        //
+        //    }
         
-//        Permission.camera.request {
-//
-//        }
-//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//                   let imagePickerController = UIImagePickerController()
-//                   imagePickerController.delegate = self;
-//                   imagePickerController.sourceType = .camera
-//                   self.present(imagePickerController, animated: true, completion: nil)
-//               }
-       
     }
 }

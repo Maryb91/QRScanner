@@ -18,13 +18,13 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var cornerView : Corners?
-    
+
+    //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayScanner()
+        //displayScanner()
     }
-    
 
     //MARK: - Display Scanner Method
     
