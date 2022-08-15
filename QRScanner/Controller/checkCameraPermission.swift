@@ -1,5 +1,5 @@
 //
-//  checkCameraPermission.swift
+//  CheckCameraPermission.swift
 //  QRScanner
 //
 //  Created by Mariam B on 11/8/2022.
@@ -10,7 +10,7 @@ import UIKit
 import PermissionsKit
 import CameraPermission
 
-class checkCameraPermission {
+class CheckCameraPermission {
     
     //MARK: - Class properties
    // var permissionStatus = Permission.camera.status.description

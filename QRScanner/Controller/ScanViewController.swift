@@ -14,12 +14,22 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     //MARK: - Variables
     
     let userDefaults = UserDefaults.standard
-    let cp = checkCameraPermission()
+    let cp = CheckCameraPermission()
+    
+    //MARK: - OBOutlets
+    
+    @IBOutlet weak var tapLabel: UILabel!
+    @IBOutlet weak var qrCodeImage: UIButton!
+    @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var openSettingsButton: UIButton!
     
     //MARK: - viewDidLoad Method
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        openSettingsButton.isHidden = true
+        checkPermission()
     }
     
     //MARK: - iBAction cameraButtonPressed
@@ -32,7 +42,34 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
                 self.tabBarController?.selectedIndex = 0
             }
             else {
+                self.arrowImage.isHidden = true
+                self.qrCodeImage.isHidden = true
+                self.tapLabel.text = "Please allow the Camera permission in order to start scanning QR codes"
+                self.openSettingsButton.isHidden = false
             }
         }
     }
+    
+    
+    // Open the app's settings
+    @IBAction func openSettingsPressed(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+    
+    func checkPermission()
+    {
+        if cp.getPermissionStatus()==permissionStatusDesc.denied{
+           showNewScreen()
+        }
+    }
+    
+    
+    func showNewScreen() {
+        self.arrowImage.isHidden = true
+        self.qrCodeImage.isHidden = true
+        self.tapLabel.text = "Please allow the Camera permission in order to start scanning QR codes"
+        self.openSettingsButton.isHidden = false
+    }
+    
+    
 }

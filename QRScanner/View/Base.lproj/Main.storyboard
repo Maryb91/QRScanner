@@ -74,32 +74,56 @@
                                     <constraint firstAttribute="height" constant="40" id="IVJ-XP-ghs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to start scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-ty-vtH">
-                                <rect key="frame" x="88.5" y="233" width="237" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to start scanning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-ty-vtH">
+                                <rect key="frame" x="82" y="233" width="250" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="G3Z-kL-RsK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-aU-wbY">
+                                <rect key="frame" x="107" y="405.5" width="200" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="1u4-qh-pNl"/>
+                                    <constraint firstAttribute="width" constant="200" id="QGF-py-hEJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Open Settings">
+                                    <fontDescription key="titleFontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="22"/>
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="openSettingsPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="MIk-dI-IWM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eTc-oD-asb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Arg-aU-wbY" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="5nE-im-eJe"/>
                             <constraint firstItem="vcx-Jh-wub" firstAttribute="centerY" secondItem="3wr-VA-Ekw" secondAttribute="centerY" id="7Hw-nh-yDs"/>
                             <constraint firstItem="vcx-Jh-wub" firstAttribute="top" secondItem="lrx-xh-WEC" secondAttribute="bottom" constant="2" id="HWF-C6-NwC"/>
                             <constraint firstItem="lrx-xh-WEC" firstAttribute="top" secondItem="2gP-ty-vtH" secondAttribute="bottom" constant="10" id="TEF-KZ-QMu"/>
                             <constraint firstItem="vcx-Jh-wub" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="ihU-hA-3bJ"/>
+                            <constraint firstItem="Arg-aU-wbY" firstAttribute="centerY" secondItem="3wr-VA-Ekw" secondAttribute="centerY" id="kN2-9O-AM0"/>
                             <constraint firstItem="lrx-xh-WEC" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="mE9-i2-Tj9"/>
                             <constraint firstItem="2gP-ty-vtH" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="x7C-ND-tAD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9wj-Yg-BfU"/>
                     <connections>
+                        <outlet property="arrowImage" destination="lrx-xh-WEC" id="MRK-qS-zbc"/>
+                        <outlet property="openSettingsButton" destination="Arg-aU-wbY" id="zSc-rd-Gd0"/>
+                        <outlet property="qrCodeImage" destination="vcx-Jh-wub" id="7De-7M-Lv2"/>
+                        <outlet property="tapLabel" destination="2gP-ty-vtH" id="Yfi-oJ-1D0"/>
                         <segue destination="fXd-IK-nzn" kind="presentation" identifier="openCamera" id="j0u-ju-yey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6I-ZT-VpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3238" y="-1047"/>
+            <point key="canvasLocation" x="3237.68115942029" y="-1047.3214285714284"/>
         </scene>
         <!--Item-->
         <scene sceneID="tDf-zB-brT">

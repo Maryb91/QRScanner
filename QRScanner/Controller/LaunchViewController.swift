@@ -25,8 +25,14 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self)
-        animate.loadTabBarController(vc: self)
+        animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self,loadFunction: self.loadTabBarController)
+    }
+    
+    func loadTabBarController(vc: LaunchViewController) -> Void
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardIds.storyBoardName, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! MainTabBarController
+        vc.present(newViewController, animated: true, completion: nil)
     }
 }
 

@@ -42,7 +42,7 @@ class LaunchAnimation
     
     //MARK: - Logo animation
     
-    func animateLogo(lineLogoLaunch: UIImageView, logoLaunchImage: UIImageView, vc: UIViewController)
+    func animateLogo(lineLogoLaunch: UIImageView, logoLaunchImage: UIImageView, vc: LaunchViewController, loadFunction: @escaping (LaunchViewController) -> Void)
     {
         lineLogoLaunch.isHidden = true
         logoLaunchImage.rotate()
@@ -52,17 +52,8 @@ class LaunchAnimation
             lineLogoLaunch.layer.add(self.hoverLine(), forKey: "")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.9)
             {
-                self.loadTabBarController(vc: vc)
+                loadFunction(vc)
             }
         }
-    }
-    
-    //MARK: - Load tabBarController
-    
-    func loadTabBarController(vc: UIViewController)
-    {
-        let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardIds.storyBoardName, bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! MainTabBarController
-        vc.present(newViewController, animated: true, completion: nil)
     }
 }
