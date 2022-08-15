@@ -21,7 +21,6 @@ extension UIView{
     }
 }
 
-
     //MARK: - Line animation in Launch Screen
 
 class LaunchAnimation
@@ -64,7 +63,6 @@ class LaunchAnimation
     {
         let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardIds.storyBoardName, bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! mainTabBarController
-        let navigationVC = UINavigationController.init(rootViewController: newViewController)
-        vc.present(navigationVC, animated: true, completion: nil)
+        vc.present(newViewController, animated: true, completion: nil)
     }
 }

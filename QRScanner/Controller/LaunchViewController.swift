@@ -16,26 +16,18 @@ class LaunchViewController: UIViewController {
     var animate = LaunchAnimation()
     let userDefaults = UserDefaults.standard
 
-    
     //MARK: -Outlets
     
     @IBOutlet weak var logoLaunchImage: UIImageView!
     @IBOutlet weak var lineLogoLaunch: UIImageView!
     
-    
     //MARK: - View Controller
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        print("Permission status is", userDefaults.string(forKey: userDefaultsKeys.permissionStatusKey))
-        //animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self)
         animate.loadTabBarController(vc: self)
     }
-    
-
 }
 
 

@@ -12,6 +12,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     //MARK: - IBoutlets
     @IBOutlet weak var cameraLabel: UILabel!
+    @IBOutlet weak var galleryButton: UIButton!
+    @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var scanImageView: UIImageView!
     
     //MARK: - Variables
@@ -23,7 +25,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //displayScanner()
+        displayScanner()
     }
 
     //MARK: - Display Scanner Method
@@ -49,6 +51,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
         view.bringSubviewToFront(cornerView!)
         view.bringSubviewToFront(cameraLabel)
+        view.bringSubviewToFront(galleryButton)
+        view.bringSubviewToFront(flashButton)
 
     }
     

@@ -14,8 +14,8 @@ class checkCameraPermission {
     
     //MARK: - Class properties
     var permissionStatus = Permission.camera.status.description
-    
-    
+    let userDefaults = UserDefaults.standard
+
     //MARK: - A method to choose which ViewController to display in the Scan tabBarItem
     
     func displayScanVC (tabVC: UITabBarController) {
@@ -33,4 +33,15 @@ class checkCameraPermission {
         }
     }
     
+    //MARK: - Get Camera permission status from UserDefaults
+    
+    func getPermissionStatus() -> String {
+        if let status = userDefaults.string(forKey: userDefaultsKeys.permissionStatusKey)
+        {
+            return status
+        }
+        else {
+            return permissionStatusDesc.notDetermined
+        }
+    }
 }

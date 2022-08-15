@@ -9,10 +9,12 @@ import UIKit
 import PermissionsKit
 import CameraPermission
 
-class ScanViewController: UIViewController, UIImagePickerControllerDelegate {
+class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UITabBarControllerDelegate {
     
     //MARK: - Variables
+    
     let userDefaults = UserDefaults.standard
+    let cp = checkCameraPermission()
     
     //MARK: - viewDidLoad Method
     
@@ -23,19 +25,14 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate {
     //MARK: - iBAction cameraButtonPressed
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SegueIDs.openCamera, sender: self)
         Permission.camera.request {
             self.userDefaults.set(Permission.camera.status.description, forKey: userDefaultsKeys.permissionStatusKey)
+            if(self.cp.getPermissionStatus() == permissionStatusDesc.authorized){
+                self.tabBarController?.selectedIndex = 0
+            }
+            else {
+                print("denied")
+            }
         }
-        
-        //        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        //                   let imagePickerController = UIImagePickerController()
-        //                   imagePickerController.delegate = self;
-        //                   imagePickerController.sourceType = .camera
-        //                   self.present(imagePickerController, animated: true, completion: nil)
-        //
-        //
-        //    }
-        
     }
 }

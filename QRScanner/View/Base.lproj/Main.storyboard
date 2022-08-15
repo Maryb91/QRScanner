@@ -44,7 +44,6 @@
                     <connections>
                         <outlet property="lineLogoLaunch" destination="P0m-CD-xrM" id="rS7-ik-1bk"/>
                         <outlet property="logoLaunchImage" destination="SKF-7U-AIn" id="RoK-Ur-JJh"/>
-                        <segue destination="h0H-It-jFH" kind="show" identifier="" id="zQK-Dr-G5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,11 +55,11 @@
             <objects>
                 <viewController storyboardIdentifier="scanScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JeX-tr-Da7" customClass="ScanViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3wr-VA-Ekw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcx-Jh-wub">
-                                <rect key="frame" x="67" y="286" width="280" height="270"/>
+                                <rect key="frame" x="67" y="313" width="280" height="270"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="camera"/>
                                 <connections>
@@ -68,7 +67,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.turn.right.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-xh-WEC">
-                                <rect key="frame" x="187" y="245" width="40" height="38"/>
+                                <rect key="frame" x="187" y="272" width="40" height="38"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Dqe-2C-AWW"/>
@@ -76,7 +75,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to start scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-ty-vtH">
-                                <rect key="frame" x="88.5" y="206" width="237" height="28"/>
+                                <rect key="frame" x="88.5" y="233" width="237" height="28"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -122,18 +121,46 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="32s-hW-UmF"/>
                                     <constraint firstAttribute="height" constant="70" id="HVg-da-nJ0"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ru4-EZ-Rz9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="weK-uK-1Ca"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-nj-ynV">
+                                <rect key="frame" x="62" y="54" width="20" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="2zy-ZL-rRJ"/>
+                                    <constraint firstAttribute="width" constant="20" id="hWs-k4-E44"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8u-zF-25a">
+                                <rect key="frame" x="332" y="54" width="30" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="QGG-Ol-sCU"/>
+                                    <constraint firstAttribute="height" constant="65" id="by3-Pr-4NN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9sG-qb-7hX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mmp-nj-ynV" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="9iB-xp-RNX"/>
                             <constraint firstItem="v1K-ku-ciU" firstAttribute="centerX" secondItem="c3m-np-pfN" secondAttribute="centerX" id="CA9-b5-NKP"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerX" secondItem="c3m-np-pfN" secondAttribute="centerX" id="Cjt-wL-71I"/>
+                            <constraint firstItem="v1K-ku-ciU" firstAttribute="leading" secondItem="mmp-nj-ynV" secondAttribute="trailing" constant="20" id="YH6-RY-G8h"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerY" secondItem="c3m-np-pfN" secondAttribute="centerY" id="if4-VA-Bfa"/>
+                            <constraint firstItem="Q8u-zF-25a" firstAttribute="leading" secondItem="v1K-ku-ciU" secondAttribute="trailing" constant="20" id="imI-u0-hqy"/>
+                            <constraint firstItem="Q8u-zF-25a" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="tpz-9h-JaC"/>
                             <constraint firstItem="v1K-ku-ciU" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="ucC-46-KI1"/>
                         </constraints>
                     </view>
@@ -148,6 +175,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraLabel" destination="v1K-ku-ciU" id="SSp-mU-TaU"/>
+                        <outlet property="flashButton" destination="mmp-nj-ynV" id="Zh4-Gz-Vm2"/>
+                        <outlet property="galleryButton" destination="Q8u-zF-25a" id="bvq-4o-i2U"/>
                         <outlet property="scanImageView" destination="opK-QZ-Lr4" id="zwO-Od-a6D"/>
                     </connections>
                 </viewController>
@@ -182,7 +211,7 @@
             <objects>
                 <viewController id="cCg-eI-eg5" customClass="HistoryViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NdT-AE-aGF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="qVg-z1-noq"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -200,7 +229,7 @@
             <objects>
                 <viewController id="bU7-VU-Hmn" customClass="CreateViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PEe-2y-vab">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="66t-oW-7ye"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -218,7 +247,7 @@
             <objects>
                 <viewController id="n5Y-4x-R72" customClass="SettingsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzK-OH-lwU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2Ce-ln-yxK"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -241,7 +270,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XBo-G3-Gu2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
