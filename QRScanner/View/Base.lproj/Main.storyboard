@@ -187,7 +187,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="j4v-rC-I0S">
             <objects>
-                <tabBarController storyboardIdentifier="mainTabID" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="mainTabBarController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabID" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="MainTabBarController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vd4-oM-4SG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zuA-DI-XXT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

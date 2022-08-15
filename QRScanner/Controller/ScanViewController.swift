@@ -28,10 +28,10 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
         Permission.camera.request {
             self.userDefaults.set(Permission.camera.status.description, forKey: userDefaultsKeys.permissionStatusKey)
             if(self.cp.getPermissionStatus() == permissionStatusDesc.authorized){
+                self.cp.displayScanVC(tabVC: self.tabBarController!)
                 self.tabBarController?.selectedIndex = 0
             }
             else {
-                print("denied")
             }
         }
     }

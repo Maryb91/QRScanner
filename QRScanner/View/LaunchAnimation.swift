@@ -62,7 +62,7 @@ class LaunchAnimation
     func loadTabBarController(vc: UIViewController)
     {
         let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardIds.storyBoardName, bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! mainTabBarController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! MainTabBarController
         vc.present(newViewController, animated: true, completion: nil)
     }
 }

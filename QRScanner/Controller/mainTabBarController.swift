@@ -17,11 +17,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     var cp = checkCameraPermission()
    
     //MARK: - viewDidLoad method
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         cp.displayScanVC(tabVC: self)
-
     }
     
     //MARK: - viewWillAppear method
@@ -29,5 +28,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
             self.tabBarController?.delegate = self
     }
+    
+   
     
 }

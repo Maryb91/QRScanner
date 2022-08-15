@@ -13,7 +13,7 @@ import CameraPermission
 class checkCameraPermission {
     
     //MARK: - Class properties
-    var permissionStatus = Permission.camera.status.description
+   // var permissionStatus = Permission.camera.status.description
     let userDefaults = UserDefaults.standard
 
     //MARK: - A method to choose which ViewController to display in the Scan tabBarItem
@@ -25,10 +25,10 @@ class checkCameraPermission {
         let scanBaritem = UITabBarItem(title: scanBarItem.title, image: UIImage(systemName: scanBarItem.imageName) , tag: 0)
         scanVC.tabBarItem = scanBaritem
         cameraVC.tabBarItem = scanBaritem
-        if(permissionStatus == permissionStatusDesc.authorized){
+        if(getPermissionStatus() == permissionStatusDesc.authorized){
             tabVC.viewControllers![0] = cameraVC
         }
-        else if (permissionStatus == permissionStatusDesc.denied || permissionStatus == permissionStatusDesc.notDetermined){
+        else if (getPermissionStatus() == permissionStatusDesc.denied || getPermissionStatus() == permissionStatusDesc.notDetermined){
             tabVC.viewControllers![0] = scanVC
         }
     }
