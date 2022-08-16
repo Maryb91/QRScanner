@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B3769B428A5328800B0A997 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B328A5328800B0A997 /* MainTabBarController.swift */; };
-		9B3769B628A5532A00B0A997 /* CheckCameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B528A5532A00B0A997 /* CheckCameraPermission.swift */; };
+		9B3769B628A5532A00B0A997 /* CameraPermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B528A5532A00B0A997 /* CameraPermissionChecker.swift */; };
 		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
 		9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606F28A2B51E008E495A /* CameraViewController.swift */; };
 		9B5D62A328A66F9E00ACF6B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D62A228A66F9E00ACF6B2 /* Constants.swift */; };
@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		9B3769B328A5328800B0A997 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		9B3769B528A5532A00B0A997 /* CheckCameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCameraPermission.swift; sourceTree = "<group>"; };
+		9B3769B528A5532A00B0A997 /* CameraPermissionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionChecker.swift; sourceTree = "<group>"; };
 		9B56606D28A2B400008E495A /* Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
 		9B56606F28A2B51E008E495A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9B5D62A228A66F9E00ACF6B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				9B6B24A1289D85E20001E3DD /* SettingsViewController.swift */,
 				9B56606F28A2B51E008E495A /* CameraViewController.swift */,
 				9B3769B328A5328800B0A997 /* MainTabBarController.swift */,
-				9B3769B528A5532A00B0A997 /* CheckCameraPermission.swift */,
+				9B3769B528A5532A00B0A997 /* CameraPermissionChecker.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 			files = (
 				9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */,
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
-				9B3769B628A5532A00B0A997 /* CheckCameraPermission.swift in Sources */,
+				9B3769B628A5532A00B0A997 /* CameraPermissionChecker.swift in Sources */,
 				9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */,
 				9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */,
 				9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */,

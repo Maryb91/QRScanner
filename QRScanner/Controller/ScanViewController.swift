@@ -14,9 +14,9 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     //MARK: - Variables
     
     let userDefaults = UserDefaults.standard
-    let cp = CheckCameraPermission()
+    let cp = CameraPermissionChecker()
     
-    //MARK: - OBOutlets
+    //MARK: - IBOutlets
     
     @IBOutlet weak var tapLabel: UILabel!
     @IBOutlet weak var qrCodeImage: UIButton!
@@ -25,44 +25,35 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
     //MARK: - viewDidLoad Method
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         openSettingsButton.isHidden = true
-        checkPermission()
+//        cp.checkCameraPermissionStatus(tabBarController: nil , VC1:nil , VC2:nil ,loadFunction: showNewScreen)
     }
     
     //MARK: - iBAction cameraButtonPressed
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
         Permission.camera.request {
-            self.userDefaults.set(Permission.camera.status.description, forKey: userDefaultsKeys.permissionStatusKey)
-            if(self.cp.getPermissionStatus() == permissionStatusDesc.authorized){
-                self.cp.displayScanVC(tabVC: self.tabBarController!)
-                self.tabBarController?.selectedIndex = 0
-            }
-            else {
-                self.arrowImage.isHidden = true
-                self.qrCodeImage.isHidden = true
-                self.tapLabel.text = "Please allow the Camera permission in order to start scanning QR codes"
-                self.openSettingsButton.isHidden = false
-            }
-        }
+            self.userDefaults.set(Permission.camera.status.description, forKey: UserDefaultsKeys.permissionStatusKey)
+//            cp.checkCameraPermissionStatus(tabBarController: self.tabBarController!, VC1: nil, VC2: nil)
+//            if(self.cp.getPermissionStatus() == PermissionStatusDesc.authorized){
+//                self.cp.displayScanVC(tabVC: self.tabBarController!)
+//                self.tabBarController?.selectedIndex = 0
+//            }
+//            else {
+//                self.showNewScreen()
+//            }
+//        }
     }
     
-    
-    // Open the app's settings
+    //MARK: - Open settings to set the Camera Permission
+
     @IBAction func openSettingsPressed(_ sender: UIButton) {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
-    func checkPermission()
-    {
-        if cp.getPermissionStatus()==permissionStatusDesc.denied{
-           showNewScreen()
-        }
-    }
-    
+    //MARK: -  Display a new screen if the Camera Permission status is Denied
     
     func showNewScreen() {
         self.arrowImage.isHidden = true
@@ -72,4 +63,13 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     }
     
     
+    
+    
+//    func checkPermission()
+//    {
+//        if cp.getPermissionStatus()==PermissionStatusDesc.denied{
+//           showNewScreen()
+//        }
+//    }
+}
 }

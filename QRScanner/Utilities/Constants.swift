@@ -9,13 +9,13 @@ import Foundation
 
 //MARK: - Defining the userDefaults keys
 
-struct userDefaultsKeys {
+struct UserDefaultsKeys {
     static let permissionStatusKey = "permissionStatus"
 }
 
 //MARK: - Storyboard IDs
 
-struct storyBoardIds {
+struct StoryBoardIds {
     static let storyBoardName = "Main"
     static let scanVCId = "scanScreen"
     static let cameraVCId = "cameraScreen"
@@ -24,14 +24,14 @@ struct storyBoardIds {
 
 //MARK: - Scan BarItem properties
 
-struct scanBarItem {
+struct ScanBarItem {
     static let title = "Scan"
     static let imageName = "qrcode"
 }
 
 //MARK: - Permission status descriptions
 
-struct permissionStatusDesc {
+struct PermissionStatusDesc {
     static let authorized = "authorized"
     static let denied = "denied"
     static let notDetermined = "not determined"

@@ -15,7 +15,7 @@ class LaunchViewController: UIViewController {
     //MARK: - Variables
     var animate = LaunchAnimation()
     let userDefaults = UserDefaults.standard
-
+    let cp = CameraPermissionChecker()
     //MARK: -Outlets
     
     @IBOutlet weak var logoLaunchImage: UIImageView!
@@ -30,8 +30,8 @@ class LaunchViewController: UIViewController {
     
     func loadTabBarController(vc: LaunchViewController) -> Void
     {
-        let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardIds.storyBoardName, bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIds.mainTabID) as! MainTabBarController
+        let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarController
         vc.present(newViewController, animated: true, completion: nil)
     }
 }
