@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
+    
     //MARK: - IBoutlets
     @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var galleryButton: UIButton!
@@ -20,25 +20,25 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var cornerView : Corners?
-
+    
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayScanner()
     }
-
+    
     //MARK: - Display Scanner Method
     
     func displayScanner () {
         session.startRunning()
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-         do {
-              let input = try AVCaptureDeviceInput(device: captureDevice!)
-              session.addInput(input)
-          } catch {
-              print("Error capturing QRCode")
-          }
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            session.addInput(input)
+        } catch {
+            print("Error capturing QRCode")
+        }
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -53,25 +53,48 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.bringSubviewToFront(cameraLabel)
         view.bringSubviewToFront(galleryButton)
         view.bringSubviewToFront(flashButton)
-
+        
     }
     
     //MARK: - MetaDataOutput - Delegate method
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-           if let metaDataObject = metadataObjects.first {
-               guard let readableObject = metaDataObject as? AVMetadataMachineReadableCodeObject else {
-                   return
-               }
-               AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-               let alert = UIAlertController(title: "QRCode", message: readableObject.stringValue, preferredStyle: .actionSheet)
-
-               alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
-                   self.session.startRunning()
-               }))
-               present(alert, animated: true, completion: nil)
-           }
-       }
+        if let metaDataObject = metadataObjects.first {
+            guard let readableObject = metaDataObject as? AVMetadataMachineReadableCodeObject else {
+                return
+            }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            let alert = UIAlertController(title: "QRCode", message: readableObject.stringValue, preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
+                self.session.startRunning()
+            }))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    //MARK: - Change flash state ON or OFF
+    
+    @IBAction func flashState(_ sender: UIButton) {
+        flashButton.setImage(UIImage(systemName: "flashlight.off.fill"), for: .normal)
+        guard let device = AVCaptureDevice.default(for: .video), device.hasTorch else {
+            return
+        }
+        
+        do {
+            try device.lockForConfiguration()
+            let torchOn = !device.isTorchActive
+            try device.setTorchModeOn(level: 1.0)
+            device.torchMode = torchOn ? .on : .off
+            if (torchOn){
+                flashButton.setImage(UIImage(systemName: "flashlight.on.fill"), for: .normal)
+            }
+            device.unlockForConfiguration()
+        } catch {
+            print("err")
+        }
+    }
+    
+    
 }
 
 

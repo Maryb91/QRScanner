@@ -14,19 +14,12 @@ class CameraPermissionChecker {
     
     //MARK: - Class properties
     
-    let userDefaults = UserDefaults.standard
+    
     
     //MARK: - Get Camera permission status from UserDefaults
     
     func getPermissionStatus() -> String {
-        if let status = userDefaults.string(forKey: UserDefaultsKeys.permissionStatusKey)
-        {
-            return status
-        }
-        else
-        {
-            return PermissionStatusDesc.notDetermined
-        }
+        return Permission.camera.status.description
     }
     
     //MARK: - Checking the Camera Permission Status

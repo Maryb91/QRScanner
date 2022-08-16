@@ -13,7 +13,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
     //MARK: - Variables
     
-    let userDefaults = UserDefaults.standard
     var cp = CameraPermissionChecker()
     var storyBoard = UIStoryboard()
     var scanVC = UIViewController()
@@ -40,7 +39,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
         Permission.camera.request {
-            self.userDefaults.set(Permission.camera.status.description, forKey: UserDefaultsKeys.permissionStatusKey)
                self.cp.checkCameraPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission)
         }
     }

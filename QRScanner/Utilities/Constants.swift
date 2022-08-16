@@ -7,11 +7,6 @@
 
 import Foundation
 
-//MARK: - Defining the userDefaults keys
-
-struct UserDefaultsKeys {
-    static let permissionStatusKey = "permissionStatus"
-}
 
 //MARK: - Storyboard IDs
 
