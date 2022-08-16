@@ -95,7 +95,8 @@
                                     <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="openSettingsPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="MIk-dI-IWM"/>
+                                    <action selector="cameraButtonPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="Uha-v3-4JS"/>
+                                    <action selector="openSettingsPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="TUj-db-tiG"/>
                                 </connections>
                             </button>
                         </subviews>

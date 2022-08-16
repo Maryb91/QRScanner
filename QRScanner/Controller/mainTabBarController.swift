@@ -16,17 +16,17 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     var cp = CameraPermissionChecker()
     var storyBoard = UIStoryboard()
-    var scanVC = UIViewController()
+    var scanVC = ScanViewController()
     var cameraVC = UIViewController()
     
     //MARK: - viewDidLoad method
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
-        scanVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId)
+        scanVC =  storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
         cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId)
-        self.displayScanVC(tabVC: self)
+        self.displayScanVC(tabVC: self) 
     }
     
     //MARK: - viewWillAppear method
@@ -41,7 +41,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let ScanBarItem = UITabBarItem(title: ScanBarItem.title, image: UIImage(systemName: ScanBarItem.imageName) , tag: 0)
         scanVC.tabBarItem = ScanBarItem
         cameraVC.tabBarItem = ScanBarItem
-        cp.checkCameraPermissionStatus(authorizedFunc: authorizedPermission, deniedFunc: deniedPermission)
+        cp.checkCameraPermissionStatus(authorizedFunc: authorizedPermission, deniedFunc: deniedPermission, notDetermined: notDeterminedPermission)
     }
     
     
@@ -53,6 +53,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func deniedPermission() -> Void{
         self.viewControllers![0] = scanVC
-
+        scanVC.showNewScreen()
+    }
+    
+    func notDeterminedPermission ()-> Void{
+        self.viewControllers![0] = scanVC
     }
 }

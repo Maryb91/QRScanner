@@ -13,9 +13,9 @@ import CameraPermission
 class CameraPermissionChecker {
     
     //MARK: - Class properties
-
+    
     let userDefaults = UserDefaults.standard
-  
+    
     //MARK: - Get Camera permission status from UserDefaults
     
     func getPermissionStatus() -> String {
@@ -31,15 +31,18 @@ class CameraPermissionChecker {
     
     //MARK: - Checking the Camera Permission Status
     
-    func checkCameraPermissionStatus (authorizedFunc: () -> Void, deniedFunc: ()-> Void)
+    func checkCameraPermissionStatus (authorizedFunc: () -> Void, deniedFunc: ()-> Void , notDetermined: () -> Void = {})
     {
         if(getPermissionStatus() == PermissionStatusDesc.authorized)
         {
             authorizedFunc()
         }
-        else if (getPermissionStatus() == PermissionStatusDesc.denied || getPermissionStatus() == PermissionStatusDesc.notDetermined)
+        else if (getPermissionStatus() == PermissionStatusDesc.denied)
         {
             deniedFunc()
+        }
+        else {
+            notDetermined ()
         }
     }
 }

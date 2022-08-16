@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "PermissionsKit",
+        "repositoryURL": "https://github.com/sparrowcode/PermissionsKit",
+        "state": {
+          "branch": null,
+          "revision": "01d64ef804ba3e537de17db5eb2c68e9121e1193",
+          "version": "9.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
