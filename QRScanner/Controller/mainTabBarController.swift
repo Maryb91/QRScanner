@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     //MARK: - Variables
     
-    var cp = CameraPermissionChecker()
+    var cp = PermissionChecker()
     var storyBoard = UIStoryboard()
     var scanVC = ScanViewController()
     var cameraVC = UIViewController()

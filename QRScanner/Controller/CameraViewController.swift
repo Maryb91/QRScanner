@@ -7,9 +7,16 @@
 
 import UIKit
 import AVFoundation
+import PermissionsKit
+import PhotoLibraryPermission
+import PhotosUI
 
-class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate{
+
+    //MARK: - Variables
     
+    var pc = PermissionChecker()
+
     //MARK: - IBoutlets
     @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var galleryButton: UIButton!
@@ -95,7 +102,62 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     
+    //MARK: - Open Photo Library button actions
+    
+    @IBAction func openGalleryButtonPressed(_ sender: UIButton) {
+        
+        Permission.photoLibrary.request {
+            self.pc.checkPhotoLibraryPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission, limitedFunc: self.limitedPermission, vc: self)
+            }
+        }
+    
+
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+//        picker.dismiss(animated: true, completion: nil)
+//
+//          for result in results {
+//             result.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
+//                if let image = object as? UIImage {
+//                   DispatchQueue.main.async {
+//
+//                   }
+//                }
+//             })
+//          }
+    }
+    
+    //MARK: - Actions to perform depending on the Photo Library permission status
+    
+    func authorizedPermission () -> Void{
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = PHPickerFilter.images
+        let pickerViewController = PHPickerViewController(configuration: config)
+        pickerViewController.delegate = self
+        self.present(pickerViewController, animated: true, completion: nil)
+    }
+    
+    
+    func deniedPermission() -> Void{
+        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the photo library permission from the app settings to scan QR code images", preferredStyle: UIAlertController.Style.alert)
+        settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }))
+        settingsAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            settingsAlert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(settingsAlert, animated: true, completion: nil)
+    }
+    
+    
+    func limitedPermission(vc: CameraViewController) -> Void {
+        PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
+    }
 }
+
+
+
 
 
 

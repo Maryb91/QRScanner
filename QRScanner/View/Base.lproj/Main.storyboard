@@ -177,6 +177,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="openGalleryButtonPressed:" destination="fXd-IK-nzn" eventType="touchUpInside" id="CMV-tx-1QR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9sG-qb-7hX"/>

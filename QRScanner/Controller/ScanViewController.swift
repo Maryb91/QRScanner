@@ -13,7 +13,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
     //MARK: - Variables
     
-    var cp = CameraPermissionChecker()
+    var pc = PermissionChecker()
     var storyBoard = UIStoryboard()
     var scanVC = UIViewController()
     var cameraVC = UIViewController()
@@ -39,7 +39,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
         Permission.camera.request {
-               self.cp.checkCameraPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission)
+               self.pc.checkCameraPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission)
         }
     }
     //MARK: - Open settings to set the Camera Permission
