@@ -12,11 +12,13 @@ import PhotoLibraryPermission
 import PhotosUI
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate{
-
+    
+    
+    
     //MARK: - Variables
     
     var pc = PermissionChecker()
-
+    
     //MARK: - IBoutlets
     @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var galleryButton: UIButton!
@@ -60,7 +62,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.bringSubviewToFront(cameraLabel)
         view.bringSubviewToFront(galleryButton)
         view.bringSubviewToFront(flashButton)
-        
     }
     
     //MARK: - MetaDataOutput - Delegate method
@@ -108,24 +109,53 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         Permission.photoLibrary.request {
             self.pc.checkPhotoLibraryPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission, limitedFunc: self.limitedPermission, vc: self)
-            }
         }
+    }
     
-
+    
+    //MARK: - Reading QR Codes from images in the Photo Library function
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-//        picker.dismiss(animated: true, completion: nil)
-//
-//          for result in results {
-//             result.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
-//                if let image = object as? UIImage {
-//                   DispatchQueue.main.async {
-//
-//                   }
-//                }
-//             })
-//          }
+        picker.dismiss(animated: true, completion: nil)
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
+                if let qrcodeImg = object as? UIImage {
+                    DispatchQueue.main.async {
+                        let detector:CIDetector=CIDetector.init(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
+                        let ciImage:CIImage=CIImage(image:qrcodeImg)!
+                        var qrCodeString=""
+                        let features=detector.features(in: ciImage) as? [CIQRCodeFeature]
+                        for feature in features! {
+                            qrCodeString += feature.messageString!
+                        }
+                        if qrCodeString.isEmpty {
+                            let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
+                            
+                            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
+                                self.session.startRunning()
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            picker.dismiss(animated: true, completion: nil)
+                        } else {
+                            let alert = UIAlertController(title: "QRCode :", message: qrCodeString, preferredStyle: .actionSheet)
+                            
+                            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
+                                self.session.startRunning()
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            picker.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
+                else {
+                    picker.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
     }
+    
+    
+
     
     //MARK: - Actions to perform depending on the Photo Library permission status
     
@@ -142,7 +172,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func deniedPermission() -> Void{
         let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the photo library permission from the app settings to scan QR code images", preferredStyle: UIAlertController.Style.alert)
         settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         }))
         settingsAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             settingsAlert.dismiss(animated: true, completion: nil)
