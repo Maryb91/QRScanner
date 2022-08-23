@@ -14,18 +14,19 @@ import PhotosUI
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate{
     
     
-    
     //MARK: - Variables
     
     var pc = PermissionChecker()
     
     //MARK: - IBoutlets
+    
     @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var scanImageView: UIImageView!
     
     //MARK: - Variables
+    
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var cornerView : Corners?
@@ -72,12 +73,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 return
             }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            let alert = UIAlertController(title: "QRCode", message: readableObject.stringValue, preferredStyle: .actionSheet)
-            
-            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
-                self.session.startRunning()
-            }))
-            present(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: "QRCode", message: readableObject.stringValue, preferredStyle: .actionSheet)
+            self.performSegue(withIdentifier: "showDetails", sender: self)
         }
     }
     //MARK: - Change flash state ON or OFF
@@ -113,8 +110,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     
-    //MARK: - Reading QR Codes from images in the Photo Library function
-    
+    //MARK: - Reading QR Codes from images in the Photo Library function (all photos)
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
         for result in results {
@@ -137,12 +133,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                             self.present(alert, animated: true, completion: nil)
                             picker.dismiss(animated: true, completion: nil)
                         } else {
-                            let alert = UIAlertController(title: "QRCode :", message: qrCodeString, preferredStyle: .actionSheet)
-                            
-                            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
-                                self.session.startRunning()
-                            }))
-                            self.present(alert, animated: true, completion: nil)
+                            self.performSegue(withIdentifier: "showDetails", sender: self)
                             picker.dismiss(animated: true, completion: nil)
                         }
                     }
