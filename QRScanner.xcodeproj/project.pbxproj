@@ -18,6 +18,9 @@
 		9B6B24A0289D85D20001E3DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B249F289D85D20001E3DD /* HistoryViewController.swift */; };
 		9B6B24A2289D85E20001E3DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B24A1289D85E20001E3DD /* SettingsViewController.swift */; };
 		9BB53DEB28B4FDDB007AB795 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB53DEA28B4FDDB007AB795 /* DetailsViewController.swift */; };
+		9BB53DEF28B54F5D007AB795 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB53DEE28B54F5D007AB795 /* Realm */; };
+		9BB53DF128B54F5D007AB795 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB53DF028B54F5D007AB795 /* RealmSwift */; };
+		9BCA920C28B593BA0013F72C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA920B28B593BA0013F72C /* QRCode.swift */; };
 		9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA79289C15CA00B53584 /* AppDelegate.swift */; };
 		9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */; };
 		9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA7D289C15CA00B53584 /* LaunchViewController.swift */; };
@@ -60,6 +63,7 @@
 		9B6B249F289D85D20001E3DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		9B6B24A1289D85E20001E3DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9BB53DEA28B4FDDB007AB795 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9BCA920B28B593BA0013F72C /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		9BD6BA76289C15CA00B53584 /* QRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD6BA79289C15CA00B53584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB53DF128B54F5D007AB795 /* RealmSwift in Frameworks */,
+				9BB53DEF28B54F5D007AB795 /* Realm in Frameworks */,
 				9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */,
 				9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */,
 			);
@@ -137,6 +143,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		9BB53DEC28B54C5D007AB795 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BCA920B28B593BA0013F72C /* QRCode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9BD6BA6D289C15CA00B53584 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +174,7 @@
 		9BD6BA78289C15CA00B53584 /* QRScanner */ = {
 			isa = PBXGroup;
 			children = (
+				9BB53DEC28B54C5D007AB795 /* Model */,
 				9BD6BA79289C15CA00B53584 /* AppDelegate.swift */,
 				9BD6BA7B289C15CA00B53584 /* SceneDelegate.swift */,
 				9B5D62A128A66F7B00ACF6B2 /* Utilities */,
@@ -207,6 +222,8 @@
 			packageProductDependencies = (
 				9BE9EDFA28A129900018D462 /* CameraPermission */,
 				9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */,
+				9BB53DEE28B54F5D007AB795 /* Realm */,
+				9BB53DF028B54F5D007AB795 /* RealmSwift */,
 			);
 			productName = QRScanner;
 			productReference = 9BD6BA76289C15CA00B53584 /* QRScanner.app */;
@@ -282,6 +299,7 @@
 			mainGroup = 9BD6BA6D289C15CA00B53584;
 			packageReferences = (
 				9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
+				9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 9BD6BA77289C15CA00B53584 /* Products */;
 			projectDirPath = "";
@@ -340,6 +358,7 @@
 				9BB53DEB28B4FDDB007AB795 /* DetailsViewController.swift in Sources */,
 				9B3769B428A5328800B0A997 /* MainTabBarController.swift in Sources */,
 				9B6B24A2289D85E20001E3DD /* SettingsViewController.swift in Sources */,
+				9BCA920C28B593BA0013F72C /* QRCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +704,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.28.6;
+			};
+		};
 		9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
@@ -696,6 +723,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9BB53DEE28B54F5D007AB795 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		9BB53DF028B54F5D007AB795 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		9BE9EDFA28A129900018D462 /* CameraPermission */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
