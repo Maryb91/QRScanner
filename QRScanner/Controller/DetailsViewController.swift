@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailsViewController: UIViewController {
 
+    //MARK: - Variables
+    
+    let realm = try! Realm()
+    var qrCode = QRCode()
     
     //MARK: - IBOutlets
     
@@ -19,7 +24,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(qrCode.date, qrCode.type, qrCode.result)
     }
     
     

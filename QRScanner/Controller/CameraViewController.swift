@@ -13,11 +13,7 @@ import PhotosUI
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate{
     
-    
-    //MARK: - Variables
-    
-    var pc = PermissionChecker()
-    
+   
     //MARK: - IBoutlets
     
     @IBOutlet weak var cameraLabel: UILabel!
@@ -30,7 +26,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var cornerView : Corners?
-    
+    var qrCode = QRCode()
+    var pc = PermissionChecker()
+    var qrCodeResult = QrCodeResult ()
+
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -73,10 +72,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 return
             }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-//            let alert = UIAlertController(title: "QRCode", message: readableObject.stringValue, preferredStyle: .actionSheet)
-            self.performSegue(withIdentifier: "showDetails", sender: self)
+            if let result = readableObject.stringValue{
+                qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
+            }
         }
     }
+    
     //MARK: - Change flash state ON or OFF
     
     @IBAction func flashState(_ sender: UIButton) {
@@ -84,7 +85,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         guard let device = AVCaptureDevice.default(for: .video), device.hasTorch else {
             return
         }
-        
         do {
             try device.lockForConfiguration()
             let torchOn = !device.isTorchActive
@@ -103,7 +103,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     //MARK: - Open Photo Library button actions
     
     @IBAction func openGalleryButtonPressed(_ sender: UIButton) {
-        
         Permission.photoLibrary.request {
             self.pc.checkPhotoLibraryPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission, limitedFunc: self.limitedPermission, vc: self)
         }
@@ -111,6 +110,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     
     //MARK: - Reading QR Codes from images in the Photo Library function (all photos)
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
         for result in results {
@@ -124,18 +124,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         for feature in features! {
                             qrCodeString += feature.messageString!
                         }
-                        if qrCodeString.isEmpty {
-                            let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
-                            
-                            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { action in
-                                self.session.startRunning()
-                            }))
-                            self.present(alert, animated: true, completion: nil)
-                            picker.dismiss(animated: true, completion: nil)
-                        } else {
-                            self.performSegue(withIdentifier: "showDetails", sender: self)
-                            picker.dismiss(animated: true, completion: nil)
-                        }
+                        self.qrCodeResult.getQrCodeResult(qrCodeString: qrCodeString,picker: picker,vc: self, qrCodeScanSource: "PhotoLibrary")
                     }
                 }
                 else {
@@ -145,8 +134,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
+    //MARK: - Get current Date function
     
-
+    func getDate() -> String
+    {
+        let currentTime = Date()
+        let format = DateFormatter()
+        format.timeStyle = .medium
+        format.dateStyle = .medium
+        return format.string(from: currentTime)
+    }
+    
     
     //MARK: - Actions to perform depending on the Photo Library permission status
     
@@ -175,6 +173,13 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func limitedPermission(vc: CameraViewController) -> Void {
         PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
     }
+    
+    //MARK: - Passing the QRcode scanned to DetailsViewController
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          let detailsVC = segue.destination as! DetailsViewController
+          detailsVC.qrCode = qrCode
+      }
 }
 
 

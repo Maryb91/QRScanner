@@ -30,6 +30,8 @@
 		9BD6BA91289C15CD00B53584 /* QRScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA90289C15CD00B53584 /* QRScannerTests.swift */; };
 		9BD6BA9B289C15CD00B53584 /* QRScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9A289C15CD00B53584 /* QRScannerUITests.swift */; };
 		9BD6BA9D289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */; };
+		9BE391C228B7BB3200C61777 /* QrResultTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391C128B7BB3200C61777 /* QrResultTypes.swift */; };
+		9BE3920028B7F6D200C61777 /* QrCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */; };
 		9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFA28A129900018D462 /* CameraPermission */; };
 		9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		9BD6BA96289C15CD00B53584 /* QRScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRScannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD6BA9A289C15CD00B53584 /* QRScannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerUITests.swift; sourceTree = "<group>"; };
 		9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BE391C128B7BB3200C61777 /* QrResultTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrResultTypes.swift; sourceTree = "<group>"; };
+		9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				9B5D62A228A66F9E00ACF6B2 /* Constants.swift */,
+				9BE391C128B7BB3200C61777 /* QrResultTypes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				9B3769B328A5328800B0A997 /* MainTabBarController.swift */,
 				9B3769B528A5532A00B0A997 /* PermissionChecker.swift */,
 				9BB53DEA28B4FDDB007AB795 /* DetailsViewController.swift */,
+				9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE391C228B7BB3200C61777 /* QrResultTypes.swift in Sources */,
 				9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */,
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
 				9B3769B628A5532A00B0A997 /* PermissionChecker.swift in Sources */,
@@ -351,6 +358,7 @@
 				9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */,
 				9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */,
 				9B6B2494289D351C0001E3DD /* LaunchAnimation.swift in Sources */,
+				9BE3920028B7F6D200C61777 /* QrCodeResult.swift in Sources */,
 				9B5D62A328A66F9E00ACF6B2 /* Constants.swift in Sources */,
 				9B6B24A0289D85D20001E3DD /* HistoryViewController.swift in Sources */,
 				9BD6BA7C289C15CA00B53584 /* SceneDelegate.swift in Sources */,

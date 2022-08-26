@@ -8,8 +8,9 @@
 import Foundation
 import RealmSwift
 
-class QRCode: Object {
+class QRCode: Object
+{
     @objc dynamic var result: String = ""
     @objc dynamic var type: String = ""
-    @objc dynamic var date = Date()
+    @objc dynamic var date : String = ""
 }
