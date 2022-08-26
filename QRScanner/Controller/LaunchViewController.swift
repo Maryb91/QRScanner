@@ -14,8 +14,7 @@ class LaunchViewController: UIViewController {
     
     //MARK: - Variables
     var animate = LaunchAnimation()
-    let userDefaults = UserDefaults.standard
-    let cp = PermissionChecker()
+
     //MARK: -Outlets
     
     @IBOutlet weak var logoLaunchImage: UIImageView!

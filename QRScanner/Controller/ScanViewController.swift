@@ -4,7 +4,6 @@
 //
 //  Created by Mariam B on 5/8/2022.
 //
-
 import UIKit
 import PermissionsKit
 import CameraPermission
@@ -74,4 +73,3 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     
 
 }
-

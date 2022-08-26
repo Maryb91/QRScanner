@@ -11,11 +11,13 @@ import PhotosUI
 
 // A class that manages the result of the QR code scanned
 class QrCodeResult {
+    
+    //MARK: - Variables
+    
     var typeChecker  = QrResultTypes()
+    var qrCodeDBManager = QRCodeDBManager()
     
     //MARK: - When the QR code is scanned from the Photo Library
-    
-    
     
     func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) {
         
@@ -23,7 +25,7 @@ class QrCodeResult {
             let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
             vc.present(alert, animated: true, completion: nil)
-            if(qrCodeScanSoure=="PhotoLibrary")
+            if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
                 picker!.dismiss(animated: true, completion: nil)
             }
@@ -31,8 +33,9 @@ class QrCodeResult {
             vc.qrCode.result = qrCodeString
             vc.qrCode.date = vc.getDate()
             vc.qrCode.type = typeChecker.checkType(result: qrCodeString)
+            qrCodeDBManager.saveQRCode(qrcode: vc.qrCode)
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
-            if(qrCodeScanSoure=="PhotoLibrary")
+            if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
                 picker!.dismiss(animated: true, completion: nil)
             }

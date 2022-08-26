@@ -25,7 +25,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
         scanVC =  storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
-        cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId)
+        cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId) as! CameraViewController
         self.displayScanVC(tabVC: self) 
     }
     

@@ -37,3 +37,10 @@ struct PermissionStatusDesc {
 struct SegueIDs {
     static let openCamera = "openCamera"
 }
+
+//MARK: - Permission types
+
+struct permissionSource {
+    static let cameraSource = "Camera"
+    static let photoLibrarySource = "PhotoLibrary"
+}

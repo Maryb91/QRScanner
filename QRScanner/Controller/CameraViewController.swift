@@ -4,7 +4,6 @@
 //
 //  Created by Mariam B on 9/8/2022.
 //
-
 import UIKit
 import AVFoundation
 import PermissionsKit
@@ -181,9 +180,4 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
           detailsVC.qrCode = qrCode
       }
 }
-
-
-
-
-
 
