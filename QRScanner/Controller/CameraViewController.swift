@@ -25,9 +25,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var cornerView : Corners?
-    var qrCode = QRCode()
     var pc = PermissionChecker()
-    var qrCodeResult = QrCodeResult ()
+    var qrCodeResult = QrCodeResult()
 
     //MARK: - viewDidLoad Method
     
@@ -35,6 +34,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         super.viewDidLoad()
         displayScanner()
     }
+
     
     //MARK: - Display Scanner Method
     
@@ -72,7 +72,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             if let result = readableObject.stringValue{
-                qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
+            qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
+                session.stopRunning()
             }
         }
     }
@@ -173,11 +174,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
     }
     
-    //MARK: - Passing the QRcode scanned to DetailsViewController
+    //MARK: - Passing the parameteres to DetailsViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           let detailsVC = segue.destination as! DetailsViewController
-          detailsVC.qrCode = qrCode
+          detailsVC.session = session
       }
 }
 

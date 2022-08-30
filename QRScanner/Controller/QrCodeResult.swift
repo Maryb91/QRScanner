@@ -16,10 +16,11 @@ class QrCodeResult {
     
     var typeChecker  = QrResultTypes()
     var qrCodeDBManager = QRCodeDBManager()
+    var qrCode = QRCode()
     
     //MARK: - When the QR code is scanned from the Photo Library
     
-    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) {
+    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) -> QRCode {
         
         if qrCodeString.isEmpty {
             let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
@@ -30,15 +31,13 @@ class QrCodeResult {
                 picker!.dismiss(animated: true, completion: nil)
             }
         } else {
-            vc.qrCode.result = qrCodeString
-            vc.qrCode.date = vc.getDate()
-            vc.qrCode.type = typeChecker.checkType(result: qrCodeString)
-            qrCodeDBManager.saveQRCode(qrcode: vc.qrCode)
+             qrCodeDBManager.saveQRCode(result: qrCodeString, date: vc.getDate(), type: typeChecker.checkType(result: qrCodeString))
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
             if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
                 picker!.dismiss(animated: true, completion: nil)
             }
         }
+        return qrCode
     }
 }

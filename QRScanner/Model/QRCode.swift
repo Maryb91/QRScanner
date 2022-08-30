@@ -10,7 +10,8 @@ import RealmSwift
 
 class QRCode: Object
 {
-    @objc dynamic var result: String = ""
-    @objc dynamic var type: String = ""
-    @objc dynamic var date : String = ""
+    @Persisted(primaryKey: true) var uuid = UUID().uuidString
+    @Persisted var result: String = ""
+    @Persisted var type: String = ""
+    @Persisted var date : String = ""
 }
