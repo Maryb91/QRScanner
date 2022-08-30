@@ -73,7 +73,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             if let result = readableObject.stringValue{
             qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
-                session.stopRunning()
+            session.stopRunning()
             }
         }
     }

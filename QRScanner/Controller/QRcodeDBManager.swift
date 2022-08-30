@@ -19,22 +19,23 @@ class QRCodeDBManager {
 //MARK: - Saving QR codes scanned in the Database
     
     func saveQRCode(result: String, date: String, type: String) -> Void{
-        var qrcode = QRCode()
-
         do {
         try realm.write {
+            let qrcode = QRCode()
             qrcode.result = result
             qrcode.date = date
             qrcode.type = type
             realm.add(qrcode)
         }
-        }catch {
+        } catch {
             print("Error saving a new QR code, \(error)")
         }
     }
     
+    //MARK: - Getting the last saved QR code in the Database
+    
     func getQRCode() -> QRCode? {
-        var qrcode = realm.objects(QRCode.self).last
+        let qrcode = realm.objects(QRCode.self).last
         return qrcode
     }
     

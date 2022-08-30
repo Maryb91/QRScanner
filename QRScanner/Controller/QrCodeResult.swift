@@ -16,11 +16,10 @@ class QrCodeResult {
     
     var typeChecker  = QrResultTypes()
     var qrCodeDBManager = QRCodeDBManager()
-    var qrCode = QRCode()
     
-    //MARK: - When the QR code is scanned from the Photo Library
+    //MARK: - Actions to perform according to the scan result (empty or returned)
     
-    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) -> QRCode {
+    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) -> Void {
         
         if qrCodeString.isEmpty {
             let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
@@ -38,6 +37,5 @@ class QrCodeResult {
                 picker!.dismiss(animated: true, completion: nil)
             }
         }
-        return qrCode
     }
 }
