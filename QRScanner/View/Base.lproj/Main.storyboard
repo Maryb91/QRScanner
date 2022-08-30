@@ -225,14 +225,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lK-gI-tBb">
-                                <rect key="frame" x="150" y="120" width="43" height="18"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                <rect key="frame" x="150" y="120" width="48.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-zu-Mgf">
-                                <rect key="frame" x="150" y="153" width="32" height="15"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                <rect key="frame" x="150" y="154.5" width="40" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -253,22 +253,27 @@
                                     <action selector="actionButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="AFT-h8-4Vp"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-mK-dvb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-mK-dvb">
                                 <rect key="frame" x="57" y="346" width="300" height="150"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" red="0.90090341012692732" green="0.92620033210206876" blue="0.98751663779192422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="HNy-I3-u9F"/>
                                     <constraint firstAttribute="height" constant="150" id="oP7-GM-AyB"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-Bk-1q2">
-                                <rect key="frame" x="267" y="631" width="67" height="44"/>
+                                <rect key="frame" x="265" y="631" width="90" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="9bc-SL-ueM"/>
+                                    <constraint firstAttribute="width" constant="80" id="9bc-SL-ueM"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -291,7 +296,7 @@
                             <constraint firstItem="1lK-gI-tBb" firstAttribute="leading" secondItem="OJU-2w-BrJ" secondAttribute="trailing" constant="40" id="Iaj-X0-Tjq"/>
                             <constraint firstItem="PMc-mK-dvb" firstAttribute="centerX" secondItem="Ht4-ph-1oB" secondAttribute="centerX" id="J7O-7r-xVF"/>
                             <constraint firstItem="vKD-zu-Mgf" firstAttribute="top" secondItem="1lK-gI-tBb" secondAttribute="bottom" constant="15" id="Myy-yr-IUr"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="ehr-Bk-1q2" secondAttribute="trailing" constant="80" id="NP8-Bj-Rv1"/>
+                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="ehr-Bk-1q2" secondAttribute="trailing" constant="100" id="NP8-Bj-Rv1"/>
                             <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="ehr-Bk-1q2" secondAttribute="bottom" constant="90" id="OaD-vk-gs0"/>
                             <constraint firstItem="PMc-mK-dvb" firstAttribute="centerY" secondItem="Ht4-ph-1oB" secondAttribute="centerY" id="eEJ-U6-Wcj"/>
                             <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="3Ja-W5-ebQ" secondAttribute="bottom" constant="90" id="eLa-fL-bht"/>
@@ -421,14 +426,8 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
