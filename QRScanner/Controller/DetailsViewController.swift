@@ -8,26 +8,31 @@
 import UIKit
 import RealmSwift
 import AVFoundation
+import ContactsUI
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
     
     //MARK: - Variables
     
     var qrCode = QRCode()
     var qrCodeDBManager = QRCodeDBManager()
     var session = AVCaptureSession()
-    
+    var qrResultType = QrResultTypes()
+    var pc = PermissionChecker()
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var resultTextView: UITextView!
     
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        qrCode = qrCodeDBManager.getQRCode()!
         showScannedQRCode()
     }
     
@@ -38,11 +43,38 @@ class DetailsViewController: UIViewController {
         typeLabel.text = qrCode.type
         dateLabel.text = qrCode.date
         resultTextView.text = qrCode.result
+        actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
+        if(qrCode.type == qrCodeTypes.textType)
+        {
+            searchButton.isHidden = false
+        }
+        if (qrCode.type == qrCodeTypes.contactType)
+        {
+            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
+            resultTextView.isHidden = true
+            view.addConstraints([
+                NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: actionButton, attribute: .centerX, multiplier: 1.0, constant: 0.0),
+                NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
+            ])
+            
+        }
     }
+    
     
     //MARK: - Action button pressed function (depending on the type of the QR Code scanned)
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
+        qrResultType.actionToType(qrcode: qrCode, vc:self)
+        
+    }
+    
+    //MARK: - Search the QR code scan result in Google
+    
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        var query = qrCode.result
+        query = query.replacingOccurrences(of: " ", with: "+")
+        var url = "https://www.google.co.in/search?q=" + query
+        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
     }
     
     
@@ -59,11 +91,44 @@ class DetailsViewController: UIViewController {
     }
     
     
+    //MARK: - Actions to perform depending on the Contacts permission status
+    
+    func authorizedPermission () -> Void{
+        if let data = qrCode.result.data(using: .utf8) {
+            do{
+                let contacts = try CNContactVCardSerialization.contacts(with: data)
+                let newContact = contacts.first!
+                let contactVC = CNContactViewController(forUnknownContact: newContact)
+                contactVC.contactStore = CNContactStore()
+                contactVC.delegate = self
+                contactVC.allowsActions = false
+                let navigationController = UINavigationController(rootViewController: contactVC)
+                self.present(navigationController, animated: true, completion: nil)
+            }catch {
+                print("error")
+            }
+        }
+    }
+    
+    func deniedPermission() -> Void{
+        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the Contacts permission from the app settings to show the scanned contact details", preferredStyle: UIAlertController.Style.alert)
+        settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }))
+        settingsAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            settingsAlert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(settingsAlert, animated: true, completion: nil)
+    }
+    
+    
     //MARK: - Actions to perform when the DetailsVC is dismissed
     
     override func viewDidDisappear(_ animated: Bool)
     {
         session.startRunning()
     }
+    
+    
     
 }

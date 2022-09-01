@@ -7,7 +7,7 @@
 
 import Foundation
 import PhotosUI
-
+import ContactsUI
 
 // A class that manages the result of the QR code scanned
 class QrCodeResult {
@@ -30,7 +30,7 @@ class QrCodeResult {
                 picker!.dismiss(animated: true, completion: nil)
             }
         } else {
-             qrCodeDBManager.saveQRCode(result: qrCodeString, date: vc.getDate(), type: typeChecker.checkType(result: qrCodeString))
+            qrCodeDBManager.saveQRCode(result: qrCodeString, date: vc.getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
             if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
@@ -39,3 +39,4 @@ class QrCodeResult {
         }
     }
 }
+

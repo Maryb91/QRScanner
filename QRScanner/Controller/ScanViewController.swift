@@ -41,6 +41,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
                self.pc.checkCameraPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission)
         }
     }
+    
     //MARK: - Open settings to set the Camera Permission
     
     @IBAction func openSettingsPressed(_ sender: UIButton)

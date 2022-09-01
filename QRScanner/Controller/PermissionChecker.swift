@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import PermissionsKit
-import CameraPermission
 import PhotosUI
 
 class PermissionChecker {
@@ -61,6 +60,28 @@ class PermissionChecker {
             deniedFunc()
         case .limited:
             PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: vc)
+        }
+    }
+    
+    //MARK: -  Get Contacts permission status
+    
+    func getContactsPermissionStatus() -> String
+    {
+        return Permission.contacts.status.description
+    }
+    
+    
+    //MARK: - Checking the Contacts Permission Status
+    
+    func checkContactPermissionStatus (authorizedFunc: () -> Void, deniedFunc: ()-> Void)
+    {
+        if(getContactsPermissionStatus() == PermissionStatusDesc.authorized)
+        {
+            authorizedFunc()
+        }
+        else if (getContactsPermissionStatus() == PermissionStatusDesc.denied)
+        {
+            deniedFunc()
         }
     }
 }

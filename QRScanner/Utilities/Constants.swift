@@ -44,3 +44,13 @@ struct permissionSource {
     static let cameraSource = "Camera"
     static let photoLibrarySource = "PhotoLibrary"
 }
+
+//MARK: - QR code types
+
+struct qrCodeTypes {
+    static let textType = "Text"
+    static let contactType = "Contact"
+    static let emailType = "Email"
+    static let phoneType = "Phone"
+    static let websiteType = "Website"
+}

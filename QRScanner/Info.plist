@@ -27,5 +27,7 @@
 	<string>This app requires the access to the Photo library to scan QR code images</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>Please allow the Contacts access permission in order to add a new contact</string>
 </dict>
 </plist>

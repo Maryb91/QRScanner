@@ -243,12 +243,14 @@
                                     <constraint firstAttribute="width" constant="50" id="rN3-yc-9Eg"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ja-W5-ebQ">
-                                <rect key="frame" x="80" y="631" width="67" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ja-W5-ebQ">
+                                <rect key="frame" x="195" y="526" width="24" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GEE-q5-CR3"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Button">
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="tinted"/>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="AFT-h8-4Vp"/>
                                 </connections>
@@ -270,8 +272,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-Bk-1q2">
-                                <rect key="frame" x="265" y="631" width="90" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-Bk-1q2">
+                                <rect key="frame" x="306" y="20" width="80" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="9bc-SL-ueM"/>
                                 </constraints>
@@ -285,29 +287,45 @@
                                     <action selector="shareButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="6hN-vD-mda"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8I-6i-jjO">
+                                <rect key="frame" x="140" y="591" width="134.5" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="B8M-iJ-7rt"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Search in Google">
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="ghd-Et-TkG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xin-Dp-sFv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1lK-gI-tBb" firstAttribute="top" secondItem="xin-Dp-sFv" secondAttribute="top" constant="120" id="0la-St-MIU"/>
-                            <constraint firstItem="3Ja-W5-ebQ" firstAttribute="leading" secondItem="xin-Dp-sFv" secondAttribute="leading" constant="80" id="5zH-KP-BnO"/>
+                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="ehr-Bk-1q2" secondAttribute="trailing" constant="28" id="2md-mf-mQL"/>
                             <constraint firstItem="OJU-2w-BrJ" firstAttribute="leading" secondItem="xin-Dp-sFv" secondAttribute="leading" constant="60" id="66k-Cb-DCe"/>
-                            <constraint firstItem="3Ja-W5-ebQ" firstAttribute="top" secondItem="PMc-mK-dvb" secondAttribute="bottom" constant="90" id="GpG-eV-Ond"/>
+                            <constraint firstItem="3Ja-W5-ebQ" firstAttribute="centerX" secondItem="Ht4-ph-1oB" secondAttribute="centerX" id="9kM-vJ-xhe"/>
+                            <constraint firstItem="n8I-6i-jjO" firstAttribute="centerX" secondItem="Ht4-ph-1oB" secondAttribute="centerX" id="EwU-1j-lkx"/>
+                            <constraint firstItem="3Ja-W5-ebQ" firstAttribute="top" secondItem="PMc-mK-dvb" secondAttribute="bottom" constant="30" id="GpG-eV-Ond"/>
                             <constraint firstItem="1lK-gI-tBb" firstAttribute="leading" secondItem="OJU-2w-BrJ" secondAttribute="trailing" constant="40" id="Iaj-X0-Tjq"/>
                             <constraint firstItem="PMc-mK-dvb" firstAttribute="centerX" secondItem="Ht4-ph-1oB" secondAttribute="centerX" id="J7O-7r-xVF"/>
                             <constraint firstItem="vKD-zu-Mgf" firstAttribute="top" secondItem="1lK-gI-tBb" secondAttribute="bottom" constant="15" id="Myy-yr-IUr"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="ehr-Bk-1q2" secondAttribute="trailing" constant="100" id="NP8-Bj-Rv1"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="ehr-Bk-1q2" secondAttribute="bottom" constant="90" id="OaD-vk-gs0"/>
                             <constraint firstItem="PMc-mK-dvb" firstAttribute="centerY" secondItem="Ht4-ph-1oB" secondAttribute="centerY" id="eEJ-U6-Wcj"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="3Ja-W5-ebQ" secondAttribute="bottom" constant="90" id="eLa-fL-bht"/>
                             <constraint firstItem="vKD-zu-Mgf" firstAttribute="leading" secondItem="OJU-2w-BrJ" secondAttribute="trailing" constant="40" id="epi-TW-8fR"/>
+                            <constraint firstItem="n8I-6i-jjO" firstAttribute="top" secondItem="3Ja-W5-ebQ" secondAttribute="bottom" constant="30" id="jSJ-II-VtS"/>
+                            <constraint firstItem="ehr-Bk-1q2" firstAttribute="top" secondItem="xin-Dp-sFv" secondAttribute="top" constant="20" id="v6E-mM-WVk"/>
                             <constraint firstItem="OJU-2w-BrJ" firstAttribute="top" secondItem="xin-Dp-sFv" secondAttribute="top" constant="120" id="vtI-Zb-gvT"/>
-                            <constraint firstItem="ehr-Bk-1q2" firstAttribute="top" secondItem="PMc-mK-dvb" secondAttribute="bottom" constant="90" id="z6r-Ro-lmw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="3Ja-W5-ebQ" id="oBd-93-nUe"/>
                         <outlet property="dateLabel" destination="vKD-zu-Mgf" id="Tj3-tE-vzr"/>
                         <outlet property="resultTextView" destination="PMc-mK-dvb" id="1SO-Ri-7XH"/>
+                        <outlet property="searchButton" destination="n8I-6i-jjO" id="vJQ-wP-Ak3"/>
                         <outlet property="typeLabel" destination="1lK-gI-tBb" id="RfJ-VH-eA5"/>
                     </connections>
                 </viewController>

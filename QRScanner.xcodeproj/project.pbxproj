@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1BB8A028C110E8006C654D /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB89F28C110E8006C654D /* CameraPermission */; };
+		9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A128C110E8006C654D /* ContactsPermission */; };
+		9B1BB8A428C110E8006C654D /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */; };
 		9B3769B428A5328800B0A997 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B328A5328800B0A997 /* MainTabBarController.swift */; };
 		9B3769B628A5532A00B0A997 /* PermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B528A5532A00B0A997 /* PermissionChecker.swift */; };
 		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
@@ -33,8 +36,6 @@
 		9BD6BA9D289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */; };
 		9BE391C228B7BB3200C61777 /* QrResultTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391C128B7BB3200C61777 /* QrResultTypes.swift */; };
 		9BE3920028B7F6D200C61777 /* QrCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */; };
-		9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFA28A129900018D462 /* CameraPermission */; };
-		9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +93,9 @@
 			files = (
 				9BB53DF128B54F5D007AB795 /* RealmSwift in Frameworks */,
 				9BB53DEF28B54F5D007AB795 /* Realm in Frameworks */,
-				9BE9EDFD28A129900018D462 /* PhotoLibraryPermission in Frameworks */,
-				9BE9EDFB28A129900018D462 /* CameraPermission in Frameworks */,
+				9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */,
+				9B1BB8A028C110E8006C654D /* CameraPermission in Frameworks */,
+				9B1BB8A428C110E8006C654D /* PhotoLibraryPermission in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,10 +231,11 @@
 			);
 			name = QRScanner;
 			packageProductDependencies = (
-				9BE9EDFA28A129900018D462 /* CameraPermission */,
-				9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */,
 				9BB53DEE28B54F5D007AB795 /* Realm */,
 				9BB53DF028B54F5D007AB795 /* RealmSwift */,
+				9B1BB89F28C110E8006C654D /* CameraPermission */,
+				9B1BB8A128C110E8006C654D /* ContactsPermission */,
+				9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */,
 			);
 			productName = QRScanner;
 			productReference = 9BD6BA76289C15CA00B53584 /* QRScanner.app */;
@@ -307,8 +310,8 @@
 			);
 			mainGroup = 9BD6BA6D289C15CA00B53584;
 			packageReferences = (
-				9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 				9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 			);
 			productRefGroup = 9BD6BA77289C15CA00B53584 /* Products */;
 			projectDirPath = "";
@@ -716,6 +719,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -724,17 +735,24 @@
 				minimumVersion = 10.28.6;
 			};
 		};
-		9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9B1BB89F28C110E8006C654D /* CameraPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = CameraPermission;
+		};
+		9B1BB8A128C110E8006C654D /* ContactsPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = ContactsPermission;
+		};
+		9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = PhotoLibraryPermission;
+		};
 		9BB53DEE28B54F5D007AB795 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -744,16 +762,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		9BE9EDFA28A129900018D462 /* CameraPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = CameraPermission;
-		};
-		9BE9EDFC28A129900018D462 /* PhotoLibraryPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BE9EDF928A129900018D462 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = PhotoLibraryPermission;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
