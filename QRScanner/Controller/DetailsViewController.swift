@@ -10,7 +10,7 @@ import RealmSwift
 import AVFoundation
 import ContactsUI
 
-class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
+class DetailsViewController: UIViewController,CNContactViewControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Variables
     
@@ -73,7 +73,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         var query = qrCode.result
         query = query.replacingOccurrences(of: " ", with: "+")
-        var url = "https://www.google.co.in/search?q=" + query
+        let url = "https://www.google.co.in/search?q=" + query
         UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
     }
     
@@ -102,8 +102,10 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
                 contactVC.contactStore = CNContactStore()
                 contactVC.delegate = self
                 contactVC.allowsActions = false
+                contactVC.addDissmissButton()
                 let navigationController = UINavigationController(rootViewController: contactVC)
-                self.present(navigationController, animated: true, completion: nil)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: false)
             }catch {
                 print("error")
             }
@@ -122,6 +124,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
     }
     
     
+
     //MARK: - Actions to perform when the DetailsVC is dismissed
     
     override func viewDidDisappear(_ animated: Bool)
@@ -129,6 +132,38 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate {
         session.startRunning()
     }
     
-    
+  
     
 }
+
+//MARK: - Adding a button to dismiss the contactVC
+
+extension UIBarButtonItem {
+private struct AssociatedObject {
+    static var key = "action_closure_key"
+}
+
+var actionClosure: (()->Void)? {
+    get {
+        return objc_getAssociatedObject(self, &AssociatedObject.key) as? ()->Void
+    }
+    set {
+        objc_setAssociatedObject(self, &AssociatedObject.key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        target = self
+        action = #selector(didTapButton(sender:))
+    }
+}
+
+@objc func didTapButton(sender: Any) {
+    actionClosure?()
+}
+}
+
+extension UIViewController{
+func addDissmissButton(){
+    let cancelButton = UIBarButtonItem.init(title: "©", style: .plain, target: self, action: nil)
+    cancelButton.actionClosure = {
+        self.dismiss(animated: true)
+    }
+    self.navigationItem.leftBarButtonItem = cancelButton
+}}
