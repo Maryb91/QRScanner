@@ -9,8 +9,9 @@ import UIKit
 import RealmSwift
 import AVFoundation
 import ContactsUI
+import MessageUI
 
-class DetailsViewController: UIViewController,CNContactViewControllerDelegate, UINavigationControllerDelegate {
+class DetailsViewController: UIViewController,CNContactViewControllerDelegate, UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     //MARK: - Variables
     
@@ -48,7 +49,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         {
             searchButton.isHidden = false
         }
-        if (qrCode.type == qrCodeTypes.contactType)
+        if (qrCode.type == qrCodeTypes.contactType || qrCode.type == qrCodeTypes.emailType)
         {
             actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
             resultTextView.isHidden = true
@@ -132,8 +133,11 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         session.startRunning()
     }
     
-  
+    //MARK: - mailComposeController
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
 
 //MARK: - Adding a button to dismiss the contactVC
