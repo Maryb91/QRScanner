@@ -57,6 +57,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
                 NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: actionButton, attribute: .centerX, multiplier: 1.0, constant: 0.0),
                 NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
             ])
+            print(qrCode.result)
             
         }
     }

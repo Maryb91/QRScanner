@@ -94,9 +94,10 @@ class QrResultTypes {
     
     func openEmailDetails(vc: DetailsViewController, result: String) {
         let emailComponents = splitEmail(str: result)
-        let recipientEmail = emailComponents["email"]
-        let subject = emailComponents["subject"]
-        let body = emailComponents["body"]
+        var recipientEmail = ""
+        var subject = ""
+        var body = ""
+        
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = vc
@@ -153,22 +154,27 @@ class QrResultTypes {
         var body = ""
         var subject = ""
         var email = ""
+        let emailComponents : [String:String]
         let split1 = str.split(separator: ":")
         let split2 = split1[1].split(separator: "?")
         email = String(split2[0])
+        if split2.count>1 {
+            print("il y a un subject ou body")
         let split3 = split2[1].split(separator: "&")
         let part1 = split3[0]
-        let part2 = split3[1]
         let result1 = part1.split(separator: "=")
+                    if(result1[0]=="body")
+                    {
+                        body = String(result1[1])
+                    }
+                    if (result1[0]=="subject")
+                    {
+                        subject = String(result1[1])
+                    }
+        if split3.count>1
+        {
+        let part2 = split3[1]
         let result2 = part2.split(separator: "=")
-        if(result1[0]=="body")
-        {
-            body = String(result1[1])
-        }
-        if (result1[0]=="subject")
-        {
-            subject = String(result1[1])
-        }
         if (result2[0]=="body")
         {
             body = String(result2[1])
@@ -177,9 +183,11 @@ class QrResultTypes {
         {
             subject = String(result2[1])
         }
-        let emailComponents =   ["email": email,
-                                 "subject": subject,
-                                 "body": body]
+        }
+        }
+        emailComponents =   ["email": email,
+                                "subject": subject,
+                                "body": body]
         return emailComponents
     }
     
