@@ -94,10 +94,11 @@ class QrResultTypes {
     
     func openEmailDetails(vc: DetailsViewController, result: String) {
         let emailComponents = splitEmail(str: result)
-        var recipientEmail = ""
-        var subject = ""
-        var body = ""
+        let recipientEmail = emailComponents["email"]
+        let subject = emailComponents["subject"]
+        let body = emailComponents["body"]
         
+        // Show the default mail app
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = vc
@@ -114,7 +115,7 @@ class QrResultTypes {
             
             // Show third party email composer if default Mail app is not present
         }
-        else if let emailUrl = createEmailUrl(to: recipientEmail, subject: subject, body: body, vc:vc) {
+        else if let emailUrl = createEmailUrl(to: recipientEmail!, subject: subject!, body: body!, vc:vc) {
             UIApplication.shared.open(emailUrl)
         }
     }
@@ -122,13 +123,15 @@ class QrResultTypes {
     
     //MARK: - Function to create the email URL depending on the email app
     
-    func createEmailUrl(to: String?, subject: String?, body: String?, vc: DetailsViewController) -> URL? {
+    func createEmailUrl(to: String, subject: String, body: String, vc: DetailsViewController) -> URL? {
+        let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let bodyEncoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subject)&body=\(body)")
+        let gmailUrl = URL(string: "googlegmail:///co?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
         let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subject)&body=\(body)")
         let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subject)&body=\(body)")
         let  sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subject)&body=\(body)")
-        let  defaultUrl = URL(string: "mailto:\(to)?subject=\(subject)&body=\(body)")
+        let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)&body=\(bodyEncoded)")
         
         if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
             return gmailUrl
@@ -159,35 +162,34 @@ class QrResultTypes {
         let split2 = split1[1].split(separator: "?")
         email = String(split2[0])
         if split2.count>1 {
-            print("il y a un subject ou body")
-        let split3 = split2[1].split(separator: "&")
-        let part1 = split3[0]
-        let result1 = part1.split(separator: "=")
-                    if(result1[0]=="body")
-                    {
-                        body = String(result1[1])
-                    }
-                    if (result1[0]=="subject")
-                    {
-                        subject = String(result1[1])
-                    }
-        if split3.count>1
-        {
-        let part2 = split3[1]
-        let result2 = part2.split(separator: "=")
-        if (result2[0]=="body")
-        {
-            body = String(result2[1])
-        }
-        if (result2[0]=="subject")
-        {
-            subject = String(result2[1])
-        }
-        }
+            let split3 = split2[1].split(separator: "&")
+            let part1 = split3[0]
+            let result1 = part1.split(separator: "=")
+            if(result1[0]=="body")
+            {
+                body = String(result1[1])
+            }
+            if (result1[0]=="subject")
+            {
+                subject = String(result1[1])
+            }
+            if split3.count>1
+            {
+                let part2 = split3[1]
+                let result2 = part2.split(separator: "=")
+                if (result2[0]=="body")
+                {
+                    body = String(result2[1])
+                }
+                if (result2[0]=="subject")
+                {
+                    subject = String(result2[1])
+                }
+            }
         }
         emailComponents =   ["email": email,
-                                "subject": subject,
-                                "body": body]
+                             "subject": subject,
+                             "body": body]
         return emailComponents
     }
     

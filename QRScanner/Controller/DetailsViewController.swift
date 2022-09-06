@@ -83,7 +83,6 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     //MARK: - Share button pressed function
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        
         let text = qrCode.result
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
@@ -126,6 +125,12 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     }
     
     
+    //MARK: - mailComposeController
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
 
     //MARK: - Actions to perform when the DetailsVC is dismissed
     
@@ -134,13 +139,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         session.startRunning()
     }
     
-    //MARK: - mailComposeController
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
 }
-
 //MARK: - Adding a button to dismiss the contactVC
 
 extension UIBarButtonItem {
