@@ -54,6 +54,10 @@ class QrResultTypes {
         {
             return "Open email details"
         }
+        else if (scanResultType == qrCodeTypes.phoneType)
+        {
+            return "Call phone number"
+        }
         return ""
     }
     
@@ -73,8 +77,22 @@ class QrResultTypes {
         {
             openEmailDetails(vc: vc, result: qrcode.result)
         }
+        else if (qrcode.type == qrCodeTypes.phoneType)
+        {
+            callNumber(number: qrcode.result)
+        }
     }
     
+    
+    //MARK: - Search a String on Google
+    
+    func searchOnGoogle(result: String)
+    {
+        var query = result
+        query = query.replacingOccurrences(of: " ", with: "+")
+        let url = "https://www.google.co.in/search?q=" + query
+        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+    }
     
     //MARK: - Function to copy text to the Clipboard
     
@@ -193,6 +211,19 @@ class QrResultTypes {
         return emailComponents
     }
     
+    //MARK: - Function to call the phone Number
     
+    func callNumber(number: String)
+    {
+            if let url = URL(string:(number)), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+    }
+    
+
 }
 

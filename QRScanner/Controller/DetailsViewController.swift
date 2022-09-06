@@ -26,7 +26,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var resultTextView: UITextView!
     
     //MARK: - viewDidLoad Method
@@ -47,7 +47,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
         if(qrCode.type == qrCodeTypes.textType)
         {
-            searchButton.isHidden = false
+            secondButton.isHidden = false
         }
         if (qrCode.type == qrCodeTypes.contactType || qrCode.type == qrCodeTypes.emailType)
         {
@@ -58,7 +58,11 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
                 NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
             ])
             print(qrCode.result)
-            
+        }
+        if(qrCode.type == qrCodeTypes.phoneType)
+        {
+            secondButton.isHidden = false
+            secondButton.setTitle("Copy", for: .normal)
         }
     }
     
@@ -72,11 +76,15 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     //MARK: - Search the QR code scan result in Google
     
-    @IBAction func searchButtonPressed(_ sender: UIButton) {
-        var query = qrCode.result
-        query = query.replacingOccurrences(of: " ", with: "+")
-        let url = "https://www.google.co.in/search?q=" + query
-        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+    @IBAction func secondButtonPressed(_ sender: UIButton) {
+        
+        if(qrCode.type == qrCodeTypes.phoneType)
+        {
+            qrResultType.copyText(scanResult:qrCode.result)
+        }
+        else {
+            qrResultType.searchOnGoogle(result: qrCode.result)
+        }
     }
     
     

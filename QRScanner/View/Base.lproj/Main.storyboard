@@ -255,15 +255,15 @@
                                     <action selector="actionButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="AFT-h8-4Vp"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-mK-dvb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-mK-dvb">
                                 <rect key="frame" x="57" y="346" width="300" height="150"/>
                                 <color key="backgroundColor" red="0.90090341012692732" green="0.92620033210206876" blue="0.98751663779192422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="HNy-I3-u9F"/>
                                     <constraint firstAttribute="height" constant="150" id="oP7-GM-AyB"/>
                                 </constraints>
-                                <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="NO"/>
@@ -298,7 +298,7 @@
                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="searchButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="ghd-Et-TkG"/>
+                                    <action selector="secondButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="X3S-JF-uyC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -325,7 +325,7 @@
                         <outlet property="actionButton" destination="3Ja-W5-ebQ" id="oBd-93-nUe"/>
                         <outlet property="dateLabel" destination="vKD-zu-Mgf" id="Tj3-tE-vzr"/>
                         <outlet property="resultTextView" destination="PMc-mK-dvb" id="1SO-Ri-7XH"/>
-                        <outlet property="searchButton" destination="n8I-6i-jjO" id="vJQ-wP-Ak3"/>
+                        <outlet property="secondButton" destination="n8I-6i-jjO" id="dQg-4q-9Wo"/>
                         <outlet property="typeLabel" destination="1lK-gI-tBb" id="RfJ-VH-eA5"/>
                     </connections>
                 </viewController>
