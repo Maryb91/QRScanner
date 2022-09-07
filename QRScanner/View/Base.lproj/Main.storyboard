@@ -362,6 +362,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="96Z-Al-PFM">
+                            <rect key="frame" x="0.0" y="110.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="scanButtonPressed:" destination="i0d-yW-dI1" eventType="touchUpInside" id="JHW-QY-aB1"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="qrCell" textLabel="HVx-45-9ga" detailTextLabel="h8G-aa-K1X" style="IBUITableViewCellStyleSubtitle" id="ez5-Zp-3jo">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -398,6 +407,9 @@
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="J7s-Yv-H8N"/>
+                    <connections>
+                        <outlet property="scanButton" destination="96Z-Al-PFM" id="E0E-j5-iXj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thF-Ch-a1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
