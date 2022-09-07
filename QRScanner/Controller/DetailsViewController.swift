@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 import AVFoundation
 import ContactsUI
 import MessageUI
@@ -173,7 +172,7 @@ var actionClosure: (()->Void)? {
 
 extension UIViewController{
 func addDissmissButton(){
-    let cancelButton = UIBarButtonItem.init(title: "©", style: .plain, target: self, action: nil)
+    let cancelButton = UIBarButtonItem.init(title: "Dismiss", style: .plain, target: self, action: nil)
     cancelButton.actionClosure = {
         self.dismiss(animated: true)
     }

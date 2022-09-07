@@ -39,4 +39,12 @@ class QRCodeDBManager {
         return qrcode
     }
     
+    //MARK: - Get All scanned QR codes (history)
+    
+    func getHistory() -> Results<QRCode>?
+    {
+        let realm = try? Realm()
+        let data = realm?.objects(QRCode.self).sorted(byKeyPath: "date", ascending: false)
+                return data
+    }
 }

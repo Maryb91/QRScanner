@@ -224,6 +224,25 @@ class QrResultTypes {
             }
     }
     
+    //MARK: - Get contact First and Last names
+    
+    func getContactName(result : String) -> String
+    {
+        var contactNames = ""
+        if let data = result.data(using: .utf8) {
+            do{
+                let contacts = try CNContactVCardSerialization.contacts(with: data)
+                let newContact = contacts.first!
+                contactNames = newContact.givenName
+                contactNames.append(" \(newContact.familyName)")
+            }catch {
+                print("error")
+            }
+        }
+        return contactNames
+
+    }
+    
 
 }
 
