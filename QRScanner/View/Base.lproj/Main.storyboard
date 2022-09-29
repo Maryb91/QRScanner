@@ -347,12 +347,72 @@
                     <connections>
                         <segue destination="eGa-hf-tIC" kind="relationship" relationship="viewControllers" id="ymP-il-EIh"/>
                         <segue destination="i0d-yW-dI1" kind="relationship" relationship="viewControllers" id="eXx-15-LGA"/>
-                        <segue destination="n5Y-4x-R72" kind="relationship" relationship="viewControllers" id="h8K-2x-s0U"/>
+                        <segue destination="DeY-Ss-e2v" kind="relationship" relationship="viewControllers" id="9Tv-yb-GEL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGK-rD-38F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1022" y="117"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="c6G-z1-rJQ">
+            <objects>
+                <tableViewController id="DeY-Ss-e2v" customClass="SettingsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ELT-OP-Zjp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="byL-Hv-pvw">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="byL-Hv-pvw" id="alo-Va-KlZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DeY-Ss-e2v" id="lLs-bA-Gok"/>
+                            <outlet property="delegate" destination="DeY-Ss-e2v" id="WKW-St-kpZ"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear.circle" catalog="system" id="rKs-7e-GWi"/>
+                    <connections>
+                        <segue destination="cg1-pU-6UU" kind="show" identifier="showSettingsDetails" id="5H4-vd-c63"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfU-6A-5YK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2529" y="554"/>
+        </scene>
+        <!--Settings Item View Controller-->
+        <scene sceneID="QPj-V8-qSx">
+            <objects>
+                <viewController id="cg1-pU-6UU" customClass="SettingsItemViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lP-fO-lT6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKV-9C-bMZ">
+                                <rect key="frame" x="111" y="233" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gak-OJ-5XE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6mL-mh-Pue"/>
+                    <connections>
+                        <outlet property="textLabel" destination="hKV-9C-bMZ" id="fJn-Hn-v8I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUr-pH-HGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4005.7971014492755" y="391.74107142857139"/>
         </scene>
         <!--History-->
         <scene sceneID="85k-Qu-iM8">
@@ -415,25 +475,6 @@
             </objects>
             <point key="canvasLocation" x="2339" y="-292"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="0bM-nV-xnw">
-            <objects>
-                <viewController id="n5Y-4x-R72" customClass="SettingsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nzK-OH-lwU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="2Ce-ln-yxK"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                        <color key="tintColor" systemColor="linkColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="uxV-GQ-nn3">
-                        <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uPZ-xr-X2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2390" y="1186"/>
-        </scene>
         <!--Scan-->
         <scene sceneID="qwr-1h-sb1">
             <objects>
@@ -461,15 +502,12 @@
         <image name="camera" width="256" height="256"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="flashlight.off.fill" catalog="system" width="76" height="128"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="gear.circle" catalog="system" width="128" height="121"/>
         <image name="line" width="256" height="256"/>
         <image name="logo.png" width="170" height="60"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -478,9 +516,6 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

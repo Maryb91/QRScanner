@@ -11,6 +11,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let userDefaults = UserDefaults.standard
+
+            if userDefaults.object(forKey: "vibrate") == nil {
+                userDefaults.set(true, forKey: "vibrate")
+            }
         return true
     }
 

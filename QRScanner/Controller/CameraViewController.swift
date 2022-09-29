@@ -27,6 +27,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var cornerView : Corners?
     var pc = PermissionChecker()
     var qrCodeResult = QrCodeResult()
+    let userDefaults = UserDefaults.standard
 
     //MARK: - viewDidLoad Method
     
@@ -70,7 +71,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let readableObject = metaDataObject as? AVMetadataMachineReadableCodeObject else {
                 return
             }
+            if (userDefaults.bool(forKey: "vibrate"))
+            {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
             if let result = readableObject.stringValue{
             qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
             session.stopRunning()

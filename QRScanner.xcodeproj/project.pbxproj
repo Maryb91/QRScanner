@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1BB65328E472FA004C4B0C /* SettingsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1BB65228E472FA004C4B0C /* SettingsItemViewController.swift */; };
 		9B1BB8A028C110E8006C654D /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB89F28C110E8006C654D /* CameraPermission */; };
 		9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A128C110E8006C654D /* ContactsPermission */; };
 		9B1BB8A428C110E8006C654D /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B1BB65228E472FA004C4B0C /* SettingsItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemViewController.swift; sourceTree = "<group>"; };
 		9B3769B328A5328800B0A997 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		9B3769B528A5532A00B0A997 /* PermissionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionChecker.swift; sourceTree = "<group>"; };
 		9B56606D28A2B400008E495A /* Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		9B6B2492289D2C690001E3DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9B1BB65228E472FA004C4B0C /* SettingsItemViewController.swift */,
 				9BD6BA7D289C15CA00B53584 /* LaunchViewController.swift */,
 				9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */,
 				9B6B249F289D85D20001E3DD /* HistoryViewController.swift */,
@@ -360,6 +363,7 @@
 				9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */,
 				9BD6BA7E289C15CA00B53584 /* LaunchViewController.swift in Sources */,
 				9B3769B628A5532A00B0A997 /* PermissionChecker.swift in Sources */,
+				9B1BB65328E472FA004C4B0C /* SettingsItemViewController.swift in Sources */,
 				9BD6BA7A289C15CA00B53584 /* AppDelegate.swift in Sources */,
 				9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */,
 				9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */,
