@@ -60,4 +60,17 @@ class QRCodeDBManager {
         }
         
     }
+    
+    //MARK: - Delete all History
+    
+    func deleteAll() {
+        do{
+            try realm.write {
+                realm.deleteAll()
+            }
+        }
+        catch {
+            print("Error deleting course: \(error)")
+        }
+    }
 }

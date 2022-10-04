@@ -464,7 +464,13 @@
                             <outlet property="delegate" destination="i0d-yW-dI1" id="940-70-Syu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="4WB-wj-E5G"/>
+                    <navigationItem key="navigationItem" title="History" id="4WB-wj-E5G">
+                        <barButtonItem key="rightBarButtonItem" image="clear" catalog="system" id="MDz-7O-wtm">
+                            <connections>
+                                <action selector="clearAll:" destination="i0d-yW-dI1" id="kJY-iP-Bn3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scanButton" destination="96Z-Al-PFM" id="E0E-j5-iXj"/>
                         <segue destination="Qpk-1Y-sQD" kind="show" identifier="showDetails" id="CDk-VS-4ox"/>
@@ -525,6 +531,7 @@
     <resources>
         <image name="arrow.turn.right.down" catalog="system" width="120" height="128"/>
         <image name="camera" width="256" height="256"/>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="flashlight.off.fill" catalog="system" width="76" height="128"/>
         <image name="gear.circle" catalog="system" width="128" height="121"/>

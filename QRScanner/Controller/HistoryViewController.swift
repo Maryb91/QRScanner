@@ -96,4 +96,18 @@ class HistoryViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailsVC = segue.destination as! DetailsViewController
     }
+    
+    
+    @IBAction func clearAll(_ sender: UIBarButtonItem) {
+        let clearAllAlert = UIAlertController(title: "Clear the History", message: "Are you sure you want to clear all the QR codes in history?", preferredStyle: UIAlertController.Style.alert)
+        clearAllAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.qrCodeDBManager.deleteAll()
+            self.tableView.reloadData()
+        }))
+        clearAllAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            clearAllAlert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(clearAllAlert, animated: true, completion: nil)
+    
+    }
 }
