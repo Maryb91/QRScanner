@@ -9,12 +9,14 @@ import UIKit
 import RealmSwift
 
 class HistoryViewController: UITableViewController {
-
+    
     //MARK: - Variables
     
     var qrCodeDBManager = QRCodeDBManager()
     var qrcodes : Results<QRCode>?
     var qrResultType = QrResultTypes()
+    var qrCodeResult = QrCodeResult()
+    
     
     //MARK: - IBOutlets
     
@@ -29,7 +31,7 @@ class HistoryViewController: UITableViewController {
         self.tableView.rowHeight = 80.0
         scanButton.isHidden = true
     }
-
+    
     //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +45,7 @@ class HistoryViewController: UITableViewController {
             return 0
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
         cell.textLabel?.text = qrcodes?[indexPath.row].type
@@ -53,11 +55,25 @@ class HistoryViewController: UITableViewController {
             cell.detailTextLabel?.text = contactNames
         }
         else {
-        cell.detailTextLabel?.text = qrcodes?[indexPath.row].result 
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
+            cell.detailTextLabel?.text = qrcodes?[indexPath.row].result
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
         }
-
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let qrcode = qrcodes?[indexPath.row] {
+                qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.row].result)!,picker: nil,vc: self, qrCodeScanSource: "")
+        
     }
     
     //MARK: - Function that gets all the scanned QR codes from the database and loads them into the tableview
@@ -75,5 +91,9 @@ class HistoryViewController: UITableViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
-
+    //MARK: - Passing the parameteres to DetailsViewController
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsVC = segue.destination as! DetailsViewController
+    }
 }

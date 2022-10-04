@@ -137,17 +137,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             })
         }
     }
-    
-    //MARK: - Get current Date function
-    
-    func getDate() -> String
-    {
-        let currentTime = Date()
-        let format = DateFormatter()
-        format.timeStyle = .medium
-        format.dateStyle = .medium
-        return format.string(from: currentTime)
-    }
+
     
     
     //MARK: - Actions to perform depending on the Photo Library permission status

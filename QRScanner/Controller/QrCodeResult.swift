@@ -19,7 +19,7 @@ class QrCodeResult {
     
     //MARK: - Actions to perform according to the scan result (empty or returned)
     
-    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: CameraViewController, qrCodeScanSource : String) -> Void {
+    func getQrCodeResult(qrCodeString: String, picker: PHPickerViewController?, vc: UIViewController, qrCodeScanSource : String) -> Void {
         
         if qrCodeString.isEmpty {
             let alert = UIAlertController(title: "Invalid QRCode", message: "The QR code is invalid, please provide a clear image", preferredStyle: .actionSheet)
@@ -30,13 +30,25 @@ class QrCodeResult {
                 picker!.dismiss(animated: true, completion: nil)
             }
         } else {
-            qrCodeDBManager.saveQRCode(result: qrCodeString, date: vc.getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
+            qrCodeDBManager.saveQRCode(result: qrCodeString, date: getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
             if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
                 picker!.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    
+    //MARK: - Get current Date function
+    
+    func getDate() -> String
+    {
+        let currentTime = Date()
+        let format = DateFormatter()
+        format.timeStyle = .medium
+        format.dateStyle = .medium
+        return format.string(from: currentTime)
     }
 }
 

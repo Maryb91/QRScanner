@@ -16,17 +16,17 @@ class QRCodeDBManager {
     
     let realm = try! Realm()
     
-//MARK: - Saving QR codes scanned in the Database
+    //MARK: - Saving QR codes scanned in the Database
     
     func saveQRCode(result: String, date: String, type: String) -> Void{
         do {
-        try realm.write {
-            let qrcode = QRCode()
-            qrcode.result = result
-            qrcode.date = date
-            qrcode.type = type
-            realm.add(qrcode)
-        }
+            try realm.write {
+                let qrcode = QRCode()
+                qrcode.result = result
+                qrcode.date = date
+                qrcode.type = type
+                realm.add(qrcode)
+            }
         } catch {
             print("Error saving a new QR code, \(error)")
         }
@@ -43,8 +43,21 @@ class QRCodeDBManager {
     
     func getHistory() -> Results<QRCode>?
     {
-        let realm = try? Realm()
-        let data = realm?.objects(QRCode.self).sorted(byKeyPath: "date", ascending: false)
-                return data
+        let data = realm.objects(QRCode.self).sorted(byKeyPath: "date", ascending: false)
+        return data
+    }
+    
+    //MARK: - Delete an item from History
+    
+    func deleteHistoryItem(qrcode : QRCode) {
+        do{
+            try realm.write {
+                realm.delete(qrcode)
+            }
+        }
+        catch {
+            print("Error deleting course: \(error)")
+        }
+        
     }
 }

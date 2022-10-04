@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     //MARK: - Variables
     
     let items = ["About us", "Privacy policy", "Terms of service", "Vibrate","Contact us"]
     let vSwitch = UISwitch(frame: CGRect.zero) as UISwitch
     let userDefaults = UserDefaults.standard
+    var qrType = QrResultTypes()
 
    //MARK: - viewDidLoad
     
@@ -43,12 +45,24 @@ class SettingsViewController: UITableViewController {
         return cell
     }
     
-
     
    //MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showSettingsDetails", sender: self)
+          //  performSegue(withIdentifier: "showSettingsDetails", sender: self)
+        
+        if(indexPath.row == 4)
+        {
+            openMailApp()
+        }
+       else if (indexPath.row == 3)
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
+            cell.selectionStyle = .none
+        }
+        else {
+            performSegue(withIdentifier: "showSettingsDetails", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,5 +86,28 @@ class SettingsViewController: UITableViewController {
        userDefaults.set(vibrateStatus, forKey: "vibrate")
 
     }
+    
+    //MARK: - Function to open the mail app (contact us)
+    
+    func openMailApp(){
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            let recipientEmail = "test@test.fr"
+                mail.setToRecipients([recipientEmail])
+            let subject = "Feedback"
+                mail.setSubject(subject)
+            let body = ""
+                mail.setMessageBody(body, isHTML: false)
+            self.present(mail, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: - mailComposeController
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
     
 }
