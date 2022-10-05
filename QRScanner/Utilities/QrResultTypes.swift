@@ -58,6 +58,10 @@ class QrResultTypes {
         {
             return "Call phone number"
         }
+        else if (scanResultType == qrCodeTypes.websiteType)
+        {
+            return "Open in Browser"
+        }
         return ""
     }
     
@@ -81,6 +85,11 @@ class QrResultTypes {
         {
             callNumber(number: qrcode.result)
         }
+        else if (qrcode.type == qrCodeTypes.websiteType)
+        {
+            openLink(result: qrcode.result)
+        }
+       
     }
     
     
@@ -241,6 +250,14 @@ class QrResultTypes {
         }
         return contactNames
 
+    }
+    
+    //MARK: - Open Website links
+    
+    func openLink(result: String) {
+        if let url = URL(string: result), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
     
 

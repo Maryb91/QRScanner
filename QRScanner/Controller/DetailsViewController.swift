@@ -44,11 +44,11 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         dateLabel.text = qrCode.date
         resultTextView.text = qrCode.result
         actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
-        if(qrCode.type == qrCodeTypes.textType)
+        if(qrCode.type == qrCodeTypes.textType || qrCode.type == qrCodeTypes.websiteType  )
         {
             secondButton.isHidden = false
         }
-        if (qrCode.type == qrCodeTypes.contactType || qrCode.type == qrCodeTypes.emailType)
+       else if (qrCode.type == qrCodeTypes.contactType || qrCode.type == qrCodeTypes.emailType)
         {
             actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
             resultTextView.isHidden = true
@@ -58,10 +58,14 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
             ])
             print(qrCode.result)
         }
-        if(qrCode.type == qrCodeTypes.phoneType)
+       else if(qrCode.type == qrCodeTypes.phoneType)
         {
             secondButton.isHidden = false
             secondButton.setTitle("Copy", for: .normal)
+        }
+        else {
+            actionButton.isHidden = true
+            secondButton.isHidden = false
         }
     }
     
