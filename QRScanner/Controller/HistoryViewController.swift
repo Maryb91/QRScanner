@@ -16,7 +16,7 @@ class HistoryViewController: UITableViewController {
     var qrcodes : Results<QRCode>?
     var qrResultType = QrResultTypes()
     var qrCodeResult = QrCodeResult()
-    
+
     
     //MARK: - IBOutlets
     
@@ -55,7 +55,7 @@ class HistoryViewController: UITableViewController {
             cell.detailTextLabel?.text = contactNames
         }
         else {
-            cell.detailTextLabel?.text = qrcodes?[indexPath.row].result
+            cell.detailTextLabel?.text = qrcodes![indexPath.row].result
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
         }
         return cell
@@ -108,6 +108,6 @@ class HistoryViewController: UITableViewController {
             clearAllAlert.dismiss(animated: true, completion: nil)
         }))
         self.present(clearAllAlert, animated: true, completion: nil)
-    
-    }
+
+}
 }
