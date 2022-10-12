@@ -10,7 +10,7 @@ import PermissionsKit
 import CameraPermission
 
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     //MARK: - Variables
     
@@ -25,8 +25,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
         scanVC =  storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
-        cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId)
-        self.displayScanVC(tabVC: self) 
+        cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId) as! CameraViewController
+        self.displayScanVC(tabVC: self)
     }
     
     //MARK: - viewWillAppear method

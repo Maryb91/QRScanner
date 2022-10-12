@@ -30,7 +30,7 @@ class LaunchViewController: UIViewController {
     func loadTabBarController(vc: LaunchViewController) -> Void
     {
         let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         vc.present(newViewController, animated: true, completion: nil)
     }
 }

@@ -87,7 +87,7 @@ class HistoryViewController: UITableViewController {
     
     @IBAction func scanButtonPressed(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
     
