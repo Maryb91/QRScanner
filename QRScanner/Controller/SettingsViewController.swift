@@ -12,7 +12,8 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     
     //MARK: - Variables
     
-    let items = ["About us", "Privacy policy", "Terms of service", "Vibrate","Contact us"]
+    let items = ["About us","Contact us","Vibrate", "Terms of use","Privacy policy"]
+    let icons = ["info.circle","envelope","iphone.radiowaves.left.and.right","doc.plaintext","lock.shield"]
     let vSwitch = UISwitch(frame: CGRect.zero) as UISwitch
     let userDefaults = UserDefaults.standard
     var qrType = QrResultTypes()
@@ -35,11 +36,17 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
-        if(indexPath.row == 3){
+        cell.detailTextLabel?.text = ""
+        let config = UIImage.SymbolConfiguration(pointSize: 23, weight: .light, scale: .default)
+        cell.imageView?.image = UIImage(systemName: icons[indexPath.row],withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        cell.textLabel?.font =  UIFont(name:"Mukta Mahee", size: 18.0)
+        if(indexPath.row == 2){
             vSwitch.isOn = userDefaults.bool(forKey: "vibrate")
             vSwitch.addTarget(self, action: #selector(vibrateSwitch), for: .valueChanged)
             vSwitch.tag = indexPath.row
             cell.accessoryView = vSwitch
+            cell.detailTextLabel?.text = "The phone vibrates when you scan a QR code"
+            cell.detailTextLabel?.font = UIFont(name:"Mukta Mahee", size: 14.0)
         }
 
         return cell
@@ -49,13 +56,12 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
    //MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          //  performSegue(withIdentifier: "showSettingsDetails", sender: self)
         
-        if(indexPath.row == 4)
+        if(indexPath.row == 1)
         {
             openMailApp()
         }
-       else if (indexPath.row == 3)
+       else if (indexPath.row == 2)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
             cell.selectionStyle = .none
@@ -93,9 +99,9 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            let recipientEmail = "test@test.fr"
+            let recipientEmail = "feedback.qrcodeapp@gmail.com"
                 mail.setToRecipients([recipientEmail])
-            let subject = "Feedback"
+            let subject = "Feedback for QR code Reader app"
                 mail.setSubject(subject)
             let body = ""
                 mail.setMessageBody(body, isHTML: false)
