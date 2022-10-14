@@ -30,7 +30,7 @@ class QrCodeResult {
                 picker!.dismiss(animated: true, completion: nil)
             }
         } else {
-            qrCodeDBManager.saveQRCode(result: qrCodeString, date: getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
+            qrCodeDBManager.saveQRCode(result: qrCodeString, date:getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
             if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {
