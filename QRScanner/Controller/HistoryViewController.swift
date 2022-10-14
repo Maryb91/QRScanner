@@ -16,11 +16,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var qrResultType = QrResultTypes()
     var qrCodeResult = QrCodeResult()
     let cellSpacingHeight: CGFloat = 0
-
     
     //MARK: - IBOutlets
     
-  
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainView: UIView!
     
@@ -29,7 +27,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         loadQrCodes()
     }
- 
+    
+   
     //MARK: - viewDidLoad
 
     override func viewDidLoad()
@@ -40,6 +39,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.separatorColor = UIColor.clear
       //  scanButton.isHidden = true
     }
+    
     
     //MARK: - TableView Datasource Methods
     
@@ -54,27 +54,31 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            scanButton.setTitle("Scan QR codes Now", for: .normal)
             return 0
         }
-
     }
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           return 1
       }
 
-
-
+    
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         var config : UIImage.SymbolConfiguration
+        
+        var config : UIImage.SymbolConfiguration
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
-         cell.layer.cornerRadius = 8
-        cell.textLabel?.text = qrcodes?[indexPath.section].type
+         
+        cell.layer.cornerRadius = 8
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19.0)
+        
          if (qrcodes?[indexPath.section].type == qrCodeTypes.contactType || qrcodes?[indexPath.section].type == qrCodeTypes.emailType){
           config = UIImage.SymbolConfiguration(pointSize: 24, weight: .light, scale: .default)
          }
          else {
               config = UIImage.SymbolConfiguration(pointSize: 28, weight: .light, scale: .default)
          }
+         
+         cell.textLabel?.text = qrcodes?[indexPath.section].type
          cell.imageView?.image = UIImage(systemName: getIcon(type: (qrcodes?[indexPath.section].type)!),withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
 
         if qrcodes?[indexPath.section].type == qrCodeTypes.contactType {
@@ -88,26 +92,33 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
+    
 
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let qrcode = qrcodes?[indexPath.section] {
                 qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                let indexSet = IndexSet(arrayLiteral: indexPath.section)
+                tableView.deleteSections(indexSet, with:.fade)
+                
             }
         }
     }
 
 
+    
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "")
-
     }
+    
+    
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           return cellSpacingHeight
       }
+    
 
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
            let headerView = UIView()
            headerView.backgroundColor = UIColor.clear
@@ -131,10 +142,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //
     //MARK: - Passing the parameteres to DetailsViewController
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let detailsVC = segue.destination as! DetailsViewController
-//    }
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        _ = segue.destination as! DetailsViewController
+    }
+
     
 //    @IBAction func clearAll(_ sender: UIBarButtonItem) {
 //        let clearAllAlert = UIAlertController(title: "Clear the History", message: "Are you sure you want to clear all the QR codes in history?", preferredStyle: UIAlertController.Style.alert)
@@ -148,6 +159,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        self.present(clearAllAlert, animated: true, completion: nil)
 //
 //}
+    
+    //MARK: - Icon depending on the QR code scanned
     
     func getIcon(type : String) -> String
     {

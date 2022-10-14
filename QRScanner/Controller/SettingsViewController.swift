@@ -23,8 +23,6 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-
-
     }
     
     //MARK: - TableView Datasource Methods
