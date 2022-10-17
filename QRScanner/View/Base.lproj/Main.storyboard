@@ -473,10 +473,12 @@
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vfj-Xi-XkP">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Vfj-Xi-XkP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemIndigoColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="25"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -487,7 +489,7 @@
             </objects>
             <point key="canvasLocation" x="2337.68115942029" y="-292.63392857142856"/>
         </scene>
-        <!--History View Controller-->
+        <!--History-->
         <scene sceneID="IlY-jB-kYQ">
             <objects>
                 <viewController id="XaN-rk-GG6" customClass="HistoryViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
@@ -502,25 +504,25 @@
                                         <rect key="frame" x="7" y="0.0" width="380" height="725"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="qrCell" textLabel="Veb-y2-sfa" detailTextLabel="6rA-at-q0g" style="IBUITableViewCellStyleSubtitle" id="2zP-Qv-zck">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="380" height="43.666667938232422"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="9" reuseIdentifier="qrCell" textLabel="Veb-y2-sfa" detailTextLabel="6rA-at-q0g" style="IBUITableViewCellStyleSubtitle" id="2zP-Qv-zck">
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="380" height="76.666664123535156"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zP-Qv-zck" id="x9o-dk-E34">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="43.666667938232422"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="76.666664123535156"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Veb-y2-sfa">
-                                                            <rect key="frame" x="20" y="7.0000000000000009" width="25" height="14.333333333333334"/>
+                                                            <rect key="frame" x="20" y="11.333333333333334" width="31.333333333333332" height="26.666666666666668"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rA-at-q0g">
-                                                            <rect key="frame" x="19.999999999999996" y="23.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rA-at-q0g">
+                                                            <rect key="frame" x="20.000000000000004" y="40.666666666666671" width="46.333333333333336" height="23.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -547,8 +549,17 @@
                             <constraint firstItem="6Tc-lR-d4j" firstAttribute="top" secondItem="Bj4-fl-DUk" secondAttribute="top" id="Wq2-hw-x8w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MGE-kH-3uj"/>
+                    <navigationItem key="navigationItem" title="History" id="MGE-kH-3uj">
+                        <barButtonItem key="rightBarButtonItem" id="Ajd-vU-wP6">
+                            <imageReference key="image" image="trash.fill" catalog="system" symbolScale="medium"/>
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <connections>
+                                <action selector="clearAll:" destination="XaN-rk-GG6" id="cTz-4c-BQx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="clearAllButton" destination="Ajd-vU-wP6" id="cp0-H9-AXT"/>
                         <outlet property="mainView" destination="6Tc-lR-d4j" id="8hh-Am-A0w"/>
                         <outlet property="tableView" destination="qYl-to-snV" id="Ji4-ng-eba"/>
                     </connections>
@@ -591,6 +602,7 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

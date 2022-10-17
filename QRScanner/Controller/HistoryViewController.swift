@@ -19,6 +19,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var clearAllButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainView: UIView!
     
@@ -37,6 +38,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = UIColor.clear
+    
       //  scanButton.isHidden = true
     }
     
@@ -62,14 +64,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
       }
 
     
-    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var config : UIImage.SymbolConfiguration
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
          
         cell.layer.cornerRadius = 8
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 19.0)
         
          if (qrcodes?[indexPath.section].type == qrCodeTypes.contactType || qrcodes?[indexPath.section].type == qrCodeTypes.emailType){
           config = UIImage.SymbolConfiguration(pointSize: 24, weight: .light, scale: .default)
@@ -87,7 +87,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else {
             cell.detailTextLabel?.text = qrcodes![indexPath.section].result
-            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
         }
         return cell
     }
@@ -100,11 +99,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
                 let indexSet = IndexSet(arrayLiteral: indexPath.section)
                 tableView.deleteSections(indexSet, with:.fade)
-                
+                loadQrCodes()
             }
         }
     }
-
 
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,13 +110,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           return cellSpacingHeight
       }
     
 
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
            let headerView = UIView()
            headerView.backgroundColor = UIColor.clear
@@ -130,11 +126,25 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func loadQrCodes() {
         qrcodes = qrCodeDBManager.getHistory()
         tableView.reloadData()
+        showClearAllButton()
     }
     
     //MARK: - Scan function when the Scan button is Pressed
     
-//    @IBAction func scanButtonPressed(_ sender: UIButton) {
+    @IBAction func clearAll(_ sender: UIBarButtonItem) {
+                let clearAllAlert = UIAlertController(title: "Clear History", message: "Are you sure you want to delete all the QR codes in history?", preferredStyle: UIAlertController.Style.alert)
+                clearAllAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                    self.qrCodeDBManager.deleteAll()
+                    self.tableView.reloadData()
+                    self.showClearAllButton()
+                }))
+                clearAllAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                    clearAllAlert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(clearAllAlert, animated: true, completion: nil)
+    }
+    
+    //    @IBAction func scanButtonPressed(_ sender: UIButton) {
 //        let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
 //        let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
 //        self.present(newViewController, animated: true, completion: nil)
@@ -146,19 +156,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         _ = segue.destination as! DetailsViewController
     }
 
-    
-//    @IBAction func clearAll(_ sender: UIBarButtonItem) {
-//        let clearAllAlert = UIAlertController(title: "Clear the History", message: "Are you sure you want to clear all the QR codes in history?", preferredStyle: UIAlertController.Style.alert)
-//        clearAllAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-//            self.qrCodeDBManager.deleteAll()
-//            self.tableView.reloadData()
-//        }))
-//        clearAllAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-//            clearAllAlert.dismiss(animated: true, completion: nil)
-//        }))
-//        self.present(clearAllAlert, animated: true, completion: nil)
-//
-//}
     
     //MARK: - Icon depending on the QR code scanned
     
@@ -186,5 +183,21 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             iconImage = "person.text.rectangle.fill"
         }
         return iconImage
+    }
+    
+    //MARK: - Show/Hide Clear all navigation item
+    
+    func showClearAllButton()
+    {   qrcodes = qrCodeDBManager.getHistory()
+        print(qrcodes?.count)
+        if((qrcodes?.count)! == 0)
+        {
+           self.clearAllButton.isEnabled = false
+           self.clearAllButton.tintColor = .clear
+        }
+        else {
+            self.clearAllButton.isEnabled = true
+            self.clearAllButton.tintColor = .systemIndigo
+        }
     }
 }
