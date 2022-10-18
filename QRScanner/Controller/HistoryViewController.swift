@@ -21,7 +21,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var clearAllButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mainView: UIView!
     
     //MARK: - viewWillAppear
     
@@ -29,7 +28,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadQrCodes()
     }
     
-   
+
     //MARK: - viewDidLoad
 
     override func viewDidLoad()
@@ -37,9 +36,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = UIColor.clear
-    
-      //  scanButton.isHidden = true
     }
     
     
@@ -99,7 +95,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
                 let indexSet = IndexSet(arrayLiteral: indexPath.section)
                 tableView.deleteSections(indexSet, with:.fade)
-                loadQrCodes()
             }
         }
     }
@@ -143,6 +138,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }))
                 self.present(clearAllAlert, animated: true, completion: nil)
     }
+    
     
     //    @IBAction func scanButtonPressed(_ sender: UIButton) {
 //        let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
@@ -194,10 +190,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         {
            self.clearAllButton.isEnabled = false
            self.clearAllButton.tintColor = .clear
+
         }
         else {
             self.clearAllButton.isEnabled = true
             self.clearAllButton.tintColor = .systemIndigo
         }
     }
+    
+   
+ 
 }
