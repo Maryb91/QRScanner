@@ -15,6 +15,7 @@ struct StoryBoardIds {
     static let scanVCId = "scanScreen"
     static let cameraVCId = "cameraScreen"
     static let mainTabID = "mainTabID"
+    static let historyVCId = "historyID"
 }
 
 //MARK: - Scan BarItem properties
@@ -22,6 +23,14 @@ struct StoryBoardIds {
 struct ScanBarItem {
     static let title = "Scan"
     static let imageName = "qrcode"
+}
+
+
+//MARK: - History BarItem properties
+
+struct HistoryBarItem {
+    static let title = "History"
+    static let imageName = "clock"
 }
 
 //MARK: - Permission status descriptions
