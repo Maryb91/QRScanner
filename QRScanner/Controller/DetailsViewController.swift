@@ -28,6 +28,12 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var resultTextView: UITextView!
     
+    
+    //MARK: - viewWillAppear Method
+    
+    override func viewWillAppear(_ animated: Bool) {
+        session.stopRunning()
+    }
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {

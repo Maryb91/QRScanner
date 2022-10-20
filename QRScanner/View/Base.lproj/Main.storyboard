@@ -58,67 +58,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcx-Jh-wub">
-                                <rect key="frame" x="67" y="313" width="280" height="270"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-aU-wbY">
+                                <rect key="frame" x="175.66666666666666" y="516" width="63" height="49"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Text">
+                                    <fontDescription key="titleFontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="21"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="cameraButtonPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="OO2-d9-lQm"/>
+                                    <action selector="actionButtonPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="JJ2-Y0-G4Q"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.turn.right.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-xh-WEC">
-                                <rect key="frame" x="187" y="272.33333333333331" width="40" height="37.666666666666686"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="F8X-MW-AKR">
+                                <rect key="frame" x="82" y="148" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Dqe-2C-AWW"/>
-                                    <constraint firstAttribute="height" constant="40" id="IVJ-XP-ghs"/>
+                                    <constraint firstAttribute="width" constant="250" id="Sg4-PC-DTR"/>
+                                    <constraint firstAttribute="height" constant="250" id="mGY-sZ-H5f"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to start scanning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-ty-vtH">
-                                <rect key="frame" x="82" y="233" width="250" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="G3Z-kL-RsK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera permission denied" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-b0-8Vm">
+                                <rect key="frame" x="78.666666666666657" y="406" width="256.66666666666674" height="36.666666666666686"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-aU-wbY">
-                                <rect key="frame" x="125" y="405.66666666666669" width="164" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="1u4-qh-pNl"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="QGF-py-hEJ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Open Settings">
-                                    <fontDescription key="titleFontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="22"/>
-                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="cameraButtonPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="Uha-v3-4JS"/>
-                                    <action selector="openSettingsPressed:" destination="JeX-tr-Da7" eventType="touchUpInside" id="TUj-db-tiG"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rB9-Tk-OyF">
+                                <rect key="frame" x="15" y="450.66666666666669" width="384" height="28.333333333333314"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eTc-oD-asb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="F8X-MW-AKR" firstAttribute="top" secondItem="eTc-oD-asb" secondAttribute="top" constant="60" id="23b-Zd-F3J"/>
                             <constraint firstItem="Arg-aU-wbY" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" identifier="id7" id="5nE-im-eJe"/>
-                            <constraint firstItem="vcx-Jh-wub" firstAttribute="centerY" secondItem="3wr-VA-Ekw" secondAttribute="centerY" identifier="id2" id="7Hw-nh-yDs"/>
-                            <constraint firstItem="vcx-Jh-wub" firstAttribute="top" secondItem="lrx-xh-WEC" secondAttribute="bottom" constant="2" identifier="id3" id="HWF-C6-NwC"/>
-                            <constraint firstItem="lrx-xh-WEC" firstAttribute="top" secondItem="2gP-ty-vtH" secondAttribute="bottom" constant="10" identifier="id5" id="TEF-KZ-QMu"/>
-                            <constraint firstItem="vcx-Jh-wub" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" identifier="id4" id="ihU-hA-3bJ"/>
-                            <constraint firstItem="Arg-aU-wbY" firstAttribute="centerY" secondItem="3wr-VA-Ekw" secondAttribute="centerY" identifier="id8" id="kN2-9O-AM0"/>
-                            <constraint firstItem="lrx-xh-WEC" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" identifier="id6" id="mE9-i2-Tj9"/>
-                            <constraint firstItem="2gP-ty-vtH" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" identifier="id1" id="x7C-ND-tAD"/>
+                            <constraint firstItem="rB9-Tk-OyF" firstAttribute="leading" secondItem="3wr-VA-Ekw" secondAttribute="leading" constant="15" id="D9G-jt-OlC"/>
+                            <constraint firstItem="rB9-Tk-OyF" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="Vra-vf-Nv7"/>
+                            <constraint firstItem="rB9-Tk-OyF" firstAttribute="top" secondItem="Z9g-b0-8Vm" secondAttribute="bottom" constant="8" id="erQ-fg-hAl"/>
+                            <constraint firstItem="Z9g-b0-8Vm" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="rAg-Ju-fE2"/>
+                            <constraint firstAttribute="trailing" secondItem="rB9-Tk-OyF" secondAttribute="trailing" constant="15" id="rct-sB-23O"/>
+                            <constraint firstItem="Z9g-b0-8Vm" firstAttribute="top" secondItem="F8X-MW-AKR" secondAttribute="bottom" constant="8" id="tlZ-f2-bNs"/>
+                            <constraint firstItem="F8X-MW-AKR" firstAttribute="centerX" secondItem="3wr-VA-Ekw" secondAttribute="centerX" id="yi1-8L-ybU"/>
+                            <constraint firstItem="Arg-aU-wbY" firstAttribute="top" secondItem="rB9-Tk-OyF" secondAttribute="bottom" constant="37" id="zLT-s4-EH3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9wj-Yg-BfU"/>
                     <connections>
-                        <outlet property="arrowImage" destination="lrx-xh-WEC" id="MRK-qS-zbc"/>
-                        <outlet property="openSettingsButton" destination="Arg-aU-wbY" id="zSc-rd-Gd0"/>
-                        <outlet property="qrCodeImage" destination="vcx-Jh-wub" id="7De-7M-Lv2"/>
-                        <outlet property="tapLabel" destination="2gP-ty-vtH" id="Yfi-oJ-1D0"/>
+                        <outlet property="actionButton" destination="Arg-aU-wbY" id="MdX-gC-8iM"/>
+                        <outlet property="cameraDeniedLabel" destination="Z9g-b0-8Vm" id="4Nb-nD-jRw"/>
+                        <outlet property="cemraPermissionLabel" destination="rB9-Tk-OyF" id="tOM-GH-Q7e"/>
+                        <outlet property="imageIcon" destination="F8X-MW-AKR" id="JJy-Ld-Dao"/>
                         <segue destination="fXd-IK-nzn" kind="presentation" identifier="openCamera" id="j0u-ju-yey"/>
                     </connections>
                 </viewController>
@@ -505,7 +496,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-iA-eqa">
                                                 <rect key="frame" x="65" y="91.666666666666657" width="150" height="147"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="HTU-mP-Ode"/>
                                                     <constraint firstAttribute="height" constant="150" id="S4X-gr-Y8Q"/>
@@ -631,8 +622,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.turn.right.down" catalog="system" width="120" height="128"/>
-        <image name="camera" width="256" height="256"/>
+        <image name="cameraIcon" width="2172" height="1758"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="flashlight.off.fill" catalog="system" width="76" height="128"/>
         <image name="gear.circle" catalog="system" width="128" height="121"/>
