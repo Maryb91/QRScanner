@@ -17,6 +17,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var qrCodeResult = QrCodeResult()
     let cellSpacingHeight: CGFloat = 0
     
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var clearAllButton: UIBarButtonItem!
@@ -79,7 +80,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         cell.textLabel?.text = qrcodes?[indexPath.section].type
-        cell.imageView?.image = UIImage(systemName: getIcon(type: (qrcodes?[indexPath.section].type)!),withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        cell.imageView?.image = UIImage(systemName: qrResultType.getIcon(type: (qrcodes?[indexPath.section].type)!),withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
         
         if qrcodes?[indexPath.section].type == qrCodeTypes.contactType {
             let contactNames = qrResultType.getContactName(result: (qrcodes?[indexPath.section].result)!)
@@ -162,34 +163,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         _ = segue.destination as! DetailsViewController
     }
     
-    
-    //MARK: - Icons on the tableview depending on the QR code scanned
-    
-    func getIcon(type : String) -> String
-    {
-        var iconImage = ""
-        if(type==qrCodeTypes.phoneType)
-        {
-            iconImage = "phone.fill"
-        }
-        else if (type==qrCodeTypes.textType)
-        {
-            iconImage = "t.square.fill"
-        }
-        else if (type==qrCodeTypes.emailType)
-        {
-            iconImage = "envelope.fill"
-        }
-        else if (type==qrCodeTypes.websiteType)
-        {
-            iconImage = "link.circle.fill"
-        }
-        else if (type==qrCodeTypes.contactType)
-        {
-            iconImage = "person.text.rectangle.fill"
-        }
-        return iconImage
-    }
     
     //MARK: - Scan button pressed (Empty History)
     

@@ -31,7 +31,6 @@ class QrCodeResult {
             }
         } else {
             qrCodeDBManager.saveQRCode(result: qrCodeString, date:getDate(), type: typeChecker.checkType(scanResult:qrCodeString))
-            print("saaaveeed")
             vc.performSegue(withIdentifier: "showDetails", sender: vc)
             if(qrCodeScanSource==permissionSource.photoLibrarySource)
             {

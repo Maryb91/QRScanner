@@ -22,18 +22,19 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var newView: UIView!
     @IBOutlet weak var resultTextView: UITextView!
     
-    
-    //MARK: - viewWillAppear Method
+        //MARK: - viewWillAppear Method
     
     override func viewWillAppear(_ animated: Bool) {
         session.stopRunning()
-    }
+    }   
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -46,6 +47,14 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     func showScannedQRCode() {
         qrCode = qrCodeDBManager.getQRCode()!
+        secondButton.layer.borderWidth = 1
+        secondButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        secondButton.layer.cornerRadius = 8
+        actionButton.layer.borderWidth = 1
+        actionButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        actionButton.layer.cornerRadius = 8
+        iconImage.image = UIImage(systemName:qrResultType.getIcon(type: qrCode.type))?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        newView.layer.cornerRadius = 15
         typeLabel.text = qrCode.type
         dateLabel.text = qrCode.date
         resultTextView.text = qrCode.result
@@ -62,7 +71,6 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
                 NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: actionButton, attribute: .centerX, multiplier: 1.0, constant: 0.0),
                 NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
             ])
-            print(qrCode.result)
         }
        else if(qrCode.type == qrCodeTypes.phoneType)
         {
@@ -187,4 +195,7 @@ func addDissmissButton(){
         self.dismiss(animated: true)
     }
     self.navigationItem.leftBarButtonItem = cancelButton
-}}
+}
+
+    
+}

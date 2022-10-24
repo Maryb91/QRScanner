@@ -39,6 +39,35 @@ class QrResultTypes {
         }
     }
     
+    //MARK: - Get Icon image depending on the scanned QR code's type
+    
+    func getIcon(type : String) -> String
+    {
+        var iconImage = ""
+        if(type==qrCodeTypes.phoneType)
+        {
+            iconImage = "phone.fill"
+        }
+        else if (type==qrCodeTypes.textType)
+        {
+            iconImage = "t.square.fill"
+        }
+        else if (type==qrCodeTypes.emailType)
+        {
+            iconImage = "envelope.fill"
+        }
+        else if (type==qrCodeTypes.websiteType)
+        {
+            iconImage = "link.circle.fill"
+        }
+        else if (type==qrCodeTypes.contactType)
+        {
+            iconImage = "person.text.rectangle.fill"
+        }
+        return iconImage
+    }
+    
+    
     //MARK: - Action button titles depending on the scanned QR code's type
     
     func actionTitle(scanResultType : String) -> String {

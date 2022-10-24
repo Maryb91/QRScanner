@@ -35,6 +35,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
         cell.detailTextLabel?.text = ""
+        cell.selectionStyle = .none
         let config = UIImage.SymbolConfiguration(pointSize: 23, weight: .light, scale: .default)
         cell.imageView?.image = UIImage(systemName: icons[indexPath.row],withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
         cell.textLabel?.font =  UIFont(name:"Mukta Mahee", size: 18.0)
