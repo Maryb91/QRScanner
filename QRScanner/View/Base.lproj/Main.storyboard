@@ -468,8 +468,8 @@
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Vfj-Xi-XkP">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vfj-Xi-XkP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="25"/>
@@ -492,99 +492,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tc-lR-d4j">
-                                <rect key="frame" x="10" y="140" width="394" height="673"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gj4-V1-N6J" userLabel="ScdView">
-                                        <rect key="frame" x="57" y="196.66666666666669" width="280" height="280"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-iA-eqa">
-                                                <rect key="frame" x="65" y="91.666666666666657" width="150" height="147"/>
-                                                <color key="tintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="HTU-mP-Ode"/>
-                                                    <constraint firstAttribute="height" constant="150" id="S4X-gr-Y8Q"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan here : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-CK-Q35">
-                                                <rect key="frame" x="100" y="53.333333333333314" width="80.333333333333314" height="29"/>
-                                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR codes scanned found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-jq-r1l">
-                                                <rect key="frame" x="18.666666666666686" y="10" width="243" height="33.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="ZWS-CK-Q35" firstAttribute="top" secondItem="6XY-jq-r1l" secondAttribute="bottom" constant="10" id="6yV-Kc-G4a"/>
-                                            <constraint firstItem="6XY-jq-r1l" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="A4e-H3-Ahn"/>
-                                            <constraint firstItem="ZWS-CK-Q35" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="UET-de-q5h"/>
-                                            <constraint firstAttribute="height" constant="280" id="VlZ-EB-xcq"/>
-                                            <constraint firstAttribute="bottom" secondItem="yPi-iA-eqa" secondAttribute="bottom" constant="40" id="Whu-Nl-qeM"/>
-                                            <constraint firstItem="6XY-jq-r1l" firstAttribute="top" secondItem="Gj4-V1-N6J" secondAttribute="top" constant="10" id="Xto-AF-6lU"/>
-                                            <constraint firstItem="yPi-iA-eqa" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="mZH-lV-dCD"/>
-                                            <constraint firstAttribute="width" constant="280" id="oUq-ON-uDi"/>
-                                        </constraints>
-                                    </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qYl-to-snV">
-                                        <rect key="frame" x="7" y="7" width="380" height="659"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="9" reuseIdentifier="qrCell" textLabel="Veb-y2-sfa" detailTextLabel="6rA-at-q0g" style="IBUITableViewCellStyleSubtitle" id="2zP-Qv-zck">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="380" height="77"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zP-Qv-zck" id="x9o-dk-E34">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="77"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qYl-to-snV">
+                                <rect key="frame" x="0.0" y="98" width="414" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="9" reuseIdentifier="qrCell" textLabel="Veb-y2-sfa" detailTextLabel="6rA-at-q0g" style="IBUITableViewCellStyleSubtitle" id="2zP-Qv-zck">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zP-Qv-zck" id="x9o-dk-E34">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Veb-y2-sfa">
+                                                    <rect key="frame" x="20" y="11.333333333333334" width="31.333333333333332" height="26.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Veb-y2-sfa">
-                                                            <rect key="frame" x="20" y="11.333333333333334" width="31.333333333333332" height="26.666666666666668"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rA-at-q0g">
-                                                            <rect key="frame" x="20.000000000000004" y="40.666666666666671" width="46.333333333333336" height="23.333333333333332"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
+                                                    <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rA-at-q0g">
+                                                    <rect key="frame" x="20.000000000000004" y="40.666666666666671" width="46.333333333333336" height="23.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gj4-V1-N6J" userLabel="ScdView">
+                                <rect key="frame" x="67" y="308" width="280" height="280"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-iA-eqa">
+                                        <rect key="frame" x="65" y="91.666666666666657" width="150" height="147"/>
+                                        <color key="tintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="HTU-mP-Ode"/>
+                                            <constraint firstAttribute="height" constant="150" id="S4X-gr-Y8Q"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan here : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-CK-Q35">
+                                        <rect key="frame" x="100" y="53.333333333333314" width="80.333333333333314" height="29"/>
+                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR codes scanned found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-jq-r1l">
+                                        <rect key="frame" x="18.666666666666686" y="10" width="243" height="33.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="qYl-to-snV" firstAttribute="leading" secondItem="6Tc-lR-d4j" secondAttribute="leading" constant="7" id="Bcd-8i-hmC"/>
-                                    <constraint firstAttribute="trailing" secondItem="qYl-to-snV" secondAttribute="trailing" constant="7" id="Cdw-cS-tjg"/>
-                                    <constraint firstAttribute="bottom" secondItem="qYl-to-snV" secondAttribute="bottom" constant="7" id="D79-sn-KUN"/>
-                                    <constraint firstItem="qYl-to-snV" firstAttribute="top" secondItem="6Tc-lR-d4j" secondAttribute="top" constant="7" id="Pby-HX-hMe"/>
-                                    <constraint firstItem="Gj4-V1-N6J" firstAttribute="centerY" secondItem="6Tc-lR-d4j" secondAttribute="centerY" id="nja-Gc-ITa"/>
-                                    <constraint firstItem="Gj4-V1-N6J" firstAttribute="centerX" secondItem="6Tc-lR-d4j" secondAttribute="centerX" id="w8k-3G-dNW"/>
+                                    <constraint firstItem="ZWS-CK-Q35" firstAttribute="top" secondItem="6XY-jq-r1l" secondAttribute="bottom" constant="10" id="6yV-Kc-G4a"/>
+                                    <constraint firstItem="6XY-jq-r1l" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="A4e-H3-Ahn"/>
+                                    <constraint firstItem="ZWS-CK-Q35" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="UET-de-q5h"/>
+                                    <constraint firstAttribute="height" constant="280" id="VlZ-EB-xcq"/>
+                                    <constraint firstAttribute="bottom" secondItem="yPi-iA-eqa" secondAttribute="bottom" constant="40" id="Whu-Nl-qeM"/>
+                                    <constraint firstItem="6XY-jq-r1l" firstAttribute="top" secondItem="Gj4-V1-N6J" secondAttribute="top" constant="10" id="Xto-AF-6lU"/>
+                                    <constraint firstItem="yPi-iA-eqa" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="mZH-lV-dCD"/>
+                                    <constraint firstAttribute="width" constant="280" id="oUq-ON-uDi"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bj4-fl-DUk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tc-lR-d4j" firstAttribute="leading" secondItem="Bj4-fl-DUk" secondAttribute="leading" constant="10" id="KyG-yU-qoL"/>
-                            <constraint firstItem="Bj4-fl-DUk" firstAttribute="bottom" secondItem="6Tc-lR-d4j" secondAttribute="bottom" id="LFF-Kh-xXC"/>
-                            <constraint firstItem="Bj4-fl-DUk" firstAttribute="trailing" secondItem="6Tc-lR-d4j" secondAttribute="trailing" constant="10" id="OgR-uk-UAF"/>
-                            <constraint firstItem="6Tc-lR-d4j" firstAttribute="top" secondItem="Bj4-fl-DUk" secondAttribute="top" id="Wq2-hw-x8w"/>
+                            <constraint firstItem="Bj4-fl-DUk" firstAttribute="bottom" secondItem="qYl-to-snV" secondAttribute="bottom" id="GeT-hY-qAC"/>
+                            <constraint firstItem="qYl-to-snV" firstAttribute="top" secondItem="Bj4-fl-DUk" secondAttribute="top" constant="10" id="Id8-o9-GUj"/>
+                            <constraint firstItem="Gj4-V1-N6J" firstAttribute="centerX" secondItem="BCT-Md-y7L" secondAttribute="centerX" id="KpT-Oq-8Tb"/>
+                            <constraint firstItem="Bj4-fl-DUk" firstAttribute="trailing" secondItem="qYl-to-snV" secondAttribute="trailing" id="QHq-IT-IuE"/>
+                            <constraint firstItem="Gj4-V1-N6J" firstAttribute="centerY" secondItem="BCT-Md-y7L" secondAttribute="centerY" id="eNn-1k-J3k"/>
+                            <constraint firstItem="qYl-to-snV" firstAttribute="leading" secondItem="Bj4-fl-DUk" secondAttribute="leading" id="qcN-sK-mgu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="History" id="MGE-kH-3uj">
                         <barButtonItem key="rightBarButtonItem" id="Ajd-vU-wP6">
                             <imageReference key="image" image="trash.fill" catalog="system" symbolScale="medium"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
                                 <action selector="clearAll:" destination="XaN-rk-GG6" id="cTz-4c-BQx"/>
@@ -601,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txm-9h-rdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3146" y="-293"/>
+            <point key="canvasLocation" x="3144.9275362318845" y="-293.30357142857139"/>
         </scene>
         <!--Settings-->
         <scene sceneID="2QH-aY-Woa">
@@ -627,7 +618,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="loM-kE-gTu"/>
+        <segue reference="j5b-2U-lfg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cameraIcon" width="2172" height="1758"/>

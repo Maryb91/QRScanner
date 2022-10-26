@@ -15,7 +15,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var qrcodes : Results<QRCode>?
     var qrResultType = QrResultTypes()
     var qrCodeResult = QrCodeResult()
-    let cellSpacingHeight: CGFloat = 0
     
     
     //MARK: - IBOutlets
@@ -32,7 +31,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadQrCodes()
     }
     
-    
     //MARK: - viewDidLoad
     
     override func viewDidLoad()
@@ -47,7 +45,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - TableView Datasource Methods
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(qrcodes!.count >= 1)
         {
@@ -60,17 +59,15 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var config : UIImage.SymbolConfiguration
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
         
-        cell.layer.cornerRadius = 8
+        cell.layer.cornerRadius = 15
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 7
         
         if (qrcodes?[indexPath.section].type == qrCodeTypes.contactType || qrcodes?[indexPath.section].type == qrCodeTypes.emailType){
             config = UIImage.SymbolConfiguration(pointSize: 24, weight: .light, scale: .default)
@@ -106,21 +103,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "")
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
-    
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
     
     //MARK: - Function that gets all the scanned QR codes from the database and loads them into the tableview
     
@@ -171,6 +158,17 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
+    
+   
+    
+    
+    
+
+    
+    
+    
+    
+    
     
     
 }
