@@ -132,60 +132,58 @@
                                     <constraint firstAttribute="height" constant="250" id="djz-tQ-zno"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please align the QR code within the frame to scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-ku-ciU">
-                                <rect key="frame" x="82" y="54" width="250" height="70"/>
+                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-l9-CoC">
+                                <rect key="frame" x="10" y="605" width="394" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-nj-ynV">
+                                        <rect key="frame" x="12" y="15" width="43" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system">
+                                            <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="flashState:" destination="fXd-IK-nzn" eventType="touchUpInside" id="dzv-VP-zfL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8u-zF-25a">
+                                        <rect key="frame" x="332" y="15" width="50" height="31"/>
+                                        <inset key="imageEdgeInsets" minX="-2" minY="-2" maxX="-2" maxY="-2"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
+                                            <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="openGalleryButtonPressed:" destination="fXd-IK-nzn" eventType="touchUpInside" id="CMV-tx-1QR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please align the QR code within the frame to scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-ku-ciU">
+                                        <rect key="frame" x="70" y="11.999999999999996" width="247" height="46.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
+                                        <color key="textColor" systemColor="systemIndigoColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="32s-hW-UmF"/>
-                                    <constraint firstAttribute="height" constant="70" id="HVg-da-nJ0"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ru4-EZ-Rz9"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="weK-uK-1Ca"/>
+                                    <constraint firstItem="v1K-ku-ciU" firstAttribute="leading" secondItem="mmp-nj-ynV" secondAttribute="trailing" constant="15" id="BXO-Sf-DyK"/>
+                                    <constraint firstAttribute="height" constant="70" id="Bhs-Us-GSe"/>
+                                    <constraint firstItem="v1K-ku-ciU" firstAttribute="top" secondItem="iLM-l9-CoC" secondAttribute="top" constant="12" id="Uq7-Ki-74a"/>
+                                    <constraint firstItem="mmp-nj-ynV" firstAttribute="top" secondItem="iLM-l9-CoC" secondAttribute="top" constant="15" id="VnS-9N-4ZR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q8u-zF-25a" secondAttribute="trailing" constant="12" id="WLR-pM-QeA"/>
+                                    <constraint firstItem="mmp-nj-ynV" firstAttribute="leading" secondItem="iLM-l9-CoC" secondAttribute="leading" constant="12" id="XMd-jc-9FX"/>
+                                    <constraint firstItem="Q8u-zF-25a" firstAttribute="leading" secondItem="v1K-ku-ciU" secondAttribute="trailing" constant="15" id="gR3-ig-gah"/>
+                                    <constraint firstItem="Q8u-zF-25a" firstAttribute="top" secondItem="iLM-l9-CoC" secondAttribute="top" constant="15" id="wI0-Ti-3DJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                <color key="textColor" systemColor="systemIndigoColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-nj-ynV">
-                                <rect key="frame" x="18" y="54" width="44" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="2zy-ZL-rRJ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="hWs-k4-E44"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system">
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flashState:" destination="fXd-IK-nzn" eventType="touchUpInside" id="dzv-VP-zfL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8u-zF-25a">
-                                <rect key="frame" x="352" y="54" width="50" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="QGG-Ol-sCU"/>
-                                    <constraint firstAttribute="height" constant="65" id="by3-Pr-4NN"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="openGalleryButtonPressed:" destination="fXd-IK-nzn" eventType="touchUpInside" id="CMV-tx-1QR"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9sG-qb-7hX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mmp-nj-ynV" firstAttribute="leading" secondItem="9sG-qb-7hX" secondAttribute="leading" constant="18" id="6xb-Gq-Ayf"/>
-                            <constraint firstItem="mmp-nj-ynV" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="9iB-xp-RNX"/>
-                            <constraint firstItem="v1K-ku-ciU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mmp-nj-ynV" secondAttribute="trailing" constant="8" symbolic="YES" id="Anx-ie-RXz"/>
-                            <constraint firstItem="v1K-ku-ciU" firstAttribute="centerX" secondItem="c3m-np-pfN" secondAttribute="centerX" id="CA9-b5-NKP"/>
+                            <constraint firstItem="9sG-qb-7hX" firstAttribute="trailing" secondItem="iLM-l9-CoC" secondAttribute="trailing" constant="10" id="5IE-pB-2Ym"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerX" secondItem="c3m-np-pfN" secondAttribute="centerX" id="Cjt-wL-71I"/>
-                            <constraint firstItem="Q8u-zF-25a" firstAttribute="leading" secondItem="v1K-ku-ciU" secondAttribute="trailing" constant="20" id="Gb7-h6-jVg"/>
-                            <constraint firstItem="9sG-qb-7hX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q8u-zF-25a" secondAttribute="trailing" symbolic="YES" id="f4c-rd-joT"/>
+                            <constraint firstItem="iLM-l9-CoC" firstAttribute="top" secondItem="opK-QZ-Lr4" secondAttribute="bottom" constant="32" id="GR1-Jh-qWM"/>
+                            <constraint firstItem="iLM-l9-CoC" firstAttribute="leading" secondItem="9sG-qb-7hX" secondAttribute="leading" constant="10" id="KPZ-ln-nKB"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerY" secondItem="c3m-np-pfN" secondAttribute="centerY" id="if4-VA-Bfa"/>
-                            <constraint firstItem="Q8u-zF-25a" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="tpz-9h-JaC"/>
-                            <constraint firstItem="v1K-ku-ciU" firstAttribute="top" secondItem="9sG-qb-7hX" secondAttribute="top" constant="10" id="ucC-46-KI1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zhQ-Es-WDV"/>
@@ -201,13 +199,14 @@
                         <outlet property="cameraLabel" destination="v1K-ku-ciU" id="SSp-mU-TaU"/>
                         <outlet property="flashButton" destination="mmp-nj-ynV" id="Zh4-Gz-Vm2"/>
                         <outlet property="galleryButton" destination="Q8u-zF-25a" id="bvq-4o-i2U"/>
+                        <outlet property="menuView" destination="iLM-l9-CoC" id="3mr-0o-7De"/>
                         <outlet property="scanImageView" destination="opK-QZ-Lr4" id="zwO-Od-a6D"/>
                         <segue destination="Qpk-1Y-sQD" kind="presentation" identifier="showDetails" id="loM-kE-gTu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX6-aL-Mw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4296" y="-1142"/>
+            <point key="canvasLocation" x="4295.652173913044" y="-1142.4107142857142"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="i6G-48-aEd">
@@ -618,7 +617,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j5b-2U-lfg"/>
+        <segue reference="loM-kE-gTu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cameraIcon" width="2172" height="1758"/>

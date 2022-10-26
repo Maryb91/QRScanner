@@ -18,6 +18,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     @IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var scanImageView: UIImageView!
     
     //MARK: - Variables
@@ -58,6 +59,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         self.cornerView = Corners(frame: scanImageView.frame)
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
+    
+        menuView.layer.cornerRadius = 30
+        view.bringSubviewToFront(menuView)
         view.bringSubviewToFront(cornerView!)
         view.bringSubviewToFront(cameraLabel)
         view.bringSubviewToFront(galleryButton)
