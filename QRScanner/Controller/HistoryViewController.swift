@@ -29,6 +29,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         scdView.isHidden = true
         loadQrCodes()
+        print("will appeaaar")
     }
     
     //MARK: - viewDidLoad
@@ -40,6 +41,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                scanButton.addGestureRecognizer(tap)
         tableView.delegate = self
         tableView.dataSource = self
+        print("did loooad")
     }
     
     
@@ -109,7 +111,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "")
+        self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "",session: nil)
     }
     
     

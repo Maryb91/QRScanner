@@ -30,11 +30,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     @IBOutlet weak var newView: UIView!
     @IBOutlet weak var resultTextView: UITextView!
     
-        //MARK: - viewWillAppear Method
-    
-    override func viewWillAppear(_ animated: Bool) {
-        session.stopRunning()
-    }   
+  
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -159,10 +155,11 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
 
     //MARK: - Actions to perform when the DetailsVC is dismissed
     
-    override func viewDidDisappear(_ animated: Bool)
-    {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         session.startRunning()
     }
+   
     
 }
 //MARK: - Adding a button to dismiss the contactVC

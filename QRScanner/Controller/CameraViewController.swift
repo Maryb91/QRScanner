@@ -40,7 +40,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         super.viewDidLoad()
          storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
          scanVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
-        displayScanner()
+         displayScanner()
+       
     }
 
     //MARK: - viewWillAppear
@@ -52,13 +53,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                    self.pc.checkCameraPermissionStatus(authorizedFunc: self.CamAuthorizedPermission, deniedFunc: self.CamDeniedPermission)
             }
         }
+        else if (pc.getCameraPermissionStatus() == PermissionStatusDesc.authorized)
+        {
+        session.startRunning()
+        }
     }
     
     
     //MARK: - Display Scanner Method
     
     func displayScanner () {
-        session.startRunning()
+    
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
@@ -96,8 +101,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
             if let result = readableObject.stringValue{
-            qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera")
-            session.stopRunning()
+            qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera", session: session)
+            
             }
         }
     }
@@ -148,7 +153,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         for feature in features! {
                             qrCodeString += feature.messageString!
                         }
-                        self.qrCodeResult.getQrCodeResult(qrCodeString: qrCodeString,picker: picker,vc: self, qrCodeScanSource: "PhotoLibrary")
+                        self.qrCodeResult.getQrCodeResult(qrCodeString: qrCodeString,picker: picker,vc: self, qrCodeScanSource: "PhotoLibrary", session: nil)
                     }
                 }
                 else {
@@ -209,6 +214,13 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         scanVC.tabBarItem = ScanBarItem
         self.tabBarController?.viewControllers![0] = scanVC
         self.tabBarController?.selectedIndex = 0
+    }
+    
+//MARK: - viewWillDisappear
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        session.stopRunning()
     }
     
 }
