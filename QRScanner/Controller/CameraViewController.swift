@@ -29,14 +29,31 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var pc = PermissionChecker()
     var qrCodeResult = QrCodeResult()
     let userDefaults = UserDefaults.standard
+    var storyBoard = UIStoryboard()
+    var scanVC = ScanViewController()
+   
+
 
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
+         scanVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
         displayScanner()
     }
 
+    //MARK: - viewWillAppear
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (pc.getCameraPermissionStatus() == PermissionStatusDesc.notDetermined)
+        {
+            Permission.camera.request {
+                   self.pc.checkCameraPermissionStatus(authorizedFunc: self.CamAuthorizedPermission, deniedFunc: self.CamDeniedPermission)
+            }
+        }
+    }
+    
     
     //MARK: - Display Scanner Method
     
@@ -60,11 +77,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
         menuView.layer.cornerRadius = 30
-        var tabBarHeight = self.tabBarController?.tabBar.frame.size.height
-       
-
-        NSLayoutConstraint(item: menuView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 40).isActive = true
-
         view.bringSubviewToFront(menuView)
         view.bringSubviewToFront(cornerView!)
         view.bringSubviewToFront(cameraLabel)
@@ -116,7 +128,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     @IBAction func openGalleryButtonPressed(_ sender: UIButton) {
         Permission.photoLibrary.request {
-            self.pc.checkPhotoLibraryPermissionStatus(authorizedFunc: self.authorizedPermission, deniedFunc: self.deniedPermission, limitedFunc: self.limitedPermission, vc: self)
+            self.pc.checkPhotoLibraryPermissionStatus(authorizedFunc: self.PHauthorizedPermission, deniedFunc: self.PHdeniedPermission, limitedFunc: self.PHlimitedPermission, vc: self)
         }
     }
     
@@ -150,7 +162,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     //MARK: - Actions to perform depending on the Photo Library permission status
     
-    func authorizedPermission () -> Void{
+    func PHauthorizedPermission () -> Void{
         var config = PHPickerConfiguration()
         config.selectionLimit = 1
         config.filter = PHPickerFilter.images
@@ -160,7 +172,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     
-    func deniedPermission() -> Void{
+    func PHdeniedPermission() -> Void{
         let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the photo library permission from the app settings to scan QR code images", preferredStyle: UIAlertController.Style.alert)
         settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
@@ -172,7 +184,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     
-    func limitedPermission(vc: CameraViewController) -> Void {
+    func PHlimitedPermission(vc: CameraViewController) -> Void {
         PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
     }
     
@@ -182,5 +194,22 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
           let detailsVC = segue.destination as! DetailsViewController
           detailsVC.session = session
       }
+    
+    //MARK: - Actions to perform depending on the Camera permission status
+    
+    func CamAuthorizedPermission () -> Void{
+        let ScanBarItem = UITabBarItem(title: ScanBarItem.title, image: UIImage(systemName: ScanBarItem.imageName) , tag: 0)
+        self.tabBarItem = ScanBarItem
+        self.tabBarController?.viewControllers![0] = self
+        self.tabBarController?.selectedIndex = 0
+    }
+    
+    func CamDeniedPermission() -> Void{
+        let ScanBarItem = UITabBarItem(title: ScanBarItem.title, image: UIImage(systemName: ScanBarItem.imageName) , tag: 0)
+        scanVC.tabBarItem = ScanBarItem
+        self.tabBarController?.viewControllers![0] = scanVC
+        self.tabBarController?.selectedIndex = 0
+    }
+    
 }
 

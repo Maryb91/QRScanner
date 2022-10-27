@@ -26,13 +26,14 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
         scanVC =  storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
         cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId) as! CameraViewController
-        self.displayScanVC(tabVC: self)
+        
     }
     
     //MARK: - viewWillAppear method
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.delegate = self
+        self.displayScanVC(tabVC: self)
     }
     
     //MARK: - Display ViewControllers according to the camera permission status in the first tab
@@ -53,10 +54,9 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     func deniedPermission() -> Void{
         self.viewControllers![0] = scanVC
-        scanVC.showNewScreen()
     }
     
     func notDeterminedPermission ()-> Void{
-        self.viewControllers![0] = scanVC
+        self.viewControllers![0] = cameraVC
     }
 }
