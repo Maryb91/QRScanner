@@ -59,7 +59,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         self.cornerView = Corners(frame: scanImageView.frame)
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
-    
         menuView.layer.cornerRadius = 30
         view.bringSubviewToFront(menuView)
         view.bringSubviewToFront(cornerView!)

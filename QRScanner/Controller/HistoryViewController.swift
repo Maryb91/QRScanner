@@ -45,17 +45,22 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - TableView Datasource Methods
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+           if(qrcodes!.count >= 1)
+           {
+               return qrcodes!.count
+           }
+           else
+           {
+               return 0
+           }
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(qrcodes!.count >= 1)
-        {
-            return qrcodes!.count
-        }
-        else
-        {
-            return 0
-        }
+       return 1
     }
     
     
@@ -64,7 +69,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var config : UIImage.SymbolConfiguration
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
-        
         cell.layer.cornerRadius = 15
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 7
@@ -113,6 +117,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadQrCodes() {
         qrcodes = qrCodeDBManager.getHistory()
+        tableView.reloadData()
         if(qrcodes?.count == 0)
         {
             self.clearAllButton.isEnabled = false
@@ -121,9 +126,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             scdView.isHidden = false
         }
         else {
+            tableView.reloadData()
             self.clearAllButton.isEnabled = true
             self.clearAllButton.tintColor = .systemIndigo
-            tableView.reloadData()
+           
         }
     }
     
