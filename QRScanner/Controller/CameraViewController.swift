@@ -60,6 +60,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
         menuView.layer.cornerRadius = 30
+        var tabBarHeight = self.tabBarController?.tabBar.frame.size.height
+       
+
+        NSLayoutConstraint(item: menuView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 40).isActive = true
+
         view.bringSubviewToFront(menuView)
         view.bringSubviewToFront(cornerView!)
         view.bringSubviewToFront(cameraLabel)

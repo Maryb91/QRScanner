@@ -132,7 +132,7 @@
                                     <constraint firstAttribute="height" constant="250" id="djz-tQ-zno"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-l9-CoC">
+                            <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-l9-CoC">
                                 <rect key="frame" x="10" y="605" width="394" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-nj-ynV">
@@ -181,7 +181,6 @@
                         <constraints>
                             <constraint firstItem="9sG-qb-7hX" firstAttribute="trailing" secondItem="iLM-l9-CoC" secondAttribute="trailing" constant="10" id="5IE-pB-2Ym"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerX" secondItem="c3m-np-pfN" secondAttribute="centerX" id="Cjt-wL-71I"/>
-                            <constraint firstItem="iLM-l9-CoC" firstAttribute="top" secondItem="opK-QZ-Lr4" secondAttribute="bottom" constant="32" id="GR1-Jh-qWM"/>
                             <constraint firstItem="iLM-l9-CoC" firstAttribute="leading" secondItem="9sG-qb-7hX" secondAttribute="leading" constant="10" id="KPZ-ln-nKB"/>
                             <constraint firstItem="opK-QZ-Lr4" firstAttribute="centerY" secondItem="c3m-np-pfN" secondAttribute="centerY" id="if4-VA-Bfa"/>
                         </constraints>
