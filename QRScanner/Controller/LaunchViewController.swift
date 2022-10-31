@@ -15,16 +15,19 @@ class LaunchViewController: UIViewController {
     //MARK: - Variables
     var animate = LaunchAnimation()
 
-    //MARK: -Outlets
     
-    @IBOutlet weak var logoLaunchImage: UIImageView!
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var lineLogoLaunch: UIImageView!
+    @IBOutlet weak var appName: UILabel!
+    @IBOutlet weak var logoLaunchImage: UIImageView!
     
     //MARK: - View Controller
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage,vc: self,loadFunction: self.loadTabBarController)
+        animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage, appName:self.appName ,vc: self,loadFunction: self.loadTabBarController)
+        loadTabBarController(vc: self)
     }
     
     func loadTabBarController(vc: LaunchViewController) -> Void

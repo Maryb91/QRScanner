@@ -17,33 +17,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKF-7U-AIn">
-                                <rect key="frame" x="142" y="383" width="130" height="130"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="grV-8N-WG3">
+                                <rect key="frame" x="107" y="349.66666666666669" width="200" height="196.99999999999997"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="p47-Qk-CHD"/>
-                                    <constraint firstAttribute="height" constant="130" id="wWw-Ay-C0b"/>
+                                    <constraint firstAttribute="width" constant="200" id="fh0-Xb-bMM"/>
+                                    <constraint firstAttribute="height" constant="200" id="yKT-a3-22f"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-CD-xrM">
-                                <rect key="frame" x="142" y="323" width="130" height="130"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="3bF-Xz-D6R">
+                                <rect key="frame" x="117" y="335" width="180" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="Szj-AF-148"/>
-                                    <constraint firstAttribute="width" constant="130" id="Wjj-me-Rd0"/>
+                                    <constraint firstAttribute="width" constant="180" id="QtO-Em-76y"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR code Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZq-1c-9QJ">
+                                <rect key="frame" x="136.66666666666669" y="553" width="140.66666666666669" height="33.333333333333371"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstItem="P0m-CD-xrM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fpc-Xg-J9h"/>
-                            <constraint firstItem="SKF-7U-AIn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lOy-PU-ckG"/>
-                            <constraint firstItem="SKF-7U-AIn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mFI-lX-K1F"/>
-                            <constraint firstItem="SKF-7U-AIn" firstAttribute="top" secondItem="P0m-CD-xrM" secondAttribute="bottom" constant="-70" id="mu2-eR-zkv"/>
+                            <constraint firstItem="eZq-1c-9QJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dqc-xh-rOB"/>
+                            <constraint firstItem="grV-8N-WG3" firstAttribute="top" secondItem="3bF-Xz-D6R" secondAttribute="bottom" constant="-35" id="EiR-80-25N"/>
+                            <constraint firstItem="grV-8N-WG3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rzx-Cv-ufI"/>
+                            <constraint firstItem="eZq-1c-9QJ" firstAttribute="top" secondItem="grV-8N-WG3" secondAttribute="bottom" constant="5" id="bZl-8w-SE9"/>
+                            <constraint firstItem="grV-8N-WG3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ryi-GZ-jeI"/>
+                            <constraint firstItem="3bF-Xz-D6R" firstAttribute="centerX" secondItem="grV-8N-WG3" secondAttribute="centerX" id="uuF-Ml-6k5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lineLogoLaunch" destination="P0m-CD-xrM" id="rS7-ik-1bk"/>
-                        <outlet property="logoLaunchImage" destination="SKF-7U-AIn" id="RoK-Ur-JJh"/>
+                        <outlet property="appName" destination="eZq-1c-9QJ" id="E3h-kV-Yua"/>
+                        <outlet property="lineLogoLaunch" destination="3bF-Xz-D6R" id="AO2-tg-ELQ"/>
+                        <outlet property="logoLaunchImage" destination="grV-8N-WG3" id="STo-rx-bdX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -210,7 +219,7 @@
             </objects>
             <point key="canvasLocation" x="2820" y="-1047"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Title-->
         <scene sceneID="i6G-48-aEd">
             <objects>
                 <viewController id="Qpk-1Y-sQD" customClass="DetailsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +240,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnm-lR-McG" userLabel="newView">
-                                <rect key="frame" x="0.0" y="60" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="733"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lK-gI-tBb">
                                         <rect key="frame" x="80" y="50" width="42" height="30"/>
@@ -320,7 +329,9 @@
                             <constraint firstItem="qnm-lR-McG" firstAttribute="top" secondItem="ehr-Bk-1q2" secondAttribute="bottom" constant="10" id="teP-76-DaP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pIg-ef-R5U"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="V1u-zO-Mlb"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="pj2-5A-KgN" id="4mq-Ap-3aC"/>
                         <outlet property="dateLabel" destination="vKD-zu-Mgf" id="Tj3-tE-vzr"/>
@@ -338,7 +349,7 @@
         <!--Main Tab Bar View Controller-->
         <scene sceneID="j4v-rC-I0S">
             <objects>
-                <tabBarController storyboardIdentifier="mainTabID" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="MainTabBarViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabID" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="MainTabBarViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vd4-oM-4SG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zuA-DI-XXT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -619,15 +630,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="loM-kE-gTu"/>
+        <segue reference="j5b-2U-lfg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cameraIcon" width="2172" height="1758"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="flashlight.off.fill" catalog="system" width="76" height="128"/>
         <image name="gear.circle" catalog="system" width="128" height="121"/>
-        <image name="line" width="256" height="256"/>
-        <image name="logo.png" width="170" height="60"/>
+        <image name="line" width="256" height="48"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
