@@ -22,13 +22,16 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var appName: UILabel!
     @IBOutlet weak var logoLaunchImage: UIImageView!
     
-    //MARK: - View Controller
+    //MARK: - viewDidLoad
     override func viewDidLoad()
     {
         super.viewDidLoad()
         animate.animateLogo(lineLogoLaunch: lineLogoLaunch,logoLaunchImage: logoLaunchImage, appName:self.appName ,vc: self,loadFunction: self.loadTabBarController)
         loadTabBarController(vc: self)
     }
+    
+    
+    //MARK: - Load the first screen after launching animation finishes
     
     func loadTabBarController(vc: LaunchViewController) -> Void
     {

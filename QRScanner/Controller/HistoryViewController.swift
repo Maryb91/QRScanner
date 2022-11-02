@@ -29,7 +29,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         scdView.isHidden = true
         loadQrCodes()
-        print("will appeaaar")
     }
     
     //MARK: - viewDidLoad
@@ -41,7 +40,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                scanButton.addGestureRecognizer(tap)
         tableView.delegate = self
         tableView.dataSource = self
-        print("did loooad")
     }
     
     
@@ -72,8 +70,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         var config : UIImage.SymbolConfiguration
         let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
         cell.layer.cornerRadius = 15
-        cell.layer.borderColor = UIColor.white.cgColor
-        cell.layer.borderWidth = 7
+        cell.layer.borderColor = UIColor.systemGray6.cgColor
+        cell.layer.borderWidth = 5
         
         if (qrcodes?[indexPath.section].type == qrCodeTypes.contactType || qrcodes?[indexPath.section].type == qrCodeTypes.emailType){
             config = UIImage.SymbolConfiguration(pointSize: 24, weight: .light, scale: .default)
@@ -96,18 +94,34 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            if let qrcode = qrcodes?[indexPath.section] {
-                qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
-                let indexSet = IndexSet(arrayLiteral: indexPath.section)
-                tableView.deleteSections(indexSet, with:.fade)
-                loadQrCodes()
-            }
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//        }
+//    }
+//
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+            -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+                if let qrcode = self.qrcodes?[indexPath.section] {
+                    self.qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
+                    let indexSet = IndexSet(arrayLiteral: indexPath.section)
+                    tableView.deleteSections(indexSet, with:.fade)
+                    self.loadQrCodes()
+                }
+                completionHandler(true)
+            }
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = .systemRed
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
+    }
+
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

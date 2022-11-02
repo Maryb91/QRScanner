@@ -46,23 +46,23 @@ class QrResultTypes {
         var iconImage = ""
         if(type==qrCodeTypes.phoneType)
         {
-            iconImage = "phone.fill"
+            iconImage = "phone"
         }
         else if (type==qrCodeTypes.textType)
         {
-            iconImage = "t.square.fill"
+            iconImage = "t.square"
         }
         else if (type==qrCodeTypes.emailType)
         {
-            iconImage = "envelope.fill"
+            iconImage = "envelope"
         }
         else if (type==qrCodeTypes.websiteType)
         {
-            iconImage = "link.circle.fill"
+            iconImage = "link.circle"
         }
         else if (type==qrCodeTypes.contactType)
         {
-            iconImage = "person.text.rectangle.fill"
+            iconImage = "person.text.rectangle"
         }
         return iconImage
     }
