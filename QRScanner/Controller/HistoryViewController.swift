@@ -6,8 +6,10 @@
 //
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate{
+   
     
     //MARK: - Variables
     
@@ -68,7 +70,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var config : UIImage.SymbolConfiguration
-        let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "qrCell") as! SwipeTableViewCell
+        cell.delegate = self
         cell.layer.cornerRadius = 15
         cell.layer.borderColor = UIColor.systemGray6.cgColor
         cell.layer.borderWidth = 5
@@ -97,37 +100,43 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//        }
-//    }
-//
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
-            -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
-                if let qrcode = self.qrcodes?[indexPath.section] {
-                    self.qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
-                    let indexSet = IndexSet(arrayLiteral: indexPath.section)
-                    tableView.deleteSections(indexSet, with:.fade)
-                    self.loadQrCodes()
-                }
-                completionHandler(true)
-            }
-            deleteAction.image = UIImage(systemName: "trash")
-            deleteAction.backgroundColor = .systemRed
-            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-            return configuration
-    }
-
-    
-    
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "",session: nil)
     }
     
+    //MARK: - Delete a Row
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+            let deleteAction = SwipeAction(style: .destructive,title: "Trash") { action, indexPath in
+                    if let qrcode = self.qrcodes?[indexPath.section] {
+                        self.qrCodeDBManager.deleteHistoryItem(qrcode: qrcode)
+                        let indexSet = IndexSet(arrayLiteral: indexPath.section)
+                        tableView.deleteSections(indexSet, with:.fade)
+                        self.loadQrCodes()
+                    }
+            }
+        deleteAction.image = UIImage(systemName:"trash.circle.fill")?.resized(to: CGSize(width: 45.0, height: 45.0))?.withTintColor(UIColor.systemRed)
+        deleteAction.textColor = UIColor.systemRed
+        deleteAction.font = UIFont(name: "MuktaMahee", size:5)
+        deleteAction.backgroundColor = UIColor.systemGray6
+            return [deleteAction]
+    }
+    
+    
+    //MARK: - Swipe options
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .none
+        options.backgroundColor = UIColor.systemGray6
+        options.transitionStyle = .reveal
+          return options
+    }
+    
+
     
     //MARK: - Function that gets all the scanned QR codes from the database and loads them into the tableview
     
@@ -145,7 +154,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             tableView.reloadData()
             self.clearAllButton.isEnabled = true
             self.clearAllButton.tintColor = .systemIndigo
-           
+            self.clearAllButton.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 18, weight: .regular), .foregroundColor : UIColor.systemIndigo], for: .normal)
         }
     }
     
@@ -180,17 +189,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
-    
-   
-    
-    
-    
+}
 
-    
-    
-    
-    
-    
-    
-    
+//MARK: - Resizing a UIImage
+
+extension UIImage {
+  func resized(to newSize: CGSize) -> UIImage? {
+    UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+    defer { UIGraphicsEndImageContext() }
+
+    draw(in: CGRect(origin: .zero, size: newSize))
+    return UIGraphicsGetImageFromCurrentImageContext()
+  }
 }
