@@ -31,6 +31,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let userDefaults = UserDefaults.standard
     var storyBoard = UIStoryboard()
     var scanVC = ScanViewController()
+    let qrCode = QRCode()
+    let qrCodeDB = QRCodeDBManager()
    
 
 
@@ -198,6 +200,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           let detailsVC = segue.destination as! DetailsViewController
           detailsVC.session = session
+          detailsVC.qrCode = qrCodeDB.getQRCode()!
       }
     
     //MARK: - Actions to perform depending on the Camera permission status

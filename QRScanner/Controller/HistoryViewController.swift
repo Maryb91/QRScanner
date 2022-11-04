@@ -17,6 +17,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var qrcodes : Results<QRCode>?
     var qrResultType = QrResultTypes()
     var qrCodeResult = QrCodeResult()
+    var selectedQRCode : QRCode?
     
     
     //MARK: - IBOutlets
@@ -82,10 +83,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         else {
             config = UIImage.SymbolConfiguration(pointSize: 28, weight: .light, scale: .default)
         }
-        
+
         cell.textLabel?.text = qrcodes?[indexPath.section].type
         cell.imageView?.image = UIImage(systemName: qrResultType.getIcon(type: (qrcodes?[indexPath.section].type)!),withConfiguration: config )?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
-        
+
         if qrcodes?[indexPath.section].type == qrCodeTypes.contactType {
             let contactNames = qrResultType.getContactName(result: (qrcodes?[indexPath.section].result)!)
             cell.detailTextLabel?.text = contactNames
@@ -102,7 +103,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.qrCodeResult.getQrCodeResult(qrCodeString: (qrcodes?[indexPath.section].result)!,picker: nil,vc: self, qrCodeScanSource: "",session: nil)
+        selectedQRCode = qrcodes?[indexPath.section]
+        self.performSegue(withIdentifier: "showDetails", sender: self)
+
+        
     }
     
     //MARK: - Delete a Row
@@ -178,7 +182,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Passing the parameteres to DetailsViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        _ = segue.destination as! DetailsViewController
+        let destinationVC = segue.destination as! DetailsViewController
+        destinationVC.qrCode = selectedQRCode
     }
     
     

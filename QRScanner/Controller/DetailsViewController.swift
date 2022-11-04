@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     //MARK: - Variables
     
-    var qrCode = QRCode()
+    var qrCode : QRCode?
     var qrCodeDBManager = QRCodeDBManager()
     var session = AVCaptureSession()
     var qrResultType = QrResultTypes()
@@ -26,8 +26,10 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var secondButton: UIButton!
-    @IBOutlet weak var newView: UIView!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var lastView: UIView!
+    @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var resultTextView: UITextView!
     
   
@@ -35,47 +37,53 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrCode = qrCodeDBManager.getQRCode()!
         showScannedQRCode()
     }
     
     //MARK: - Getting the scanned QR code and displaying its details
     
     func showScannedQRCode() {
-        qrCode = qrCodeDBManager.getQRCode()!
-        secondButton.layer.borderWidth = 1
-        secondButton.layer.borderColor = UIColor.systemIndigo.cgColor
-        secondButton.layer.cornerRadius = 8
+        searchButton.layer.borderWidth = 1
+        searchButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        searchButton.layer.cornerRadius = 8
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = UIColor.systemIndigo.cgColor
         actionButton.layer.cornerRadius = 8
-        iconImage.image = UIImage(systemName:qrResultType.getIcon(type: qrCode.type))?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
-        newView.layer.cornerRadius = 15
-        typeLabel.text = qrCode.type
-        dateLabel.text = qrCode.date
-        resultTextView.text = qrCode.result
-        actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
-        if(qrCode.type == qrCodeTypes.textType || qrCode.type == qrCodeTypes.websiteType  )
+        shareButton.layer.borderWidth = 1
+        shareButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        shareButton.layer.cornerRadius = 8
+        iconImage.image = UIImage(systemName:qrResultType.getIcon(type: qrCode!.type))?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        firstView.layer.cornerRadius = 15
+        firstView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+
+        lastView.layer.cornerRadius = 15
+        lastView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner] // Top right corner, Top left corner respectively
+
+        typeLabel.text = qrCode?.type
+        dateLabel.text = qrCode?.date
+        resultTextView.text = qrCode?.result
+        actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
+        if(qrCode?.type == qrCodeTypes.textType || qrCode?.type == qrCodeTypes.websiteType  )
         {
-            secondButton.isHidden = false
+            searchButton.isHidden = false
         }
-       else if (qrCode.type == qrCodeTypes.contactType || qrCode.type == qrCodeTypes.emailType)
+       else if (qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
         {
-            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode.type), for: .normal)
+            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
             resultTextView.isHidden = true
             view.addConstraints([
                 NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: actionButton, attribute: .centerX, multiplier: 1.0, constant: 0.0),
                 NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
             ])
         }
-       else if(qrCode.type == qrCodeTypes.phoneType)
+       else if(qrCode?.type == qrCodeTypes.phoneType)
         {
-            secondButton.isHidden = false
-            secondButton.setTitle("Copy", for: .normal)
+           searchButton.isHidden = false
+           searchButton.setTitle("Copy", for: .normal)
         }
         else {
             actionButton.isHidden = true
-            secondButton.isHidden = false
+            searchButton.isHidden = false
         }
     }
     
@@ -83,7 +91,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     //MARK: - Action button pressed function (depending on the type of the QR Code scanned)
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        qrResultType.actionToType(qrcode: qrCode, vc:self)
+        qrResultType.actionToType(qrcode: qrCode!, vc:self)
         
     }
     
@@ -91,12 +99,12 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     @IBAction func secondButtonPressed(_ sender: UIButton) {
         
-        if(qrCode.type == qrCodeTypes.phoneType)
+        if(qrCode?.type == qrCodeTypes.phoneType)
         {
-            qrResultType.copyText(scanResult:qrCode.result)
+            qrResultType.copyText(scanResult:qrCode!.result)
         }
         else {
-            qrResultType.searchOnGoogle(result: qrCode.result)
+            qrResultType.searchOnGoogle(result: qrCode!.result)
         }
     }
     
@@ -104,7 +112,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     //MARK: - Share button pressed function
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        let text = qrCode.result
+        let text = qrCode!.result
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -116,7 +124,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     //MARK: - Actions to perform depending on the Contacts permission status
     
     func authorizedPermission () -> Void{
-        if let data = qrCode.result.data(using: .utf8) {
+        if let data = qrCode?.result.data(using: .utf8) {
             do{
                 let contacts = try CNContactVCardSerialization.contacts(with: data)
                 let newContact = contacts.first!

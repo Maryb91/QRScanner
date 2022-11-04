@@ -227,118 +227,154 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-Bk-1q2">
-                                <rect key="frame" x="359.66666666666669" y="10" width="44.333333333333314" height="40"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted">
-                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="shareButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="6hN-vD-mda"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnm-lR-McG" userLabel="newView">
-                                <rect key="frame" x="0.0" y="60" width="414" height="733"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z31-yS-jkl">
+                                <rect key="frame" x="15" y="40" width="384" height="713"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lK-gI-tBb">
-                                        <rect key="frame" x="80" y="50" width="42" height="30"/>
-                                        <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-zu-Mgf">
-                                        <rect key="frame" x="360" y="52" width="34" height="25"/>
-                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="15"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-2w-BrJ">
-                                        <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-q8-SLu" userLabel="View1">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lK-gI-tBb">
+                                                <rect key="frame" x="80" y="35" width="42" height="30"/>
+                                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-zu-Mgf">
+                                                <rect key="frame" x="330.66666666666669" y="37.666666666666671" width="33.333333333333314" height="25"/>
+                                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-2w-BrJ">
+                                                <rect key="frame" x="20" y="25" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9IJ-4t-VoV"/>
+                                                    <constraint firstAttribute="width" constant="50" id="rN3-yc-9Eg"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="9IJ-4t-VoV"/>
-                                            <constraint firstAttribute="width" constant="50" id="rN3-yc-9Eg"/>
+                                            <constraint firstItem="OJU-2w-BrJ" firstAttribute="leading" secondItem="SlM-q8-SLu" secondAttribute="leading" constant="20" id="5TI-Ex-k5j"/>
+                                            <constraint firstAttribute="trailing" secondItem="vKD-zu-Mgf" secondAttribute="trailing" constant="20" id="BGo-ZP-2sE"/>
+                                            <constraint firstItem="1lK-gI-tBb" firstAttribute="centerY" secondItem="SlM-q8-SLu" secondAttribute="centerY" id="HsW-KG-3pw"/>
+                                            <constraint firstItem="1lK-gI-tBb" firstAttribute="leading" secondItem="OJU-2w-BrJ" secondAttribute="trailing" constant="10" id="MoQ-3q-vVw"/>
+                                            <constraint firstItem="vKD-zu-Mgf" firstAttribute="centerY" secondItem="SlM-q8-SLu" secondAttribute="centerY" id="Vms-fo-29n"/>
+                                            <constraint firstAttribute="height" constant="100" id="jra-Vc-Zsu"/>
+                                            <constraint firstItem="OJU-2w-BrJ" firstAttribute="centerY" secondItem="SlM-q8-SLu" secondAttribute="centerY" id="lFM-rE-8kB"/>
                                         </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y1b-rC-l9G">
-                                        <rect key="frame" x="20" y="120" width="374" height="148"/>
-                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnm-lR-McG" userLabel="View2">
+                                        <rect key="frame" x="0.0" y="100" width="384" height="413"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y1b-rC-l9G">
+                                                <rect key="frame" x="10" y="106.66666666666666" width="364" height="199.99999999999997"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="E9o-0J-gXU"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="148" id="cTL-Mq-18e"/>
+                                            <constraint firstItem="y1b-rC-l9G" firstAttribute="leading" secondItem="qnm-lR-McG" secondAttribute="leading" constant="10" id="00j-bh-y41"/>
+                                            <constraint firstAttribute="trailing" secondItem="y1b-rC-l9G" secondAttribute="trailing" constant="10" id="C5F-xe-Ooz"/>
+                                            <constraint firstItem="y1b-rC-l9G" firstAttribute="centerY" secondItem="qnm-lR-McG" secondAttribute="centerY" id="E6O-AU-Bbp"/>
+                                            <constraint firstItem="y1b-rC-l9G" firstAttribute="centerX" secondItem="qnm-lR-McG" secondAttribute="centerX" id="b2x-aY-aYL"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8I-6i-jjO">
-                                        <rect key="frame" x="261.66666666666669" y="338" width="122.33333333333331" height="37.333333333333314"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Search in Google">
-                                            <fontDescription key="titleFontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
-                                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="secondButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="X3S-JF-uyC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-5A-KgN">
-                                        <rect key="frame" x="29.999999999999993" y="338" width="122.33333333333331" height="37.333333333333314"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Search in Google">
-                                            <fontDescription key="titleFontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
-                                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="secondButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="LAt-0m-lxC"/>
-                                        </connections>
-                                    </button>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b34-Fj-wQy" userLabel="Stack View2">
+                                        <rect key="frame" x="0.0" y="513" width="384" height="200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-tI-RHb" userLabel="View2.1">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7D-if-xPC">
+                                                        <rect key="frame" x="144.33333333333334" y="30" width="95.666666666666657" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="19"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="8" minY="4" maxX="9" maxY="4"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-3" maxY="0.0"/>
+                                                        <state key="normal" title=" Button" image="network" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="j7D-if-xPC" firstAttribute="centerY" secondItem="gb3-tI-RHb" secondAttribute="centerY" id="L1I-nD-AMg"/>
+                                                    <constraint firstItem="j7D-if-xPC" firstAttribute="centerX" secondItem="gb3-tI-RHb" secondAttribute="centerX" id="omq-Sk-aDq"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQ6-AA-nLt" userLabel="View 2.2">
+                                                <rect key="frame" x="0.0" y="100" width="384" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqn-mC-57j" userLabel="ShareButton">
+                                                        <rect key="frame" x="20" y="31" width="72.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="18"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <inset key="contentEdgeInsets" minX="8" minY="4" maxX="9" maxY="4"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-3" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Share">
+                                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="small"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8I-6i-jjO" userLabel="SearchButton">
+                                                        <rect key="frame" x="206.66666666666663" y="31" width="157.33333333333337" height="38"/>
+                                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="18"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                        <inset key="contentEdgeInsets" minX="8" minY="4" maxX="9" maxY="4"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-3" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Search in Google">
+                                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="small"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="secondButtonPressed:" destination="Qpk-1Y-sQD" eventType="touchUpInside" id="X3S-JF-uyC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="n8I-6i-jjO" firstAttribute="centerY" secondItem="KQ6-AA-nLt" secondAttribute="centerY" id="5tG-Nt-5uD"/>
+                                                    <constraint firstItem="Hqn-mC-57j" firstAttribute="centerY" secondItem="KQ6-AA-nLt" secondAttribute="centerY" id="8kh-Y4-AfU"/>
+                                                    <constraint firstItem="Hqn-mC-57j" firstAttribute="leading" secondItem="KQ6-AA-nLt" secondAttribute="leading" constant="20" id="XrM-oC-cID"/>
+                                                    <constraint firstAttribute="trailing" secondItem="n8I-6i-jjO" secondAttribute="trailing" constant="20" id="Yvu-tj-tHh"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="cpA-jI-5d7"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="y1b-rC-l9G" firstAttribute="leading" secondItem="qnm-lR-McG" secondAttribute="leading" constant="20" id="EhX-Ht-dt3"/>
-                                    <constraint firstItem="OJU-2w-BrJ" firstAttribute="top" secondItem="qnm-lR-McG" secondAttribute="top" constant="40" id="H3c-EY-yLL"/>
-                                    <constraint firstItem="n8I-6i-jjO" firstAttribute="top" secondItem="y1b-rC-l9G" secondAttribute="bottom" constant="70" id="P7T-a0-38A"/>
-                                    <constraint firstItem="pj2-5A-KgN" firstAttribute="leading" secondItem="qnm-lR-McG" secondAttribute="leading" constant="30" id="PuW-MR-kh2"/>
-                                    <constraint firstItem="1lK-gI-tBb" firstAttribute="top" secondItem="qnm-lR-McG" secondAttribute="top" constant="50" id="T0M-BQ-Pix"/>
-                                    <constraint firstItem="OJU-2w-BrJ" firstAttribute="leading" secondItem="qnm-lR-McG" secondAttribute="leading" constant="20" id="avO-Aq-HZq"/>
-                                    <constraint firstAttribute="trailing" secondItem="n8I-6i-jjO" secondAttribute="trailing" constant="30" id="bBn-dB-feo"/>
-                                    <constraint firstItem="vKD-zu-Mgf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1lK-gI-tBb" secondAttribute="trailing" constant="8" symbolic="YES" id="hxC-t5-56W"/>
-                                    <constraint firstItem="pj2-5A-KgN" firstAttribute="top" secondItem="y1b-rC-l9G" secondAttribute="bottom" constant="70" id="keq-TR-Pl4"/>
-                                    <constraint firstItem="1lK-gI-tBb" firstAttribute="leading" secondItem="OJU-2w-BrJ" secondAttribute="trailing" constant="10" id="oCa-qs-5iq"/>
-                                    <constraint firstItem="y1b-rC-l9G" firstAttribute="top" secondItem="OJU-2w-BrJ" secondAttribute="bottom" constant="30" id="sK9-Yh-kgO"/>
-                                    <constraint firstItem="vKD-zu-Mgf" firstAttribute="top" secondItem="qnm-lR-McG" secondAttribute="top" constant="52" id="tUJ-XM-pjn"/>
-                                    <constraint firstAttribute="trailing" secondItem="vKD-zu-Mgf" secondAttribute="trailing" constant="20" id="wpb-Rs-8wk"/>
-                                    <constraint firstAttribute="trailing" secondItem="y1b-rC-l9G" secondAttribute="trailing" constant="20" id="ypj-MA-cJu"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xin-Dp-sFv"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qnm-lR-McG" firstAttribute="top" secondItem="Ht4-ph-1oB" secondAttribute="topMargin" constant="60" id="9SC-6j-xS9"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="qnm-lR-McG" secondAttribute="trailing" id="AQG-4t-s4Z"/>
-                            <constraint firstItem="ehr-Bk-1q2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xin-Dp-sFv" secondAttribute="leading" symbolic="YES" id="AUo-5h-3Ck"/>
-                            <constraint firstItem="qnm-lR-McG" firstAttribute="leading" secondItem="xin-Dp-sFv" secondAttribute="leading" id="B2b-pL-llL"/>
-                            <constraint firstItem="ehr-Bk-1q2" firstAttribute="top" secondItem="Ht4-ph-1oB" secondAttribute="topMargin" constant="10" id="BIP-Zo-lvy"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="qnm-lR-McG" secondAttribute="bottom" id="GM7-zt-QPE"/>
-                            <constraint firstItem="xin-Dp-sFv" firstAttribute="trailing" secondItem="ehr-Bk-1q2" secondAttribute="trailing" constant="10" id="PoX-eP-pKR"/>
-                            <constraint firstItem="qnm-lR-McG" firstAttribute="top" secondItem="ehr-Bk-1q2" secondAttribute="bottom" constant="10" id="teP-76-DaP"/>
+                            <constraint firstItem="Z31-yS-jkl" firstAttribute="top" secondItem="Ht4-ph-1oB" secondAttribute="top" constant="40" id="J8B-VB-oh3"/>
+                            <constraint firstItem="xin-Dp-sFv" firstAttribute="bottom" secondItem="Z31-yS-jkl" secondAttribute="bottom" constant="40" id="SXC-P8-RDY"/>
+                            <constraint firstAttribute="trailing" secondItem="Z31-yS-jkl" secondAttribute="trailing" constant="15" id="Z6s-ZE-JCy"/>
+                            <constraint firstItem="Z31-yS-jkl" firstAttribute="leading" secondItem="Ht4-ph-1oB" secondAttribute="leading" constant="15" id="qeY-o7-ruU"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="V1u-zO-Mlb"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="actionButton" destination="pj2-5A-KgN" id="4mq-Ap-3aC"/>
+                        <outlet property="actionButton" destination="j7D-if-xPC" id="Doh-35-MJg"/>
                         <outlet property="dateLabel" destination="vKD-zu-Mgf" id="Tj3-tE-vzr"/>
+                        <outlet property="firstView" destination="SlM-q8-SLu" id="l76-aC-2e1"/>
                         <outlet property="iconImage" destination="OJU-2w-BrJ" id="xnr-mn-geb"/>
-                        <outlet property="newView" destination="qnm-lR-McG" id="3e9-tk-JBb"/>
+                        <outlet property="lastView" destination="KQ6-AA-nLt" id="rjp-Xk-0ji"/>
                         <outlet property="resultTextView" destination="y1b-rC-l9G" id="es3-f3-fgq"/>
-                        <outlet property="secondButton" destination="n8I-6i-jjO" id="dQg-4q-9Wo"/>
+                        <outlet property="searchButton" destination="n8I-6i-jjO" id="udo-O9-WYg"/>
+                        <outlet property="shareButton" destination="Hqn-mC-57j" id="SMh-DC-7Uy"/>
                         <outlet property="typeLabel" destination="1lK-gI-tBb" id="RfJ-VH-eA5"/>
                     </connections>
                 </viewController>
@@ -554,8 +590,8 @@
                                             <constraint firstAttribute="height" constant="150" id="S4X-gr-Y8Q"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan here : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-CK-Q35">
-                                        <rect key="frame" x="100" y="53.333333333333314" width="80.333333333333314" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan here : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-CK-Q35">
+                                        <rect key="frame" x="76.333333333333343" y="53.333333333333314" width="127.33333333333334" height="29"/>
                                         <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -567,7 +603,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstItem="ZWS-CK-Q35" firstAttribute="top" secondItem="6XY-jq-r1l" secondAttribute="bottom" constant="10" id="6yV-Kc-G4a"/>
                                     <constraint firstItem="6XY-jq-r1l" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="A4e-H3-Ahn"/>
@@ -644,6 +680,8 @@
         <image name="flashlight.off.fill" catalog="system" width="76" height="128"/>
         <image name="gear.circle" catalog="system" width="128" height="121"/>
         <image name="line" width="256" height="48"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="network" catalog="system" width="128" height="121"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
