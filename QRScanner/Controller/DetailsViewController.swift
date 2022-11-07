@@ -43,6 +43,13 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     func showScannedQRCode() {
         
+        // TextView Layout
+        resultTextView.layer.cornerRadius = 15
+        resultTextView.layer.borderWidth = 1
+        resultTextView.layer.borderColor = UIColor.systemGray6.cgColor
+        resultTextView.textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 5, right: 10)
+
+        
         //SearchButton Layout
         searchButton.layer.borderWidth = 1
         searchButton.layer.borderColor = UIColor.systemIndigo.cgColor
@@ -55,9 +62,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         actionButton.setImage(UIImage(systemName: qrResultType.actionIcon(type: qrCode!.type)), for: .normal)
         actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
 
-        //ShareButton Layout
-        shareButton.layer.cornerRadius = 8
-        
+        //QR code type icon
         iconImage.image = UIImage(systemName:qrResultType.getIcon(type: qrCode!.type))?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
         
         //FirstView Layout
@@ -75,9 +80,9 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         if (qrCode?.type == qrCodeTypes.phoneType || qrCode?.type == qrCodeTypes.websiteType || qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
         {
             searchButton.isHidden = true
-            lastView.backgroundColor = UIColor.systemGray6
-            actionView.layer.cornerRadius = 15
-            actionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+           // lastView.backgroundColor = UIColor.systemGray6
+//            actionView.layer.cornerRadius = 15
+//            actionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
 
         }
 
