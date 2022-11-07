@@ -31,8 +31,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     @IBOutlet weak var lastView: UIView!
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var resultTextView: UITextView!
-    
-  
+    @IBOutlet weak var actionView: UIView!
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -43,48 +42,68 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     //MARK: - Getting the scanned QR code and displaying its details
     
     func showScannedQRCode() {
+        
+        //SearchButton Layout
         searchButton.layer.borderWidth = 1
         searchButton.layer.borderColor = UIColor.systemIndigo.cgColor
         searchButton.layer.cornerRadius = 8
+        
+        //ActionButton Layout
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = UIColor.systemIndigo.cgColor
         actionButton.layer.cornerRadius = 8
-        shareButton.layer.borderWidth = 1
-        shareButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        actionButton.setImage(UIImage(systemName: qrResultType.actionIcon(type: qrCode!.type)), for: .normal)
+        actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
+
+        //ShareButton Layout
         shareButton.layer.cornerRadius = 8
+        
         iconImage.image = UIImage(systemName:qrResultType.getIcon(type: qrCode!.type))?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        
+        //FirstView Layout
         firstView.layer.cornerRadius = 15
         firstView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-
+        
+        //LastView Layout
         lastView.layer.cornerRadius = 15
         lastView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner] // Top right corner, Top left corner respectively
 
         typeLabel.text = qrCode?.type
         dateLabel.text = qrCode?.date
         resultTextView.text = qrCode?.result
-        actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
-        if(qrCode?.type == qrCodeTypes.textType || qrCode?.type == qrCodeTypes.websiteType  )
+        
+        if (qrCode?.type == qrCodeTypes.phoneType)
         {
-            searchButton.isHidden = false
+             searchButton.isHidden = true
+            lastView.backgroundColor = UIColor.systemGray6
+            actionView.layer.cornerRadius = 15
+            actionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            
+
+           // shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+
         }
-       else if (qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
-        {
-            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
-            resultTextView.isHidden = true
-            view.addConstraints([
-                NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: actionButton, attribute: .centerX, multiplier: 1.0, constant: 0.0),
-                NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: actionButton, attribute: .centerY, multiplier: 1.0, constant: 0.0)
-            ])
-        }
-       else if(qrCode?.type == qrCodeTypes.phoneType)
-        {
-           searchButton.isHidden = false
-           searchButton.setTitle("Copy", for: .normal)
-        }
-        else {
-            actionButton.isHidden = true
-            searchButton.isHidden = false
-        }
+       
+        
+//        if(qrCode?.type == qrCodeTypes.textType || qrCode?.type == qrCodeTypes.websiteType  )
+//        {
+//            searchButton.isHidden = false
+//        }
+//       else if (qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
+//        {
+//            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
+//            resultTextView.isHidden = true
+
+//        }
+//       else if(qrCode?.type == qrCodeTypes.phoneType)
+//        {
+//           searchButton.isHidden = false
+//           searchButton.setTitle("Copy", for: .normal)
+//        }
+//        else {
+//            actionButton.isHidden = true
+//            searchButton.isHidden = false
+//        }
     }
     
     
@@ -97,15 +116,8 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     //MARK: - Search the QR code scan result in Google
     
-    @IBAction func secondButtonPressed(_ sender: UIButton) {
-        
-        if(qrCode?.type == qrCodeTypes.phoneType)
-        {
-            qrResultType.copyText(scanResult:qrCode!.result)
-        }
-        else {
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
             qrResultType.searchOnGoogle(result: qrCode!.result)
-        }
     }
     
     

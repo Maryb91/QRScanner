@@ -94,6 +94,37 @@ class QrResultTypes {
         return ""
     }
     
+    
+    
+    //MARK: - Icons to Action Button depending on the scanned QR code's type
+    
+    func actionIcon(type : String) -> String
+    {
+        var actionIconImage = ""
+        if(type==qrCodeTypes.phoneType)
+        {
+            actionIconImage = "phone.arrow.up.right"
+        }
+        else if (type==qrCodeTypes.textType)
+        {
+            actionIconImage = "doc.on.doc"
+        }
+        else if (type==qrCodeTypes.emailType)
+        {
+            actionIconImage = "envelope.open"
+        }
+        else if (type==qrCodeTypes.websiteType)
+        {
+            actionIconImage = "network"
+        }
+        else if (type==qrCodeTypes.contactType)
+        {
+            actionIconImage = "person.circle"
+        }
+        return actionIconImage
+    }
+    
+    
     //MARK: - Actions to perform in the ActionButton depending on the scanned QR code's type
     
     func actionToType(qrcode : QRCode, vc: DetailsViewController)
