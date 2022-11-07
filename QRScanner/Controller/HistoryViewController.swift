@@ -124,7 +124,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         deleteAction.image = UIImage(systemName:"trash.circle.fill")?.resized(to: CGSize(width: 45.0, height: 45.0))?.withTintColor(UIColor.systemRed)
         deleteAction.textColor = UIColor.systemRed
-        deleteAction.font = UIFont(name: "MuktaMahee", size:5)
         deleteAction.backgroundColor = UIColor.systemGray6
             return [deleteAction]
     }

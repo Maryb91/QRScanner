@@ -12,6 +12,7 @@
 		9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A128C110E8006C654D /* ContactsPermission */; };
 		9B1BB8A428C110E8006C654D /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */; };
 		9B3769B628A5532A00B0A997 /* PermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3769B528A5532A00B0A997 /* PermissionChecker.swift */; };
+		9B3DFAA529192E7700A49131 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3DFAA429192E7700A49131 /* Toast */; };
 		9B424DC42912519700A0411A /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9B424DC32912519700A0411A /* SwipeCellKit */; };
 		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
 		9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606F28A2B51E008E495A /* CameraViewController.swift */; };
@@ -99,6 +100,7 @@
 				9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */,
 				9B1BB8A028C110E8006C654D /* CameraPermission in Frameworks */,
 				9B424DC42912519700A0411A /* SwipeCellKit in Frameworks */,
+				9B3DFAA529192E7700A49131 /* Toast in Frameworks */,
 				9B1BB8A428C110E8006C654D /* PhotoLibraryPermission in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +244,7 @@
 				9B1BB8A128C110E8006C654D /* ContactsPermission */,
 				9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */,
 				9B424DC32912519700A0411A /* SwipeCellKit */,
+				9B3DFAA429192E7700A49131 /* Toast */,
 			);
 			productName = QRScanner;
 			productReference = 9BD6BA76289C15CA00B53584 /* QRScanner.app */;
@@ -319,6 +322,7 @@
 				9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 				9B424DC22912519700A0411A /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				9B3DFAA329192E7700A49131 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 9BD6BA77289C15CA00B53584 /* Products */;
 			projectDirPath = "";
@@ -735,6 +739,14 @@
 				kind = branch;
 			};
 		};
+		9B3DFAA329192E7700A49131 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		9B424DC22912519700A0411A /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
@@ -768,6 +780,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */;
 			productName = PhotoLibraryPermission;
+		};
+		9B3DFAA429192E7700A49131 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B3DFAA329192E7700A49131 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		9B424DC32912519700A0411A /* SwipeCellKit */ = {
 			isa = XCSwiftPackageProductDependency;

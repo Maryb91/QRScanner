@@ -11,7 +11,7 @@ import ContactsUI
 import PermissionsKit
 import ContactsPermission
 import MessageUI
-
+import Toast
 
 class QrResultTypes {
     
@@ -131,7 +131,7 @@ class QrResultTypes {
     {
         if(qrcode.type == qrCodeTypes.textType)
         {
-            copyText(scanResult: qrcode.result)
+            copyText(scanResult: qrcode.result, vc: vc)
         }
         else if (qrcode.type == qrCodeTypes.contactType)
         {
@@ -165,9 +165,14 @@ class QrResultTypes {
     
     //MARK: - Function to copy text to the Clipboard
     
-    func copyText(scanResult : String)
+    func copyText(scanResult : String, vc: DetailsViewController)
     {
         UIPasteboard.general.string = scanResult
+        var style = ToastStyle()
+        style.backgroundColor = UIColor.systemIndigo
+        style.messageFont = .systemFont(ofSize: 12)
+        vc.view.makeToast("Copied to clipboard", duration: 2.0, position: .bottom, style: style)
+
     }
     
     //MARK: - Displaying the contact screen according to the QRcode scan result

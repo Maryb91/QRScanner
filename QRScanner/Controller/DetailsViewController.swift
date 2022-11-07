@@ -72,38 +72,15 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         dateLabel.text = qrCode?.date
         resultTextView.text = qrCode?.result
         
-        if (qrCode?.type == qrCodeTypes.phoneType)
+        if (qrCode?.type == qrCodeTypes.phoneType || qrCode?.type == qrCodeTypes.websiteType || qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
         {
-             searchButton.isHidden = true
+            searchButton.isHidden = true
             lastView.backgroundColor = UIColor.systemGray6
             actionView.layer.cornerRadius = 15
             actionView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            
-
-           // shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
 
         }
-       
-        
-//        if(qrCode?.type == qrCodeTypes.textType || qrCode?.type == qrCodeTypes.websiteType  )
-//        {
-//            searchButton.isHidden = false
-//        }
-//       else if (qrCode?.type == qrCodeTypes.contactType || qrCode?.type == qrCodeTypes.emailType)
-//        {
-//            actionButton.setTitle(qrResultType.actionTitle(scanResultType: qrCode!.type), for: .normal)
-//            resultTextView.isHidden = true
 
-//        }
-//       else if(qrCode?.type == qrCodeTypes.phoneType)
-//        {
-//           searchButton.isHidden = false
-//           searchButton.setTitle("Copy", for: .normal)
-//        }
-//        else {
-//            actionButton.isHidden = true
-//            searchButton.isHidden = false
-//        }
     }
     
     
