@@ -23,9 +23,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - IBOutlets
     
     @IBOutlet weak var clearAllButton: UIBarButtonItem!
+    @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scdView: UIView!
-    @IBOutlet weak var scanButton: UIImageView!
     
     //MARK: - viewWillAppear
     
@@ -39,10 +39,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.scanAction))
-               scanButton.addGestureRecognizer(tap)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     
@@ -152,6 +151,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.clearAllButton.tintColor = .clear
             self.tableView.addSubview(scdView)
             scdView.isHidden = false
+            scanButton.translatesAutoresizingMaskIntoConstraints = false
+            scanButton.layer.masksToBounds = true
+            scanButton.layer.cornerRadius = 85
+
+
+
+
+
         }
         else {
             tableView.reloadData()
@@ -188,11 +195,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - Scan button pressed (Empty History)
     
-    @objc func scanAction(){
+    
+    @IBAction func scanAction(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
+    
+    
 }
 
 //MARK: - Resizing a UIImage

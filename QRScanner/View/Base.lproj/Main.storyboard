@@ -290,7 +290,7 @@
                                                     <constraint firstAttribute="height" constant="250" id="E9o-0J-gXU"/>
                                                 </constraints>
                                                 <inset key="scrollIndicatorInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -596,14 +596,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gj4-V1-N6J" userLabel="ScdView">
                                 <rect key="frame" x="67" y="308" width="280" height="280"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-iA-eqa">
-                                        <rect key="frame" x="65" y="91.666666666666657" width="150" height="147"/>
-                                        <color key="tintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="HTU-mP-Ode"/>
-                                            <constraint firstAttribute="height" constant="150" id="S4X-gr-Y8Q"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan here : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-CK-Q35">
                                         <rect key="frame" x="76.333333333333343" y="53.333333333333314" width="127.33333333333334" height="29"/>
                                         <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="17"/>
@@ -616,6 +608,23 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEx-DF-NCx">
+                                        <rect key="frame" x="55" y="87.333333333333314" width="170" height="170"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="170" id="j75-FR-Ou1"/>
+                                            <constraint firstAttribute="width" constant="170" id="t0G-Gc-bG8"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="15" minY="26" maxX="16" maxY="28"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="qrcode" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scanAction:" destination="XaN-rk-GG6" eventType="touchUpInside" id="oZv-hH-ce2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -623,10 +632,10 @@
                                     <constraint firstItem="6XY-jq-r1l" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="A4e-H3-Ahn"/>
                                     <constraint firstItem="ZWS-CK-Q35" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="UET-de-q5h"/>
                                     <constraint firstAttribute="height" constant="280" id="VlZ-EB-xcq"/>
-                                    <constraint firstAttribute="bottom" secondItem="yPi-iA-eqa" secondAttribute="bottom" constant="40" id="Whu-Nl-qeM"/>
                                     <constraint firstItem="6XY-jq-r1l" firstAttribute="top" secondItem="Gj4-V1-N6J" secondAttribute="top" constant="10" id="Xto-AF-6lU"/>
-                                    <constraint firstItem="yPi-iA-eqa" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="mZH-lV-dCD"/>
+                                    <constraint firstItem="zEx-DF-NCx" firstAttribute="top" secondItem="ZWS-CK-Q35" secondAttribute="bottom" constant="5" id="eg3-lT-Npb"/>
                                     <constraint firstAttribute="width" constant="280" id="oUq-ON-uDi"/>
+                                    <constraint firstItem="zEx-DF-NCx" firstAttribute="centerX" secondItem="Gj4-V1-N6J" secondAttribute="centerX" id="tU6-pw-MFU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -652,7 +661,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="clearAllButton" destination="Ajd-vU-wP6" id="cp0-H9-AXT"/>
-                        <outlet property="scanButton" destination="yPi-iA-eqa" id="IQo-uz-bfO"/>
+                        <outlet property="scanButton" destination="zEx-DF-NCx" id="53Q-Sj-zjD"/>
                         <outlet property="scdView" destination="Gj4-V1-N6J" id="iHP-ur-As6"/>
                         <outlet property="tableView" destination="qYl-to-snV" id="Ji4-ng-eba"/>
                         <segue destination="Qpk-1Y-sQD" kind="presentation" identifier="showDetails" id="j5b-2U-lfg"/>
