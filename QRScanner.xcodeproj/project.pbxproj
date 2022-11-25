@@ -17,6 +17,7 @@
 		9B56606E28A2B400008E495A /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606D28A2B400008E495A /* Corners.swift */; };
 		9B56607028A2B51E008E495A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56606F28A2B51E008E495A /* CameraViewController.swift */; };
 		9B5D62A328A66F9E00ACF6B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D62A228A66F9E00ACF6B2 /* Constants.swift */; };
+		9B69EBDB292FB2A5002BAD80 /* SPM-Acknowledgments in Frameworks */ = {isa = PBXBuildFile; productRef = 9B69EBDA292FB2A5002BAD80 /* SPM-Acknowledgments */; };
 		9B6B2494289D351C0001E3DD /* LaunchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2493289D351C0001E3DD /* LaunchAnimation.swift */; };
 		9B6B2496289D3F8B0001E3DD /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B2495289D3F8B0001E3DD /* ScanViewController.swift */; };
 		9B6B249E289D85BB0001E3DD /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B249D289D85BB0001E3DD /* CreateViewController.swift */; };
@@ -39,6 +40,8 @@
 		9BD6BA9D289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */; };
 		9BE391C228B7BB3200C61777 /* QrResultTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391C128B7BB3200C61777 /* QrResultTypes.swift */; };
 		9BE3920028B7F6D200C61777 /* QrCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */; };
+		9BFC5FFE292F8AA600369C88 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFC5FFD292F8AA600369C88 /* AcknowList */; };
+		9BFC6002292F8BCA00369C88 /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC6001292F8BCA00369C88 /* Package.resolved */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,7 @@
 		9BD6BA9C289C15CD00B53584 /* QRScannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BE391C128B7BB3200C61777 /* QrResultTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrResultTypes.swift; sourceTree = "<group>"; };
 		9BE391FF28B7F6D200C61777 /* QrCodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeResult.swift; sourceTree = "<group>"; };
+		9BFC6001292F8BCA00369C88 /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Package.resolved; path = QRScanner.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB53DF128B54F5D007AB795 /* RealmSwift in Frameworks */,
+				9BFC5FFE292F8AA600369C88 /* AcknowList in Frameworks */,
 				9BB53DEF28B54F5D007AB795 /* Realm in Frameworks */,
 				9B1BB8A228C110E8006C654D /* ContactsPermission in Frameworks */,
+				9B69EBDB292FB2A5002BAD80 /* SPM-Acknowledgments in Frameworks */,
 				9B1BB8A028C110E8006C654D /* CameraPermission in Frameworks */,
 				9B424DC42912519700A0411A /* SwipeCellKit in Frameworks */,
 				9B3DFAA529192E7700A49131 /* Toast in Frameworks */,
@@ -172,6 +178,7 @@
 		9BD6BA6D289C15CA00B53584 = {
 			isa = PBXGroup;
 			children = (
+				9BFC6001292F8BCA00369C88 /* Package.resolved */,
 				9BD6BA78289C15CA00B53584 /* QRScanner */,
 				9BD6BA8F289C15CD00B53584 /* QRScannerTests */,
 				9BD6BA99289C15CD00B53584 /* QRScannerUITests */,
@@ -245,6 +252,8 @@
 				9B1BB8A328C110E8006C654D /* PhotoLibraryPermission */,
 				9B424DC32912519700A0411A /* SwipeCellKit */,
 				9B3DFAA429192E7700A49131 /* Toast */,
+				9BFC5FFD292F8AA600369C88 /* AcknowList */,
+				9B69EBDA292FB2A5002BAD80 /* SPM-Acknowledgments */,
 			);
 			productName = QRScanner;
 			productReference = 9BD6BA76289C15CA00B53584 /* QRScanner.app */;
@@ -323,6 +332,8 @@
 				9B1BB89E28C110E8006C654D /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 				9B424DC22912519700A0411A /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 				9B3DFAA329192E7700A49131 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				9BFC5FFC292F8AA600369C88 /* XCRemoteSwiftPackageReference "AcknowList" */,
+				9B69EBD9292FB2A5002BAD80 /* XCRemoteSwiftPackageReference "SPM-Acknowledgments" */,
 			);
 			productRefGroup = 9BD6BA77289C15CA00B53584 /* Products */;
 			projectDirPath = "";
@@ -342,6 +353,7 @@
 			files = (
 				9BD6BA86289C15CC00B53584 /* LaunchScreen.storyboard in Resources */,
 				9BD6BA83289C15CC00B53584 /* Assets.xcassets in Resources */,
+				9BFC6002292F8BCA00369C88 /* Package.resolved in Resources */,
 				9BD6BA81289C15CA00B53584 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,11 +579,14 @@
 				DEVELOPMENT_TEAM = 688DB864JV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QRScanner/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app requires Camera access to scan QR codes.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "The app requires Contacts access to add a new contact.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app requires Photo Library access to scan QR code images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,7 +596,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -595,11 +610,14 @@
 				DEVELOPMENT_TEAM = 688DB864JV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QRScanner/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app requires Camera access to scan QR codes.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "The app requires Contacts access to add a new contact.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app requires Photo Library access to scan QR code images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,7 +627,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -755,12 +773,28 @@
 				version = 2.7.1;
 			};
 		};
+		9B69EBD9292FB2A5002BAD80 /* XCRemoteSwiftPackageReference "SPM-Acknowledgments" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timroesner/SPM-Acknowledgments";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.28.6;
+			};
+		};
+		9BFC5FFC292F8AA600369C88 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vtourraine/AcknowList";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -791,6 +825,11 @@
 			package = 9B424DC22912519700A0411A /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
 		};
+		9B69EBDA292FB2A5002BAD80 /* SPM-Acknowledgments */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B69EBD9292FB2A5002BAD80 /* XCRemoteSwiftPackageReference "SPM-Acknowledgments" */;
+			productName = "SPM-Acknowledgments";
+		};
 		9BB53DEE28B54F5D007AB795 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -800,6 +839,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BB53DED28B54F5D007AB795 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		9BFC5FFD292F8AA600369C88 /* AcknowList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BFC5FFC292F8AA600369C88 /* XCRemoteSwiftPackageReference "AcknowList" */;
+			productName = AcknowList;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

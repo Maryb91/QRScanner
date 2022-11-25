@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageUI
+import AcknowList
 
 class SettingsViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -66,15 +67,22 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
             cell.selectionStyle = .none
         }
         else {
-            performSegue(withIdentifier: "showSettingsDetails", sender: self)
+            //performSegue(withIdentifier: "showSettingsDetails", sender: self)
+//            let viewController = AcknowListViewController()
+//            let navigationController = UINavigationController(rootViewController: viewController)
+//
+//            present(navigationController, animated: true, completion: nil)
+           
+            
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! SettingsItemViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.labelTitle = items[indexPath.row]
-        }
+//        let destinationVC = segue.destination as! SettingsItemViewController
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            destinationVC.labelTitle = items[indexPath.row]
+//        }
+      
     }
     
     //MARK: - Turn On and Off the vibrations

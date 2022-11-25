@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AcknowList",
+        "repositoryURL": "https://github.com/vtourraine/AcknowList",
+        "state": {
+          "branch": null,
+          "revision": "4db842a19478edce73ed7fed70eb9e76e02ff81e",
+          "version": "3.0.0"
+        }
+      },
+      {
         "package": "PermissionsKit",
         "repositoryURL": "https://github.com/sparrowcode/PermissionsKit",
         "state": {
@@ -26,6 +35,15 @@
           "branch": null,
           "revision": "5629961d905387b40fb2e1e9d8594c87a2ab8811",
           "version": "10.28.6"
+        }
+      },
+      {
+        "package": "SPM-Acknowledgments",
+        "repositoryURL": "https://github.com/timroesner/SPM-Acknowledgments",
+        "state": {
+          "branch": null,
+          "revision": "2920539ece40b29cf2afc0a0d535e9ba0ee82d15",
+          "version": "1.0.0"
         }
       },
       {

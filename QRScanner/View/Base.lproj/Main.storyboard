@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -144,7 +145,7 @@
                                 <rect key="frame" x="10" y="723" width="394" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-nj-ynV">
-                                        <rect key="frame" x="12" y="15" width="43" height="31"/>
+                                        <rect key="frame" x="12.000000000000004" y="15" width="51.333333333333343" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="flashlight.off.fill" catalog="system">
                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -165,8 +166,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please align the QR code within the frame to scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-ku-ciU">
-                                        <rect key="frame" x="70" y="11.999999999999996" width="247" height="46.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="14"/>
+                                        <rect key="frame" x="78.333333333333329" y="12.000000000000004" width="238.66666666666669" height="53.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="16"/>
                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -313,8 +314,11 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7D-if-xPC">
-                                                        <rect key="frame" x="143.33333333333334" y="17" width="97.666666666666657" height="41"/>
+                                                        <rect key="frame" x="143.33333333333334" y="15" width="97.666666666666657" height="45"/>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="X6I-DN-hYH"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="19"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="contentEdgeInsets" minX="8" minY="4" maxX="11" maxY="5"/>
@@ -335,7 +339,10 @@
                                                 <rect key="frame" x="0.0" y="75" width="384" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8I-6i-jjO" userLabel="SearchButton">
-                                                        <rect key="frame" x="111.00000000000001" y="18.666666666666686" width="162.33333333333337" height="38"/>
+                                                        <rect key="frame" x="111.00000000000001" y="15" width="162.33333333333337" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="l4d-fp-gpl"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="18"/>
                                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <inset key="contentEdgeInsets" minX="8" minY="4" maxX="9" maxY="4"/>
@@ -695,7 +702,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j5b-2U-lfg"/>
+        <segue reference="loM-kE-gTu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cameraIcon" width="2172" height="1758"/>

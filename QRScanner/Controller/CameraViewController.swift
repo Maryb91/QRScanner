@@ -66,20 +66,20 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     func displayScanner () {
     
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-        do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
-            session.addInput(input)
-        } catch {
-            print("Error capturing QRCode")
-        }
-        let output = AVCaptureMetadataOutput()
-        session.addOutput(output)
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.frame = view.layer.bounds
-        view.layer.addSublayer(previewLayer)
+//        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+//        do {
+//            let input = try AVCaptureDeviceInput(device: captureDevice!)
+//            session.addInput(input)
+//        } catch {
+//            print("Error capturing QRCode")
+//        }
+//        let output = AVCaptureMetadataOutput()
+//        session.addOutput(output)
+//        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+//        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+//        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+//        previewLayer.frame = view.layer.bounds
+//        view.layer.addSublayer(previewLayer)
         self.cornerView = Corners(frame: scanImageView.frame)
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
@@ -206,6 +206,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     //MARK: - Actions to perform depending on the Camera permission status
     
     func CamAuthorizedPermission () -> Void{
+        //session.startRunning()
         let ScanBarItem = UITabBarItem(title: ScanBarItem.title, image: UIImage(systemName: ScanBarItem.imageName) , tag: 0)
         self.tabBarItem = ScanBarItem
         self.tabBarController?.viewControllers![0] = self
@@ -223,7 +224,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        session.stopRunning()
+       // session.stopRunning()
     }
     
 }

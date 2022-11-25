@@ -22,19 +22,23 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Please allow the Camera access to start scanning QR codes</string>
+	<string>The app requires the access to Camera to scan QR codes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires the access to the Photo library to scan QR code images</string>
+	<string>The app requires the access to the Photo Library to scan QR code images.</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 	<key>NSContactsUsageDescription</key>
-	<string>Please allow the Contacts access permission in order to add a new contact</string>
+	<string>The app requires the access to Contacts to add a new contact.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlegmail</string>
 		<string>ms-outlook</string>
 		<string>readdle-spark</string>
 		<string>ymail</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 </dict>
 </plist>
