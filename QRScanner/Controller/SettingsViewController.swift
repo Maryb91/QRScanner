@@ -55,9 +55,13 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     
    //MARK: - TableView Delegate Methods
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if(indexPath.row == 1)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if(indexPath.row == 0)
+        {
+            performSegue(withIdentifier: "showSettingsDetails", sender: self)
+        }
+    
+        else if(indexPath.row == 1)
         {
             openMailApp()
         }
@@ -66,22 +70,14 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
             cell.selectionStyle = .none
         }
-        else {
-            //performSegue(withIdentifier: "showSettingsDetails", sender: self)
-//            let viewController = AcknowListViewController()
-//            let navigationController = UINavigationController(rootViewController: viewController)
-//
-//            present(navigationController, animated: true, completion: nil)
-           
-            
-        }
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destinationVC = segue.destination as! SettingsItemViewController
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            destinationVC.labelTitle = items[indexPath.row]
-//        }
+        let destinationVC = segue.destination as! SettingsItemViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.labelTitle = items[indexPath.row]
+        }
       
     }
     

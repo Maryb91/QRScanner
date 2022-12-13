@@ -235,7 +235,7 @@ class QrResultTypes {
             return sparkUrl
         }
         else {
-            let alert = UIAlertController(title: "No email app detected", message: "We could not detect any email app in your phone, please install one", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "No email application detected", message: "We could not detect any email application in your phone, please install one.", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
             vc.present(alert, animated: true, completion: nil)
         }

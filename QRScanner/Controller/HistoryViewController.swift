@@ -153,6 +153,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             scdView.isHidden = false
             scanButton.translatesAutoresizingMaskIntoConstraints = false
             scanButton.layer.masksToBounds = true
+            scanButton.layer.borderColor = UIColor.white.cgColor
+            scanButton.layer.borderWidth = 6
             scanButton.layer.cornerRadius = 85
 
 

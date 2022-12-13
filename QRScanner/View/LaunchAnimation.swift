@@ -22,7 +22,7 @@ class LaunchAnimation
         let hover = CABasicAnimation(keyPath: "position")
         hover.isAdditive = true
         hover.fromValue = NSValue(cgPoint: CGPoint.init(x: 0, y: 0))
-        hover.toValue = NSValue(cgPoint: CGPoint(x: 0, y: 170))
+        hover.toValue = NSValue(cgPoint: CGPoint(x: 0, y: 85))
         hover.autoreverses = true
         hover.duration = 0.5
         hover.repeatCount = 1

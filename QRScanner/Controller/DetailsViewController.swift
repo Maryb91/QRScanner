@@ -140,7 +140,7 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     
     func deniedPermission() -> Void{
-        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the Contacts permission from the app settings to show the scanned contact details", preferredStyle: UIAlertController.Style.alert)
+        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the Contacts permission from the app settings to display the scanned contact details", preferredStyle: UIAlertController.Style.alert)
         settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         }))

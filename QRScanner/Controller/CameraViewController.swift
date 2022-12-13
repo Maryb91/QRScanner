@@ -180,7 +180,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     
     func PHdeniedPermission() -> Void{
-        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the photo library permission from the app settings to scan QR code images", preferredStyle: UIAlertController.Style.alert)
+        let settingsAlert = UIAlertController(title: "Allow permission", message: "Please allow the Photo Library access from the Settings to scan QR code images", preferredStyle: UIAlertController.Style.alert)
         settingsAlert.addAction(UIAlertAction(title: "Go to settings", style: .default, handler: { (action: UIAlertAction!) in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         }))

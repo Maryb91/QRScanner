@@ -16,20 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="V0f-DH-L6A">
-                                <rect key="frame" x="107" y="349" width="200" height="197.5"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qricon" translatesAutoresizingMaskIntoConstraints="NO" id="ZpZ-1t-qPk">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3xj-8P-1RV"/>
-                                    <constraint firstAttribute="width" constant="200" id="Bw9-Jg-21M"/>
+                                    <constraint firstAttribute="height" constant="250" id="d6e-wc-HwF"/>
+                                    <constraint firstAttribute="width" constant="250" id="z4J-Nq-Iso"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstItem="V0f-DH-L6A" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LdZ-l5-o5M"/>
-                            <constraint firstItem="V0f-DH-L6A" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lb4-Lm-Lyr"/>
+                            <constraint firstItem="ZpZ-1t-qPk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0Pi-GC-ywF"/>
+                            <constraint firstItem="ZpZ-1t-qPk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eHn-zb-dsd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="qricon" width="1024" height="1024"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

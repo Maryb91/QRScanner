@@ -24,11 +24,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>The app requires the access to Camera to scan QR codes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The app requires the access to the Photo Library to scan QR code images.</string>
+	<string>The app requires the access to Photo Library to scan QR code images.</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 	<key>NSContactsUsageDescription</key>
-	<string>The app requires the access to Contacts to add a new contact.</string>
+	<string>The app requires the access to Contacts to show or add a new contact.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlegmail</string>
@@ -40,5 +40,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

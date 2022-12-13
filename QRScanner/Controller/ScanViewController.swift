@@ -50,7 +50,7 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     func showScreen() {
             actionButton.setTitle("Open Settings", for: .normal)
             imageIcon.image = UIImage(named: "cameraIcon.png")
-            cemraPermissionLabel.text = "Please grant the Camera permission from the Settings, Otherwise the app won't be able to scan QR codes."
+            cemraPermissionLabel.text = "Please allow the Camera access from the Settings, otherwise the app won't be able to scan QR codes."
             cameraDeniedLabel.isHidden = false
           NSLayoutConstraint(item: cemraPermissionLabel, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cameraDeniedLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 8).isActive = true
         }

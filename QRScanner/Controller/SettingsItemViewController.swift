@@ -15,14 +15,19 @@ class SettingsItemViewController: UIViewController {
     
     //MARK: - IBOutlets
     
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var appName: UILabel!
+    @IBOutlet weak var appVersion: UILabel!
     
     //MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = labelTitle
+        self.title = labelTitle
+        iconImage
+            .layer.cornerRadius = 15
 
+        
     }
     
 
