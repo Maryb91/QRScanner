@@ -12,7 +12,7 @@
         <!--Launch View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="launchID" id="BYZ-38-t0r" customClass="LaunchViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="launchID" id="BYZ-38-t0r" customClass="LaunchViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
         <!--Scan View Controller-->
         <scene sceneID="ukF-68-bmV">
             <objects>
-                <viewController storyboardIdentifier="scanScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JeX-tr-Da7" customClass="ScanViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JeX-tr-Da7" customClass="ScanViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3wr-VA-Ekw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +130,7 @@
         <!--Scan-->
         <scene sceneID="tDf-zB-brT">
             <objects>
-                <viewController storyboardIdentifier="cameraScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fXd-IK-nzn" customClass="CameraViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fXd-IK-nzn" customClass="CameraViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3m-np-pfN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
         <!--Title-->
         <scene sceneID="i6G-48-aEd">
             <objects>
-                <viewController id="Qpk-1Y-sQD" customClass="DetailsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qpk-1Y-sQD" customClass="DetailsViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ht4-ph-1oB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -407,7 +407,7 @@
         <!--Main Tab Bar View Controller-->
         <scene sceneID="j4v-rC-I0S">
             <objects>
-                <tabBarController storyboardIdentifier="mainTabID" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="MainTabBarViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabID" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h0H-It-jFH" customClass="MainTabBarViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vd4-oM-4SG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zuA-DI-XXT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -434,7 +434,7 @@
         <!--Settings-->
         <scene sceneID="c6G-z1-rJQ">
             <objects>
-                <tableViewController id="DeY-Ss-e2v" customClass="SettingsViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DeY-Ss-e2v" customClass="SettingsViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ELT-OP-Zjp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -485,7 +485,7 @@
         <!--Settings Item View Controller-->
         <scene sceneID="QPj-V8-qSx">
             <objects>
-                <viewController id="cg1-pU-6UU" customClass="SettingsItemViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cg1-pU-6UU" customClass="SettingsItemViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lP-fO-lT6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -497,8 +497,8 @@
                                     <constraint firstAttribute="height" constant="100" id="mOd-OS-FqM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDs-2e-qUg">
-                                <rect key="frame" x="180.33333333333334" y="508" width="53.333333333333343" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharp QR Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDs-2e-qUg">
+                                <rect key="frame" x="117.33333333333333" y="508" width="179.66666666666669" height="40"/>
                                 <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -581,7 +581,7 @@
         <!--History-->
         <scene sceneID="IlY-jB-kYQ">
             <objects>
-                <viewController storyboardIdentifier="historyID" id="XaN-rk-GG6" customClass="HistoryViewController" customModule="QRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="historyID" id="XaN-rk-GG6" customClass="HistoryViewController" customModule="Sharp_QR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BCT-Md-y7L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

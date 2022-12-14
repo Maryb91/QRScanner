@@ -39,7 +39,7 @@ class LaunchAnimation
         {
             lineLogoLaunch.isHidden = false
             appName.isHidden = false
-            appName.animate(newText: "QR Code Scanner")
+            appName.animate(newText: "Sharp QR Scanner")
             lineLogoLaunch.layer.add(self.hoverLine(), forKey: "")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
