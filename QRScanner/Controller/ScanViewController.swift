@@ -1,8 +1,7 @@
 //
 //  ScanViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 5/8/2022.
 //
 import UIKit
 import PermissionsKit
@@ -33,7 +32,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
         cameraVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.cameraVCId)
         actionButtonLayout()
         showScreen()
-      
     }
   
     //MARK: - Button's Action depending on the Camera Permission
@@ -41,7 +39,6 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
     @IBAction func actionButtonPressed(_ sender: UIButton)
     {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-
     }
     
     
@@ -62,8 +59,4 @@ class ScanViewController: UIViewController, UIImagePickerControllerDelegate, UIT
         actionButton.layer.borderColor = UIColor.systemIndigo.cgColor
         actionButton.layer.cornerRadius = 8
     }
-
-    
-
-
 }

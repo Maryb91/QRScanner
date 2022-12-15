@@ -1,8 +1,7 @@
 //
 //  qrCodeResult.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 25/8/2022.
 //
 
 import Foundation

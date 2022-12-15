@@ -1,8 +1,7 @@
 //
 //  HistoryViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 5/8/2022.
 //
 import UIKit
 import RealmSwift
@@ -41,9 +40,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
-    
     
     //MARK: - TableView Datasource Methods
     
@@ -104,8 +101,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedQRCode = qrcodes?[indexPath.section]
         self.performSegue(withIdentifier: "showDetails", sender: self)
-
-        
     }
     
     //MARK: - Delete a Row
@@ -138,8 +133,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
           return options
     }
     
-
-    
     //MARK: - Function that gets all the scanned QR codes from the database and loads them into the tableview
     
     func loadQrCodes() {
@@ -156,11 +149,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             scanButton.layer.borderColor = UIColor.white.cgColor
             scanButton.layer.borderWidth = 6
             scanButton.layer.cornerRadius = 85
-
-
-
-
-
         }
         else {
             tableView.reloadData()
@@ -203,8 +191,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let newViewController = storyBoard.instantiateViewController(withIdentifier: StoryBoardIds.mainTabID) as! MainTabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
-    
-    
 }
 
 //MARK: - Resizing a UIImage

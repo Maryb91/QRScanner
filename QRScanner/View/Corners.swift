@@ -1,8 +1,7 @@
 //
 //  Corners.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 9/8/2022.
 //
 
 import UIKit
@@ -10,7 +9,6 @@ import CoreGraphics
 
 
 //Corners class to draw only corners in the Camera layout
-
 @IBDesignable
 class Corners: UIView {
     

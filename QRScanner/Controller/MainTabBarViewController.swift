@@ -1,8 +1,7 @@
 //
 //  mainTabBarController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 11/8/2022.
 //
 
 import UIKit

@@ -1,16 +1,12 @@
 //
 //  animations.swift
-//  QRScanner
-//
-//  Created by Mariam B on 5/8/2022.
+//  SharpQRScanner
 //
 
 import Foundation
 import UIKit
 
-
-
-    //MARK: - Line animation in Launch Screen
+//MARK: - Line animation in Launch Screen
 
 class LaunchAnimation
 {
@@ -52,11 +48,6 @@ class LaunchAnimation
 //MARK: - Label animation
 
 extension UILabel {
-    /**
-    * @desc anime text like if someone write it
-    * @param {String} text,
-    * @param {TimeInterval} characterDelay,
-    */
     func animate(newText: String, interval: TimeInterval = 0.07, lineSpacing: CGFloat = 1.2, letterSpacing: CGFloat = 1.1) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 1.2
@@ -77,5 +68,6 @@ extension UILabel {
             if(letter == "," || letter == ".") {
                 pause += 0.5
             }
-        }    }
+        }
+    }
 }

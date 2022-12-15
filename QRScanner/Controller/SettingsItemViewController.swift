@@ -1,8 +1,7 @@
 //
 //  AboutUsViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 28/9/2022.
 //
 
 import UIKit
@@ -26,9 +25,5 @@ class SettingsItemViewController: UIViewController {
         self.title = labelTitle
         iconImage
             .layer.cornerRadius = 15
-
-        
     }
-    
-
 }

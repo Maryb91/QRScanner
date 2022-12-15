@@ -1,8 +1,7 @@
 //
 //  qrTypes.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 25/8/2022.
 //
 
 import Foundation
@@ -172,7 +171,6 @@ class QrResultTypes {
         style.backgroundColor = UIColor.systemIndigo
         style.messageFont = .systemFont(ofSize: 12)
         vc.view.makeToast("Copied to clipboard", duration: 2.0, position: .bottom, style: style)
-
     }
     
     //MARK: - Displaying the contact screen according to the QRcode scan result
@@ -314,7 +312,6 @@ class QrResultTypes {
             }
         }
         return contactNames
-
     }
     
     //MARK: - Open Website links
@@ -324,7 +321,5 @@ class QrResultTypes {
             UIApplication.shared.open(url)
         }
     }
-    
-
 }
 

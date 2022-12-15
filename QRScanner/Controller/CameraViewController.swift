@@ -1,8 +1,7 @@
 //
 //  CameraViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 9/8/2022.
 //
 import UIKit
 import AVFoundation
@@ -34,8 +33,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let qrCode = QRCode()
     let qrCodeDB = QRCodeDBManager()
    
-
-
     //MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -43,7 +40,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
          storyBoard = UIStoryboard(name: StoryBoardIds.storyBoardName, bundle: nil)
          scanVC = storyboard!.instantiateViewController(withIdentifier: StoryBoardIds.scanVCId) as! ScanViewController
          displayScanner()
-       
     }
 
     //MARK: - viewWillAppear
@@ -66,20 +62,20 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     func displayScanner () {
     
-//        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-//        do {
-//            let input = try AVCaptureDeviceInput(device: captureDevice!)
-//            session.addInput(input)
-//        } catch {
-//            print("Error capturing QRCode")
-//        }
-//        let output = AVCaptureMetadataOutput()
-//        session.addOutput(output)
-//        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-//        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-//        previewLayer = AVCaptureVideoPreviewLayer(session: session)
-//        previewLayer.frame = view.layer.bounds
-//        view.layer.addSublayer(previewLayer)
+        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            session.addInput(input)
+        } catch {
+            print("Error capturing QRCode")
+        }
+        let output = AVCaptureMetadataOutput()
+        session.addOutput(output)
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.frame = view.layer.bounds
+        view.layer.addSublayer(previewLayer)
         self.cornerView = Corners(frame: scanImageView.frame)
         view.addSubview(self.cornerView!)
         self.cornerView!.layoutCorners(view: self.view, imageView: scanImageView)
@@ -104,7 +100,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             }
             if let result = readableObject.stringValue{
             qrCodeResult.getQrCodeResult(qrCodeString: result,picker: nil,vc: self, qrCodeScanSource: "Camera", session: session)
-            
             }
         }
     }
@@ -165,8 +160,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
 
-    
-    
     //MARK: - Actions to perform depending on the Photo Library permission status
     
     func PHauthorizedPermission () -> Void{
@@ -206,7 +199,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     //MARK: - Actions to perform depending on the Camera permission status
     
     func CamAuthorizedPermission () -> Void{
-        //session.startRunning()
+        session.startRunning()
         let ScanBarItem = UITabBarItem(title: ScanBarItem.title, image: UIImage(systemName: ScanBarItem.imageName) , tag: 0)
         self.tabBarItem = ScanBarItem
         self.tabBarController?.viewControllers![0] = self
@@ -224,7 +217,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-       // session.stopRunning()
+        session.stopRunning()
     }
     
 }

@@ -1,8 +1,7 @@
 //
 //  Constants.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 12/8/2022.
 //
 
 import Foundation

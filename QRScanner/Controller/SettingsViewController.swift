@@ -1,8 +1,7 @@
 //
 //  SettingsViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 5/8/2022.
 //
 
 import UIKit
@@ -117,6 +116,4 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-
-    
 }

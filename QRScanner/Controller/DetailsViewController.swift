@@ -1,8 +1,7 @@
 //
 //  DetailsViewController.swift
-//  QRScanner
+//  SharpQRScanner
 //
-//  Created by Mariam B on 23/8/2022.
 //
 
 import UIKit
@@ -49,7 +48,6 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
         resultTextView.layer.borderColor = UIColor.systemGray6.cgColor
         resultTextView.textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 5, right: 10)
 
-        
         //SearchButton Layout
         searchButton.layer.borderWidth = 1
         searchButton.layer.borderColor = UIColor.systemIndigo.cgColor
@@ -93,7 +91,6 @@ class DetailsViewController: UIViewController,CNContactViewControllerDelegate, U
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         qrResultType.actionToType(qrcode: qrCode!, vc:self)
-        
     }
     
     //MARK: - Search the QR code scan result in Google
@@ -189,6 +186,7 @@ var actionClosure: (()->Void)? {
     actionClosure?()
 }
 }
+
 
 extension UIViewController{
 func addDissmissButton(){
