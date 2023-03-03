@@ -13,12 +13,31 @@ The main features of SharpQRScanner are:
 ✅ Perfom actions on scanned QR codes depending on its type : 
 
     - Copy a text
+    - Search a text on google
     - Add a contact to the contacts list
     - Load a website in the browser
     - Open an email in the default email app
     - Call a phone number
+    - Share
     
 ✅ A settings page
     
-   
+    
+💡 Things i learnt during this project :
+
+    - Realm database (CRUD)
+    - AVFoundation
+    - Animations
+    - MVC design pattern
+    - Permissions
+    - Swift Package Manager
+    
+    
+    Here are the screenshots of SharpQRScanner :
+    
+    1- Launch Screen
+    
+    ![IMG_5037](https://user-images.githubusercontent.com/38911299/222604198-33ece275-9e7f-421b-a403-426c393e2604.PNG)
+
+
     
