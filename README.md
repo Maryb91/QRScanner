@@ -42,7 +42,7 @@ The main features of SharpQRScanner are:
 
 <img src="https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG" width="220">
 
-2- Home screen (when camera permission is denied or not defined)
+2- Home screen (when camera permission is denied)
 
 <img src="https://user-images.githubusercontent.com/38911299/222611679-10c9a553-92b0-4163-8734-bbbf572e8651.PNG" width="220">
 
