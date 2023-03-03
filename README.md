@@ -38,5 +38,11 @@ Here are some screenshots of the main screens of the app:
 
 ![IMG_5037](https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG)
 
+2- Home screen (when camera permission is denied or not defined)
 
+![IMG_5036](https://user-images.githubusercontent.com/38911299/222611679-10c9a553-92b0-4163-8734-bbbf572e8651.PNG)
+
+3- QR code Scan screen (using the camera)
+
+![IMG_5045](https://user-images.githubusercontent.com/38911299/222611749-7ee2eaaf-ebba-4705-9fd9-9cca32791f2d.PNG)
 
