@@ -50,13 +50,18 @@ Here are some screenshots of the main screens of the app:
 
 ![IMG_5035](https://user-images.githubusercontent.com/38911299/222611817-29de645a-543b-4254-90c3-7d09b1b41ece.PNG)
 
-5- Details screen 
+5- History screen
+
+![IMG_3FF1463E8F28-1](https://user-images.githubusercontent.com/38911299/222612141-9cc85281-5b98-4b61-9829-18ee1f3134f4.jpeg)
+
+6- Details screen 
 
 ![IMG_5047](https://user-images.githubusercontent.com/38911299/222611862-5ddc390f-3bef-4fb8-b5ec-b8b459eabfb5.PNG)
 
-6- Settings screen
+7- Settings screen
 
 ![IMG_5034](https://user-images.githubusercontent.com/38911299/222611892-88a05b2b-6f12-4552-803b-30aab350a1bd.PNG)
+
 
 
 
