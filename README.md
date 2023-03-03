@@ -12,7 +12,7 @@ The main features of SharpQRScanner are:
 
 ✅ Detect the QR code type (text, email, contact, phone number, website)
 
-✅ Perfom actions on scanned QR codes depending on its type : 
+✅ Perfom actions on scanned QR codes depending on their types : 
 
     - Copy a text
     - Search a text on google
@@ -22,19 +22,21 @@ The main features of SharpQRScanner are:
     - Call a phone number
     - Share
     
-✅ A settings page
+✅ A settings screen
     
     
-💡 Things i learnt during this project :
+💡 Things i learnt/used during this project :
 
     - Realm database (CRUD)
-    - AVFoundation
+    - AVFoundation framework
     - Animations
     - MVC design pattern
     - Permissions
     - Swift Package Manager
+    
+    
 
-Here are some screenshots of the main screens of the app: 
+📱Here are some screenshots of the main screens of the app: 
 
 1-Launch screen
 
