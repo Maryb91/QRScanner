@@ -40,27 +40,27 @@ Here are some screenshots of the main screens of the app:
 
 2- Home screen (when camera permission is denied or not defined)
 
-![IMG_5036](https://user-images.githubusercontent.com/38911299/222611679-10c9a553-92b0-4163-8734-bbbf572e8651.PNG)
+<img src="https://user-images.githubusercontent.com/38911299/222611679-10c9a553-92b0-4163-8734-bbbf572e8651.PNG" width="220">
 
 3- QR code Scan screen (using the camera)
 
-![IMG_5045](https://user-images.githubusercontent.com/38911299/222611749-7ee2eaaf-ebba-4705-9fd9-9cca32791f2d.PNG)
+<img src="https://user-images.githubusercontent.com/38911299/222611749-7ee2eaaf-ebba-4705-9fd9-9cca32791f2d.PNG" width="220">
 
 4- History screen (empty)
 
-![IMG_5035](https://user-images.githubusercontent.com/38911299/222611817-29de645a-543b-4254-90c3-7d09b1b41ece.PNG)
+<img src="https://user-images.githubusercontent.com/38911299/222611817-29de645a-543b-4254-90c3-7d09b1b41ece.PNG" width="220">
 
 5- History screen
 
-![IMG_3FF1463E8F28-1](https://user-images.githubusercontent.com/38911299/222612141-9cc85281-5b98-4b61-9829-18ee1f3134f4.jpeg)
+<img src="https://user-images.githubusercontent.com/38911299/222612141-9cc85281-5b98-4b61-9829-18ee1f3134f4.jpeg" width="220">
 
-6- Details screen 
+6- Details screen
 
-![IMG_5047](https://user-images.githubusercontent.com/38911299/222611862-5ddc390f-3bef-4fb8-b5ec-b8b459eabfb5.PNG)
+<img src="https://user-images.githubusercontent.com/38911299/222611862-5ddc390f-3bef-4fb8-b5ec-b8b459eabfb5.PNG" width="220">
 
 7- Settings screen
 
-![IMG_5034](https://user-images.githubusercontent.com/38911299/222611892-88a05b2b-6f12-4552-803b-30aab350a1bd.PNG)
+<img src="https://user-images.githubusercontent.com/38911299/222611892-88a05b2b-6f12-4552-803b-30aab350a1bd.PNG" width="220">
 
 
 
