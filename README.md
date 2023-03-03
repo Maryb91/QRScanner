@@ -31,6 +31,12 @@ The main features of SharpQRScanner are:
     - MVC design pattern
     - Permissions
     - Swift Package Manager
-![IMG_5036](https://user-images.githubusercontent.com/38911299/222606428-e78ad5a2-0d2f-4712-9d97-f6baba4a35fb.PNG)
+
+Here are some screenshots of the main screens of the app: 
+
+1-Launch screen
+
+![IMG_5037](https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG)
+
 
 
