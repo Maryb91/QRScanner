@@ -1,5 +1,4 @@
-SharpQRScanner <img src="https://user-images.githubusercontent.com/38911299/222613741-342b6958-1398-4437-92c5-6eb372b99e33.png" width="60">
- is my first iOS app that i have developed after completing a Swift course on Udemy.
+<img src="https://user-images.githubusercontent.com/38911299/222613741-342b6958-1398-4437-92c5-6eb372b99e33.png" width="40"> SharpQRScanner is my first iOS app that i have developed after completing a Swift course on Udemy.
 
 The main features of SharpQRScanner are:
 
