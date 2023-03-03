@@ -36,7 +36,7 @@ Here are some screenshots of the main screens of the app:
 
 1-Launch screen
 
-<img src="[https://github.com/favicon.ico](https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG)" width="48">
+<img src="https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG" width="48">
 
 ![IMG_5037](https://user-images.githubusercontent.com/38911299/222610573-a0af4d6a-7aed-46e3-9230-dd4f425c40be.PNG)
 
