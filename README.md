@@ -32,6 +32,7 @@ The main features of SharpQRScanner are:
     - Animations
     - MVC design pattern
     - Permissions
+    - Contacts
     - Swift Package Manager
     
     
