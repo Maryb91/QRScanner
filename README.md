@@ -30,7 +30,7 @@ The main features of SharpQRScanner are:
     - Realm database (CRUD)
     - AVFoundation framework
     - Animations
-    - MVC design pattern
+    - MVVM design pattern
     - Permissions
     - Contacts
     - Swift Package Manager
